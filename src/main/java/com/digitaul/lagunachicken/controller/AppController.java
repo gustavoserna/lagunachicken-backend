@@ -1,9 +1,11 @@
 package com.digitaul.lagunachicken.controller;
 
 import com.digitaul.lagunachicken.domain.dto.ChoferDTO;
+import com.digitaul.lagunachicken.domain.dto.ServicioDTO;
 import com.digitaul.lagunachicken.domain.dto.SucursalDTO;
 import com.digitaul.lagunachicken.domain.dto.VehiculoDTO;
 import com.digitaul.lagunachicken.domain.service.ChoferService;
+import com.digitaul.lagunachicken.domain.service.ServicioService;
 import com.digitaul.lagunachicken.domain.service.SucursalService;
 import com.digitaul.lagunachicken.domain.service.VehiculoService;
 import org.slf4j.Logger;
@@ -28,6 +30,9 @@ public class AppController {
     @Autowired
     private SucursalService sucursalService;
 
+    @Autowired
+    private ServicioService servicioService;
+
     // CHOFER
     @PostMapping("chofer")
     public ChoferDTO saveChofer(@RequestBody ChoferDTO choferDTO){
@@ -43,6 +48,17 @@ public class AppController {
     @GetMapping("sucursal/findAll")
     public List<SucursalDTO> getSucursales() {
         return sucursalService.getSucursales();
+    }
+
+    // SERVICIO
+    @PostMapping("servicio")
+    public ServicioDTO saveServicio(@RequestBody ServicioDTO servicioDTO) {
+        return servicioService.saveServicio(servicioDTO);
+    }
+
+    @GetMapping("servicio/findAll")
+    public List<ServicioDTO> getServicios() {
+        return  servicioService.getServicios();
     }
 
     // VEHICULO
