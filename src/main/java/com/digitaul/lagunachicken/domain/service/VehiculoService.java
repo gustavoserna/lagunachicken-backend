@@ -29,6 +29,12 @@ public class VehiculoService {
         return convertToDTO(vehiculoRepository.save(convertToEntity(vehiculoDTO)));
     }
 
+    public VehiculoDTO getById(int idVehiculo) {
+        Vehiculo vehiculo = vehiculoRepository.findByIdVehiculo(idVehiculo);
+
+        return convertToDTO(vehiculo);
+    }
+
     public List<VehiculoDTO> getVehiculos() {
         return vehiculoRepository.getVehiculos();
     }

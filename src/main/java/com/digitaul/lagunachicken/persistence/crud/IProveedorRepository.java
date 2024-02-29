@@ -1,13 +1,13 @@
 package com.digitaul.lagunachicken.persistence.crud;
 
-import com.digitaul.lagunachicken.persistence.entity.Servicio;
+import com.digitaul.lagunachicken.persistence.entity.Proveedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IServicioRepository extends JpaRepository<Servicio, Integer> {
+public interface IProveedorRepository extends JpaRepository<Proveedor, Integer> {
 
-    Servicio findByIdServicio(@Param("idServicio") int idServicio);
+    Proveedor findByIdProveedor(@Param("idProveedor") int idProveedor);
 
 }

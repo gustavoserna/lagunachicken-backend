@@ -23,6 +23,12 @@ public class ServicioService {
         return convertToDTO(servicioRepository.save(convertToEntity(servicioDTO)));
     }
 
+    public ServicioDTO getById(int idServicio) {
+        Servicio servicio = servicioRepository.getReferenceById(idServicio);
+
+        return convertToDTO(servicio);
+    }
+
     public List<ServicioDTO> getServicios() {
         List<ServicioDTO> servicioDTOS = new ArrayList<>();
         List<Servicio> servicios = servicioRepository.findAll();

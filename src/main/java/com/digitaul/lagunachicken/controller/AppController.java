@@ -1,13 +1,7 @@
 package com.digitaul.lagunachicken.controller;
 
-import com.digitaul.lagunachicken.domain.dto.ChoferDTO;
-import com.digitaul.lagunachicken.domain.dto.ServicioDTO;
-import com.digitaul.lagunachicken.domain.dto.SucursalDTO;
-import com.digitaul.lagunachicken.domain.dto.VehiculoDTO;
-import com.digitaul.lagunachicken.domain.service.ChoferService;
-import com.digitaul.lagunachicken.domain.service.ServicioService;
-import com.digitaul.lagunachicken.domain.service.SucursalService;
-import com.digitaul.lagunachicken.domain.service.VehiculoService;
+import com.digitaul.lagunachicken.domain.dto.*;
+import com.digitaul.lagunachicken.domain.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +26,12 @@ public class AppController {
 
     @Autowired
     private ServicioService servicioService;
+
+    @Autowired
+    private ProveedorService proveedorService;
+
+    @Autowired
+    private VehiculoServicioService vehiculoServicioService;
 
     // CHOFER
     @PostMapping("chofer")
@@ -61,6 +61,17 @@ public class AppController {
         return  servicioService.getServicios();
     }
 
+    // PROVEEDOR
+    @PostMapping("proveedor")
+    public ProveedorDTO saveProveedor(@RequestBody ProveedorDTO proveedorDTO) {
+        return proveedorService.saveProveedor(proveedorDTO);
+    }
+
+    @GetMapping("proveedor/findAll")
+    public List<ProveedorDTO> getProveedores() {
+        return  proveedorService.getProveedores();
+    }
+
     // VEHICULO
     @PostMapping("vehiculo")
     public VehiculoDTO saveVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
@@ -70,6 +81,16 @@ public class AppController {
     @GetMapping("vehiculo/findAll")
     public List<VehiculoDTO> getVehiculos() {
         return vehiculoService.getVehiculos();
+    }
+
+    @PostMapping("vehiculo/servicio")
+    public VehiculoServicioDTO saveVehiculoServicio(@RequestBody VehiculoServicioDTO vehiculoServicioDTO) {
+        return vehiculoServicioService.saveVehiculoServicio(vehiculoServicioDTO);
+    }
+
+    @GetMapping("vehiculo/servicio/findAll")
+    public List<VehiculoServicioDTO> getVehiculosServicios() {
+        return vehiculoServicioService.getVehiculosServicios();
     }
 
 }
