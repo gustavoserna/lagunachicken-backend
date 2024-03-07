@@ -33,6 +33,15 @@ public class AppController {
     @Autowired
     private VehiculoServicioService vehiculoServicioService;
 
+    @Autowired
+    private EstacionService estacionService;
+
+    @Autowired
+    private ProductoService productoService;
+
+    @Autowired
+    private VehiculoConsumoService vehiculoConsumoService;
+
     // CHOFER
     @PostMapping("chofer")
     public ChoferDTO saveChofer(@RequestBody ChoferDTO choferDTO){
@@ -42,6 +51,28 @@ public class AppController {
     @GetMapping("chofer/findAll")
     public List<ChoferDTO> getChoferes() {
         return choferService.getChoferes();
+    }
+
+    // ESTACION
+    @PostMapping("estacion")
+    public EstacionDTO saveEstacion(@RequestBody EstacionDTO estacionDTO){
+        return estacionService.saveEstacion(estacionDTO);
+    }
+
+    @GetMapping("estacion/findAll")
+    public List<EstacionDTO> getEstaciones() {
+        return estacionService.getEstaciones();
+    }
+
+    // PRODUCTO
+    @PostMapping("producto")
+    public ProductoDTO saveProducto(@RequestBody ProductoDTO productoDTO){
+        return productoService.saveProducto(productoDTO);
+    }
+
+    @GetMapping("producto/findAll")
+    public List<ProductoDTO> getProductos() {
+        return productoService.getProductos();
     }
 
     // SUCURSAL
@@ -88,9 +119,45 @@ public class AppController {
         return vehiculoServicioService.saveVehiculoServicio(vehiculoServicioDTO);
     }
 
-    @GetMapping("vehiculo/servicio/findAll")
-    public List<VehiculoServicioDTO> getVehiculosServicios() {
-        return vehiculoServicioService.getVehiculosServicios();
+    @PostMapping("vehiculo/servicio/findAll")
+    public List<VehiculoServicioDTO> getVehiculosServicios(@RequestBody FiltroDTO filtroDTO) {
+        return vehiculoServicioService.getVehiculosServicios(filtroDTO);
+    }
+
+    @PostMapping("vehiculo/servicio/incidencia/servicios")
+    public List<ServicioDTO> getIncidenciasServicios(@RequestBody FiltroDTO filtroDTO) {
+        return vehiculoServicioService.getIncidenciasServicios(filtroDTO);
+    }
+
+    @PostMapping("vehiculo/servicio/costos")
+    public List<CostoServiciosDTO> getCostoServicios(@RequestBody FiltroDTO filtroDTO) {
+        return vehiculoServicioService.getCostoServicios(filtroDTO);
+    }
+
+    // VEHICULO CONSUMO
+    @PostMapping("vehiculo/consumo")
+    public VehiculoConsumoDTO saveVehiculoConsumo(@RequestBody VehiculoConsumoDTO vehiculoConsumoDTO) {
+        return vehiculoConsumoService.saveVehiculoConsumo(vehiculoConsumoDTO);
+    }
+
+    @PostMapping("vehiculo/consumo/findAll")
+    public List<VehiculoConsumoDTO> getVehiculosConsumos(@RequestBody FiltroDTO filtroDTO) {
+        return vehiculoConsumoService.getVehiculosConsumos(filtroDTO);
+    }
+
+    @PostMapping("vehiculo/consumo/incidencia/estaciones")
+    public List<EstacionDTO> getIncidenciasEstaciones(@RequestBody FiltroDTO filtroDTO) {
+        return vehiculoConsumoService.getIncidenciasEstaciones(filtroDTO);
+    }
+
+    @PostMapping("vehiculo/consumo/incidencia/productos")
+    public List<ProductoDTO> getIncidenciasProductos(@RequestBody FiltroDTO filtroDTO) {
+        return vehiculoConsumoService.getIncidenciasProductos(filtroDTO);
+    }
+
+    @PostMapping("vehiculo/consumo/costos")
+    public List<CostoConsumosDTO> getCostoConsumos(@RequestBody FiltroDTO filtroDTO) {
+        return vehiculoConsumoService.getCostoConsumos(filtroDTO);
     }
 
 }
