@@ -3,17 +3,29 @@ package com.digitaul.lagunachicken.domain.service;
 import com.digitaul.lagunachicken.domain.dto.*;
 import com.digitaul.lagunachicken.persistence.crud.IVehiculoServicioRepository;
 import com.digitaul.lagunachicken.persistence.entity.VehiculoServicio;
+import com.digitaul.lagunachicken.utility.Utility;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class VehiculoServicioService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(VehiculoServicioService.class);
+
+    @Value("${serlo.app.fileDirectory}")
+    private String fileDirectory;
 
     @Autowired
     private IVehiculoServicioRepository vehiculoServicioRepository;
@@ -33,7 +45,24 @@ public class VehiculoServicioService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public VehiculoServicioDTO saveVehiculoServicio(VehiculoServicioDTO vehiculoServicioDTO) {
+    public VehiculoServicioDTO saveVehiculoServicio(VehiculoServicioDTO vehiculoServicioDTO, MultipartFile file) {
+        try {
+            String fileName = Utility.generateRandomString(24) + "." + Utility.getFileExtension(file);
+            // Define the file path where you want to save the PDF
+            String filePath = fileDirectory + fileName;
+
+            // Create an output stream to write the file
+            FileOutputStream fos = new FileOutputStream(filePath);
+            fos.write(file.getBytes());
+            fos.close();
+
+            vehiculoServicioDTO.setFile(fileName);
+            LOGGER.info("File uploaded successfully");
+        } catch (IOException e) {
+            e.printStackTrace();
+            LOGGER.info("Error occurred while uploading file");
+        }
+
         return convertToDTO(vehiculoServicioRepository.save(convertToEntity(vehiculoServicioDTO)));
     }
 
@@ -89,6 +118,7 @@ public class VehiculoServicioService {
             queryString.append(whereANDString).append(" vs.fecha_servicio BETWEEN :fechaDesde AND :fechaHasta ").append(fechaNullString);
         }
         queryString.append(groupBy);
+        System.out.println(queryString);
 
         Query query = entityManager.createNativeQuery(queryString.toString(), Object.class);
         if (filtroDTO.getIdServicio() > 0) {
@@ -172,6 +202,7 @@ public class VehiculoServicioService {
             vehiculoServicioDTO.setCosto((String) result[6]);
             vehiculoServicioDTO.setFechaServicio((String) result[7]);
             vehiculoServicioDTO.setDescripcion((String) result[8]);
+            vehiculoServicioDTO.setFile((String) result[9]);
 
             vehiculoServicioDTO.setVehiculoDTO(vehiculoDTO);
             vehiculoServicioDTO.setServicioDTO(servicioDTO);

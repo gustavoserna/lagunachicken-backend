@@ -14,3 +14,4 @@ serlo:
     jwtCookieName: bezkoder
     jwtSecret: bezKoderSecretKey
     jwtExpirationMs: 86400000
+    fileDirectory: /Users/gustavoserna/work/lagunachicken-full/files

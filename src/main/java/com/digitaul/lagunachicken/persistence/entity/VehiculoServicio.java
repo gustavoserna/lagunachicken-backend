@@ -38,4 +38,7 @@ public class VehiculoServicio {
 
     @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "file")
+    private String file;
 }

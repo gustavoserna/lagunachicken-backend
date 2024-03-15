@@ -2,7 +2,7 @@ package com.digitaul.lagunachicken.domain.dto;
 
 public class VehiculoServicioDTO {
     int idVehiculoServicio;
-    int vehiculoIdvehiculo;
+    int vehiculoIdVehiculo;
     int servicioIdServicio;
     int proveedorIdProveedor;
     VehiculoDTO vehiculoDTO;
@@ -12,7 +12,9 @@ public class VehiculoServicioDTO {
     String folioFactura;
     String costo;
     String fechaServicio;
+    String formattedDate;
     String descripcion;
+    String file;
 
     public int getIdVehiculoServicio() {
         return idVehiculoServicio;
@@ -22,12 +24,12 @@ public class VehiculoServicioDTO {
         this.idVehiculoServicio = idVehiculoServicio;
     }
 
-    public int getVehiculoIdvehiculo() {
-        return vehiculoIdvehiculo;
+    public int getVehiculoIdVehiculo() {
+        return vehiculoIdVehiculo;
     }
 
-    public void setVehiculoIdvehiculo(int vehiculoIdvehiculo) {
-        this.vehiculoIdvehiculo = vehiculoIdvehiculo;
+    public void setVehiculoIdVehiculo(int vehiculoIdVehiculo) {
+        this.vehiculoIdVehiculo = vehiculoIdVehiculo;
     }
 
     public int getServicioIdServicio() {
@@ -102,11 +104,27 @@ public class VehiculoServicioDTO {
         this.fechaServicio = fechaServicio;
     }
 
+    public String getFormattedDate() {
+        return formattedDate;
+    }
+
+    public void setFormattedDate(String formattedDate) {
+        this.formattedDate = formattedDate;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
     }
 }
