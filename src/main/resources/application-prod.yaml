@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/lagunachicken?serverTimezone=UTC&autoReconnect=true&useSSL=false
     username: root
-    password: lagunachicken1
+    password: laguchicken1
 serlo:
   app:
     jwtCookieName: bezkoder
