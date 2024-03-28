@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @CrossOrigin(
-        origins = {"*", /*"http://demo.vidsaconstructora.com.mx"*/},
+        origins = {"*" /*"http://demo.vidsaconstructora.com.mx"*/},
         maxAge = 3600,
         allowCredentials = "true",
         allowedHeaders = "*",
