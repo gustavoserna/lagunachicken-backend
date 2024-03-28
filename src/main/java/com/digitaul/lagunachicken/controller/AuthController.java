@@ -27,13 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(
-        origins = {"*" /*"http://demo.vidsaconstructora.com.mx"*/},
-        maxAge = 3600,
-        allowCredentials = "true",
-        allowedHeaders = "*",
-        methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT}
-)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

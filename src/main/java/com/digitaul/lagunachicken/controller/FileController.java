@@ -13,13 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.nio.file.Files;
 
-@CrossOrigin(
-        origins = {"*" /*"http://demo.vidsaconstructora.com.mx"*/},
-        maxAge = 3600,
-        allowCredentials = "true",
-        allowedHeaders = "*",
-        methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT}
-)
 @RestController
 @RequestMapping("/api/resources")
 public class FileController {
