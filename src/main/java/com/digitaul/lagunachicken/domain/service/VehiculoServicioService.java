@@ -149,21 +149,23 @@ public class VehiculoServicioService {
             vehiculoDTO.setSucursalIdSucursal((Integer) result[1]);
             vehiculoDTO.setNumEconomico((String) result[2]);
             vehiculoDTO.setKilometraje((String) result[3]);
-            vehiculoDTO.setPlacas((String) result[4]);
-            vehiculoDTO.setEstadoPlacas((String) result[5]);
-            vehiculoDTO.setModelo((String) result[6]);
-            vehiculoDTO.setCapacidad((String) result[7]);
-            vehiculoDTO.setMarca((String) result[8]);
-            vehiculoDTO.setTipo((String) result[9]);
-            vehiculoDTO.setDescripcion((String) result[10]);
-            vehiculoDTO.setNumeroSerie((String) result[11]);
-            vehiculoDTO.setNumeroMotor((String) result[12]);
-            vehiculoDTO.setNumeroPoliza((String) result[13]);
-            vehiculoDTO.setAseguradora((String) result[14]);
-            vehiculoDTO.setVencimientoPoliza((String) result[15]);
-            vehiculoDTO.setChoferIdChofer((Integer) result[16]);
+            vehiculoDTO.setKilometrajeAviso((String) result[4]);
+            vehiculoDTO.setKilometrajePeriodo((String) result[5]);
+            vehiculoDTO.setPlacas((String) result[6]);
+            vehiculoDTO.setEstadoPlacas((String) result[7]);
+            vehiculoDTO.setModelo((String) result[8]);
+            vehiculoDTO.setCapacidad((String) result[9]);
+            vehiculoDTO.setMarca((String) result[10]);
+            vehiculoDTO.setTipo((String) result[11]);
+            vehiculoDTO.setDescripcion((String) result[12]);
+            vehiculoDTO.setNumeroSerie((String) result[13]);
+            vehiculoDTO.setNumeroMotor((String) result[14]);
+            vehiculoDTO.setNumeroPoliza((String) result[15]);
+            vehiculoDTO.setAseguradora((String) result[16]);
+            vehiculoDTO.setVencimientoPoliza((String) result[17]);
+            vehiculoDTO.setChoferIdChofer((Integer) result[18]);
 
-            costoServiciosDTO.setTotalCostoServicios((Double) result[17]);
+            costoServiciosDTO.setTotalCostoServicios((Double) result[19]);
             costoServiciosDTO.setVehiculoDTO(vehiculoDTO);
 
             costoServiciosDTOS.add(costoServiciosDTO);

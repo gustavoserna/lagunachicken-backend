@@ -15,3 +15,6 @@ serlo:
     jwtSecret: bezKoderSecretKey
     jwtExpirationMs: 86400000
     fileDirectory: /Users/gustavoserna/work/lagunachicken-full/files/
+    emailRemitente: sernagustavo3@gmail.com
+    passwordRemitente: Paachanga4$
+    emailDestinatario: sernagustavo3@gmail.com

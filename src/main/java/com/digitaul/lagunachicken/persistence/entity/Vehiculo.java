@@ -27,6 +27,12 @@ public class Vehiculo {
     @Column(name = "kilometraje")
     private String kilometraje;
 
+    @Column(name = "kilometraje_aviso")
+    private String kilometrajeAviso;
+
+    @Column(name = "kilometraje_periodo")
+    private String kilometrajePeriodo;
+
     @Column(name = "placas")
     private String placas;
 

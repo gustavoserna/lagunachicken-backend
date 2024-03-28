@@ -12,8 +12,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -161,11 +159,6 @@ public class AppController {
     @PostMapping("vehiculo/consumo/findAll")
     public List<VehiculoConsumoDTO> getVehiculosConsumos(@RequestBody FiltroDTO filtroDTO) {
         return vehiculoConsumoService.getVehiculosConsumos(filtroDTO);
-    }
-
-    @PostMapping("vehiculo/consumo/incidencia/estaciones")
-    public List<EstacionDTO> getIncidenciasEstaciones(@RequestBody FiltroDTO filtroDTO) {
-        return vehiculoConsumoService.getIncidenciasEstaciones(filtroDTO);
     }
 
     @PostMapping("vehiculo/consumo/incidencia/productos")

@@ -11,6 +11,8 @@ public class VehiculoDTO {
     SucursalDTO sucursalDTO;
     String numEconomico;
     String kilometraje;
+    String kilometrajeAviso;
+    String kilometrajePeriodo;
     String placas;
     String estadoPlacas;
     String modelo;
@@ -78,6 +80,22 @@ public class VehiculoDTO {
 
     public void setKilometraje(String kilometraje) {
         this.kilometraje = kilometraje;
+    }
+
+    public String getKilometrajeAviso() {
+        return kilometrajeAviso;
+    }
+
+    public void setKilometrajeAviso(String kilometrajeAviso) {
+        this.kilometrajeAviso = kilometrajeAviso;
+    }
+
+    public String getKilometrajePeriodo() {
+        return kilometrajePeriodo;
+    }
+
+    public void setKilometrajePeriodo(String kilometrajePeriodo) {
+        this.kilometrajePeriodo = kilometrajePeriodo;
     }
 
     public String getPlacas() {
