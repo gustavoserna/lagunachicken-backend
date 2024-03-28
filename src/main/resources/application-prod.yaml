@@ -9,6 +9,8 @@ spring:
     url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/lagunachicken?serverTimezone=UTC&autoReconnect=true&useSSL=false
     username: root
     password: laguchicken1
+server:
+  port: 9704
 serlo:
   app:
     jwtCookieName: bezkoder
