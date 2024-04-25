@@ -1,21 +1,35 @@
 package com.digitaul.lagunachicken.domain.dto;
 
+import jakarta.validation.constraints.NotNull;
+
 public class VehiculoConsumoDTO {
 
     int idVehiculoConsumo;
+    String despacho;
+    @NotNull
     int vehiculoIdVehiculo;
+    @NotNull
     int estacionIdEstacion;
+    @NotNull
     int productoIdProducto;
     VehiculoDTO vehiculoDTO;
     EstacionDTO estacionDTO;
     ProductoDTO productoDTO;
+    @NotNull
     String odometro;
+    @NotNull
     String recorrido;
+    @NotNull
     String rendimiento;
+    @NotNull
     String cantidad;
+    @NotNull
     String precio;
+    @NotNull
     String monto;
+    @NotNull
     String horaConsumo;
+    @NotNull
     String fechaConsumo;
 
     public int getIdVehiculoConsumo() {
@@ -24,6 +38,14 @@ public class VehiculoConsumoDTO {
 
     public void setIdVehiculoConsumo(int idVehiculoConsumo) {
         this.idVehiculoConsumo = idVehiculoConsumo;
+    }
+
+    public String getDespacho() {
+        return despacho;
+    }
+
+    public void setDespacho(String despacho) {
+        this.despacho = despacho;
     }
 
     public int getVehiculoIdVehiculo() {

@@ -1,8 +1,10 @@
 package com.digitaul.lagunachicken.domain.service;
 
 import com.digitaul.lagunachicken.domain.dto.*;
+import com.digitaul.lagunachicken.exception.types.DuplicatedEntryException;
 import com.digitaul.lagunachicken.persistence.crud.IVehiculoConsumoRepository;
 import com.digitaul.lagunachicken.persistence.entity.VehiculoConsumo;
+import com.digitaul.lagunachicken.utility.Utility;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.modelmapper.ModelMapper;
@@ -41,6 +43,15 @@ public class VehiculoConsumoService {
         // calcular monto
         vehiculoConsumoDTO.setMonto( String.valueOf( Double.parseDouble(vehiculoConsumoDTO.getPrecio()) * Double.parseDouble(vehiculoConsumoDTO.getCantidad()) ) );
 
+        // validar numero de despacho
+        if(vehiculoConsumoDTO.getDespacho().isEmpty()) {
+            vehiculoConsumoDTO.setDespacho(Utility.generateRandomString(15));
+        } else {
+            if(isDespachoPresent(vehiculoConsumoDTO.getDespacho()) > 0) {
+                throw new DuplicatedEntryException("Num. despacho " + vehiculoConsumoDTO.getDespacho());
+            }
+        }
+
         return convertToDTO(vehiculoConsumoRepository.save(convertToEntity(vehiculoConsumoDTO)));
     }
 
@@ -69,6 +80,10 @@ public class VehiculoConsumoService {
 
         List<Object[]> objects = getVehiculosConsumosFiltered(queryString, " GROUP by p.id_producto ", filtroDTO);
         return convertToProductosDTO(objects);
+    }
+
+    public int isDespachoPresent(String despacho) {
+        return vehiculoConsumoRepository.isDespachoPresent(despacho);
     }
 
     // Mappers
@@ -189,17 +204,18 @@ public class VehiculoConsumoService {
             VehiculoConsumoDTO vehiculoConsumoDTO = new VehiculoConsumoDTO();
 
             vehiculoConsumoDTO.setIdVehiculoConsumo((Integer) result[0]);
-            VehiculoDTO vehiculoDTO = vehiculoService.getById((Integer) result[1]);
-            EstacionDTO estacionDTO = estacionService.getById((Integer) result[2]);
-            ProductoDTO productoDTO = productoService.getById((Integer) result[3]);
-            vehiculoConsumoDTO.setOdometro((String) result[4]);
-            vehiculoConsumoDTO.setRecorrido((String) result[5]);
-            vehiculoConsumoDTO.setRendimiento((String) result[6]);
-            vehiculoConsumoDTO.setCantidad((String) result[7]);
-            vehiculoConsumoDTO.setPrecio((String) result[8]);
-            vehiculoConsumoDTO.setMonto((String) result[9]);
-            vehiculoConsumoDTO.setHoraConsumo((String) result[10]);
-            vehiculoConsumoDTO.setFechaConsumo((String) result[11]);
+            vehiculoConsumoDTO.setDespacho((String) result[1]);
+            VehiculoDTO vehiculoDTO = vehiculoService.getById((Integer) result[2]);
+            EstacionDTO estacionDTO = estacionService.getById((Integer) result[3]);
+            ProductoDTO productoDTO = productoService.getById((Integer) result[4]);
+            vehiculoConsumoDTO.setOdometro((String) result[5]);
+            vehiculoConsumoDTO.setRecorrido((String) result[6]);
+            vehiculoConsumoDTO.setRendimiento((String) result[7]);
+            vehiculoConsumoDTO.setCantidad((String) result[8]);
+            vehiculoConsumoDTO.setPrecio((String) result[9]);
+            vehiculoConsumoDTO.setMonto((String) result[10]);
+            vehiculoConsumoDTO.setHoraConsumo((String) result[11]);
+            vehiculoConsumoDTO.setFechaConsumo((String) result[12]);
 
             vehiculoConsumoDTO.setVehiculoDTO(vehiculoDTO);
             vehiculoConsumoDTO.setEstacionDTO(estacionDTO);

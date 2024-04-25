@@ -17,6 +17,9 @@ public class VehiculoConsumo {
     @Column(name = "id_vehiculo_consumo")
     private Integer idVehiculoConsumo;
 
+    @Column(name = "despacho")
+    private String despacho;
+
     @Column(name = "vehiculo_id_vehiculo")
     private int vehiculoIdVehiculo;
 

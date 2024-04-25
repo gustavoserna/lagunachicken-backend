@@ -16,7 +16,7 @@ serlo:
     jwtCookieName: bezkoder
     jwtSecret: bezKoderSecretKey
     jwtExpirationMs: 86400000
-    fileDirectory: C:\Users\Administrador\Documents\lagunachicken-flotillas\files
+    fileDirectory: ../files
     emailRemitente: sernagustavo3@gmail.com
     passwordRemitente: Paachanga4$
     emailDestinatario: sernagustavo3@gmail.com
