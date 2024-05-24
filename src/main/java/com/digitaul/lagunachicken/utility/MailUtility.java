@@ -16,7 +16,7 @@ public class MailUtility {
     static String passwordRemitente = "Alef#123456#";
 
     //@Value("${serlo.app.emailDestinatario}")
-    static String emailDestinatario = "alertasflotilla@lagunachicken.mx";
+    static String emailDestinatario = "diana.quintal@lagunachicken.mx";
 
     public static void sendEmail (MailDTO mailDTO) {
         Properties props = new Properties();
