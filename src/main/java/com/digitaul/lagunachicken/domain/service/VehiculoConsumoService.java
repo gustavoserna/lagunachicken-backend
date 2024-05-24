@@ -35,7 +35,7 @@ public class VehiculoConsumoService {
     @Autowired
     private EntityManager entityManager;
 
-    public VehiculoConsumoDTO saveVehiculoConsumo(VehiculoConsumoDTO vehiculoConsumoDTO) {
+    public VehiculoConsumoDTO saveVehiculoConsumo(VehiculoConsumoDTO vehiculoConsumoDTO, boolean modify) {
 
         // actualizar kilometraje del vehiculo y checar si se requiere mantenimiento preventivo
         vehiculoService.servicioRequerido(vehiculoConsumoDTO);
@@ -47,7 +47,7 @@ public class VehiculoConsumoService {
         if(vehiculoConsumoDTO.getDespacho().isEmpty()) {
             vehiculoConsumoDTO.setDespacho(Utility.generateRandomString(15));
         } else {
-            if(isDespachoPresent(vehiculoConsumoDTO.getDespacho()) > 0) {
+            if(isDespachoPresent(vehiculoConsumoDTO.getDespacho()) > 0 && !modify) {
                 throw new DuplicatedEntryException("Num. despacho " + vehiculoConsumoDTO.getDespacho());
             }
         }

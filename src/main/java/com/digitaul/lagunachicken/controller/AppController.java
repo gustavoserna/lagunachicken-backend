@@ -179,7 +179,7 @@ public class AppController {
     // VEHICULO CONSUMO
     @PostMapping("vehiculo/consumo")
     @PreAuthorize("hasRole('ADMIN')")
-    public VehiculoConsumoDTO saveVehiculoConsumo(@RequestBody VehiculoConsumoDTO vehiculoConsumoDTO) {
+    public VehiculoConsumoDTO saveVehiculoConsumo(@RequestBody VehiculoConsumoDTO vehiculoConsumoDTO, @RequestParam("modify") boolean modify) {
         Set<ConstraintViolation<VehiculoConsumoDTO>> violations = ValidatorUtil.validarCampos(vehiculoConsumoDTO);
 
         if (!violations.isEmpty()) {
@@ -194,7 +194,7 @@ public class AppController {
             throw new NullPointerException((errorMessage.toString()));
         }
 
-        return vehiculoConsumoService.saveVehiculoConsumo(vehiculoConsumoDTO);
+        return vehiculoConsumoService.saveVehiculoConsumo(vehiculoConsumoDTO, modify);
     }
 
     @PostMapping("vehiculo/consumo/findAll")
