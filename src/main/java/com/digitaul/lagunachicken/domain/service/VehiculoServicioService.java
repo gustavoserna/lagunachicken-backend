@@ -45,6 +45,11 @@ public class VehiculoServicioService {
     @Autowired
     private ModelMapper modelMapper;
 
+    // Sin file (modificacion de servicio)
+    public VehiculoServicioDTO saveVehiculoServicio(VehiculoServicioDTO vehiculoServicioDTO) {
+        return convertToDTO(vehiculoServicioRepository.save(convertToEntity(vehiculoServicioDTO)));
+    }
+
     public VehiculoServicioDTO saveVehiculoServicio(VehiculoServicioDTO vehiculoServicioDTO, MultipartFile file) {
         try {
             String fileName = Utility.generateRandomString(24) + "." + Utility.getFileExtension(file);

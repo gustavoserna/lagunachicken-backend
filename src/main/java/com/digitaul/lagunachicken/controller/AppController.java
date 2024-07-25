@@ -144,7 +144,7 @@ public class AppController {
 
     @PostMapping("vehiculo/servicio")
     @PreAuthorize("hasRole('ADMIN')")
-    public VehiculoServicioDTO saveVehiculoServicio(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+    public VehiculoServicioDTO saveVehiculoServicio(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request) {
         ObjectMapper objectMapper = new ObjectMapper();
 
         String vehiculoServicioString = request.getParameter("vehiculoServicio");
@@ -155,7 +155,7 @@ public class AppController {
             throw new RuntimeException(e);
         }
 
-        return vehiculoServicioService.saveVehiculoServicio(vehiculoServicioDTO, file);
+        return file == null ? vehiculoServicioService.saveVehiculoServicio(vehiculoServicioDTO) : vehiculoServicioService.saveVehiculoServicio(vehiculoServicioDTO, file);
     }
 
     @PostMapping("vehiculo/servicio/findAll")
