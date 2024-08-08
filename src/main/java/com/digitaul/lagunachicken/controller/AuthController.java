@@ -1,6 +1,7 @@
 package com.digitaul.lagunachicken.controller;
 
 import com.digitaul.lagunachicken.domain.dto.ERoleDTO;
+import com.digitaul.lagunachicken.domain.dto.MailDTO;
 import com.digitaul.lagunachicken.domain.dto.RoleDTO;
 import com.digitaul.lagunachicken.domain.dto.UserDTO;
 import com.digitaul.lagunachicken.payload.request.LoginRequest;
@@ -11,6 +12,7 @@ import com.digitaul.lagunachicken.security.jwt.JwtUtils;
 import com.digitaul.lagunachicken.security.services.RoleServiceImpl;
 import com.digitaul.lagunachicken.security.services.UserDetailsImpl;
 import com.digitaul.lagunachicken.security.services.UserDetailsServiceImpl;
+import com.digitaul.lagunachicken.utility.MailUtility;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -60,6 +62,14 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
+
+        MailDTO mailDTO = new MailDTO();
+        mailDTO.setAsunto("TEST MAIL");
+        mailDTO.setCuerpo(
+                "CORREO TEST"
+        );
+
+        MailUtility.sendEmail(mailDTO);
 
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
                 .body(new UserInfoResponse(userDetails.getId(),
