@@ -10,18 +10,20 @@ import java.util.Properties;
 public class MailUtility {
 
     //@Value("${serlo.app.emailRemitente}")
-    static String emailRemitente = "alertasflotilla@lagunachicken.mx";
+    static String emailRemitente = "alertasflotilla@lagunachicken.digitaul.com.mx";
 
     //@Value("${serlo.app.passwordRemitente}")
-    static String passwordRemitente = "Alef#123456#";
+    //static String passwordRemitente = "Alef#123456#";
+    static String passwordRemitente = "Alef#123456$";
 
     //@Value("${serlo.app.emailDestinatario}")
     static String emailDestinatario = "diana.quintal@lagunachicken.mx";
 
     public static void sendEmail (MailDTO mailDTO) {
         Properties props = new Properties();
-        props.put("mail.smtp.host", "mail.lagunachicken.mx");
-        props.put("mail.smtp.port", "465");
+        //props.put("mail.smtp.host", "mail.lagunachicken.mx");
+        props.put("mail.smtp.host", "mail.digitaul.com.mx");
+        props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
 
