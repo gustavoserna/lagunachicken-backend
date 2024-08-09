@@ -63,13 +63,13 @@ public class AuthController {
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
 
-        /*MailDTO mailDTO = new MailDTO();
+        MailDTO mailDTO = new MailDTO();
         mailDTO.setAsunto("TEST MAIL");
         mailDTO.setCuerpo(
                 "CORREO TEST"
         );
 
-        MailUtility.sendEmail(mailDTO);*/
+        MailUtility.sendEmail(mailDTO);
 
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
                 .body(new UserInfoResponse(userDetails.getId(),
