@@ -10,7 +10,7 @@ spring:
     username: digitaulcom_gustavo
     password: Digitaul1$
 server:
-  port: 9704
+  port: 9705
 serlo:
   app:
     jwtCookieName: bezkoder
