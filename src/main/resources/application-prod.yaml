@@ -6,7 +6,7 @@ spring:
         ddl-auto: none
         format_sql: true
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:192.168.2.123}:3306/lagunachicken?serverTimezone=UTC&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/lagunachicken?serverTimezone=UTC&autoReconnect=true&useSSL=false
     username: root
     password:
 server:
