@@ -1,392 +1,31 @@
--- MySQL dump 10.13  Distrib 8.0.36, for macos14 (arm64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: lagunachicken
--- ------------------------------------------------------
--- Server version	8.0.36
+-- Servidor: localhost:3306
+-- Tiempo de generación: 14-11-2024 a las 12:04:36
+-- Versión del servidor: 5.7.41
+-- Versión de PHP: 8.1.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `chofer`
+-- Base de datos: `digitaulcom_lagunachicken`
 --
 
-DROP TABLE IF EXISTS `chofer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `chofer` (
-  `id_chofer` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(150) COLLATE utf16_bin DEFAULT NULL,
-  `fecha_nacimiento` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `direccion` varchar(150) COLLATE utf16_bin DEFAULT NULL,
-  `nss` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `vencimiento_licencia` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `tipo_sangre` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `foto` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_chofer`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
+DELIMITER $$
 --
--- Dumping data for table `chofer`
+-- Procedimientos
 --
-
-LOCK TABLES `chofer` WRITE;
-/*!40000 ALTER TABLE `chofer` DISABLE KEYS */;
-INSERT INTO `chofer` VALUES (4,'julio','5 de mayo','torreon','123456','6 de mayo','AB+',''),(5,'juan perez','01/04/1990','torreon','1234567','01/08/2026','AB-',''),(6,'Mario Gomez','1970-02-11T06:00:00.000Z','torreon','123456789','2024-02-22T06:00:00.000Z','AB+',''),(7,'Jose Perez','2024-02-15T06:00:00.000Z','torreon','123455','2024-02-28T06:00:00.000Z','AB-',''),(8,'alejandro','2024-02-14T06:00:00.000Z','torreon','123456','2024-02-14T06:00:00.000Z','O+',''),(9,'raul','2024-02-15T06:00:00.000Z','torreon','95416516','2024-02-21T06:00:00.000Z','AB-',''),(10,'pablo','2024-02-14T06:00:00.000Z','torreon','673657467','2024-02-21T06:00:00.000Z','O+',''),(11,'luis','2024-02-14T06:00:00.000Z','torreon','674658578','2024-02-21T06:00:00.000Z','O+',''),(12,'carlos','2024-02-07T06:00:00.000Z','torreon','3546734673567','2024-02-27T06:00:00.000Z','AB+',''),(13,'osvaldo','2024-02-14T06:00:00.000Z','torreon','564673657','2024-02-28T06:00:00.000Z','O-',''),(14,'prueba','2024-03-13T06:00:00.000Z','gomez','123456','2024-03-13T06:00:00.000Z','AB-','');
-/*!40000 ALTER TABLE `chofer` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `estacion`
---
-
-DROP TABLE IF EXISTS `estacion`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `estacion` (
-  `id_estacion` int NOT NULL AUTO_INCREMENT,
-  `estacion` varchar(150) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_estacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `estacion`
---
-
-LOCK TABLES `estacion` WRITE;
-/*!40000 ALTER TABLE `estacion` DISABLE KEYS */;
-INSERT INTO `estacion` VALUES (1,'BB Rebollo'),(2,'SHELL Magisteri'),(3,'BB Bravo'),(4,'SHELL Division'),(5,'BB Toro Viejo');
-/*!40000 ALTER TABLE `estacion` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `producto`
---
-
-DROP TABLE IF EXISTS `producto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `producto` (
-  `id_producto` int NOT NULL AUTO_INCREMENT,
-  `producto` varchar(150) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `producto`
---
-
-LOCK TABLES `producto` WRITE;
-/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'Diesel Automotriz Sin Marca'),(2,'Shell Super');
-/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `proveedor`
---
-
-DROP TABLE IF EXISTS `proveedor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `proveedor` (
-  `id_proveedor` int NOT NULL AUTO_INCREMENT,
-  `proveedor` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_proveedor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `proveedor`
---
-
-LOCK TABLES `proveedor` WRITE;
-/*!40000 ALTER TABLE `proveedor` DISABLE KEYS */;
-INSERT INTO `proveedor` VALUES (1,'Grease Monkey');
-/*!40000 ALTER TABLE `proveedor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `role`
---
-
-DROP TABLE IF EXISTS `role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `role` (
-  `id_role` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `role`
---
-
-LOCK TABLES `role` WRITE;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (5,'ROLE_ADMIN');
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `servicio`
---
-
-DROP TABLE IF EXISTS `servicio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `servicio` (
-  `id_servicio` int NOT NULL AUTO_INCREMENT,
-  `servicio` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_servicio`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `servicio`
---
-
-LOCK TABLES `servicio` WRITE;
-/*!40000 ALTER TABLE `servicio` DISABLE KEYS */;
-INSERT INTO `servicio` VALUES (1,'Cambio de llantas'),(2,'Cambio de aceite'),(3,'Servicio preventivo'),(4,'Balanceo');
-/*!40000 ALTER TABLE `servicio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `sucursal`
---
-
-DROP TABLE IF EXISTS `sucursal`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sucursal` (
-  `id_sucursal` int NOT NULL AUTO_INCREMENT,
-  `sucursal` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_sucursal`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sucursal`
---
-
-LOCK TABLES `sucursal` WRITE;
-/*!40000 ALTER TABLE `sucursal` DISABLE KEYS */;
-INSERT INTO `sucursal` VALUES (1,'Torreón'),(2,'Gomez Palacio'),(3,'Durango');
-/*!40000 ALTER TABLE `sucursal` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user` (
-  `id_username` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `email` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `password` varchar(150) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_username`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (7,'admin','admin@lagunachicken.com','$2a$10$8ecq0Vor9Ihy/AIrTSfr4.AR2YhB7yhRJOypUhjxjom9UpMiAHvT2');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user_role`
---
-
-DROP TABLE IF EXISTS `user_role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_role` (
-  `id_user_role` int NOT NULL AUTO_INCREMENT,
-  `user_id_username` int NOT NULL,
-  `role_id_role` int NOT NULL,
-  PRIMARY KEY (`id_user_role`,`user_id_username`,`role_id_role`),
-  KEY `fk_user_has_Role_Role1_idx` (`role_id_role`),
-  KEY `fk_user_has_Role_user_idx` (`user_id_username`),
-  CONSTRAINT `fk_user_has_Role_Role1` FOREIGN KEY (`role_id_role`) REFERENCES `role` (`id_role`),
-  CONSTRAINT `fk_user_has_Role_user` FOREIGN KEY (`user_id_username`) REFERENCES `user` (`id_username`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_role`
---
-
-LOCK TABLES `user_role` WRITE;
-/*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
-INSERT INTO `user_role` VALUES (5,7,5);
-/*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `vehiculo`
---
-
-DROP TABLE IF EXISTS `vehiculo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vehiculo` (
-  `id_vehiculo` int NOT NULL AUTO_INCREMENT,
-  `sucursal_id_sucursal` int NOT NULL,
-  `num_economico` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `kilometraje` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `kilometraje_aviso` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `kilometraje_periodo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `placas` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `estado_placas` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `modelo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `capacidad` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `marca` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `tipo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `descripcion` varchar(500) COLLATE utf16_bin DEFAULT NULL,
-  `numero_serie` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `numero_motor` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `numero_poliza` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `aseguradora` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `vencimiento_poliza` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `chofer_id_chofer` int NOT NULL,
-  PRIMARY KEY (`id_vehiculo`),
-  KEY `fk_vehiculo_sucursal1_idx` (`sucursal_id_sucursal`),
-  KEY `fk_vehiculo_chofer1_idx` (`chofer_id_chofer`),
-  CONSTRAINT `fk_vehiculo_chofer1` FOREIGN KEY (`chofer_id_chofer`) REFERENCES `chofer` (`id_chofer`),
-  CONSTRAINT `fk_vehiculo_sucursal1` FOREIGN KEY (`sucursal_id_sucursal`) REFERENCES `sucursal` (`id_sucursal`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vehiculo`
---
-
-LOCK TABLES `vehiculo` WRITE;
-/*!40000 ALTER TABLE `vehiculo` DISABLE KEYS */;
-INSERT INTO `vehiculo` VALUES (5,2,'123456','1000',NULL,NULL,'123456','Durango','modelo','capacidad','marca','tipo','descripcion','123456','123456','','aseguradora','18/01/2024',5),(6,2,'123456789','100',NULL,NULL,'123456','Durango','modelo','capacidad','marca','tipo','descripcion','123456','123456','9481564','aseguradora','2024-02-29T15:40:10.984Z',6),(7,1,'45736573','0',NULL,NULL,'123456','Durango','modelo','capacidad','marca','tipo','descripcion','123456','123456','9481564','aseguradora','2024-02-29T17:29:57.744Z',4),(8,1,'45376472','0',NULL,NULL,'123456','Durango','modelo','capacidad','marca','tipo','descripcion','123456','123456','9481564','aseguradora','2024-02-29T17:30:22.132Z',8),(9,1,'874549875','0',NULL,NULL,'123456','Durango','modelo','capacidad','marca','tipo','descripcion','123456','','9481564','aseguradora','2024-02-29T17:30:51.912Z',9),(10,1,'GP1','200150','201','10000','G12JIU','DURANGO','2012','3.5','HINO','SEMI LONG','color blanco','123456789','123456789','283742863GG','AXXA','2024-03-13T17:07:03.758Z',6);
-/*!40000 ALTER TABLE `vehiculo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `vehiculo_consumo`
---
-
-DROP TABLE IF EXISTS `vehiculo_consumo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vehiculo_consumo` (
-  `id_vehiculo_consumo` int NOT NULL AUTO_INCREMENT,
-  `vehiculo_id_vehiculo` int NOT NULL,
-  `estacion_id_estacion` int NOT NULL,
-  `producto_id_producto` int NOT NULL,
-  `odometro` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `recorrido` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `rendimiento` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `cantidad` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `precio` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `monto` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `hora_consumo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `fecha_consumo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_vehiculo_consumo`),
-  KEY `fk_vehiculo_consumo_vehiculo1_idx` (`vehiculo_id_vehiculo`),
-  KEY `fk_vehiculo_consumo_estacion1_idx` (`estacion_id_estacion`),
-  KEY `fk_vehiculo_consumo_producto1_idx` (`producto_id_producto`),
-  CONSTRAINT `fk_vehiculo_consumo_estacion1` FOREIGN KEY (`estacion_id_estacion`) REFERENCES `estacion` (`id_estacion`),
-  CONSTRAINT `fk_vehiculo_consumo_producto1` FOREIGN KEY (`producto_id_producto`) REFERENCES `producto` (`id_producto`),
-  CONSTRAINT `fk_vehiculo_consumo_vehiculo1` FOREIGN KEY (`vehiculo_id_vehiculo`) REFERENCES `vehiculo` (`id_vehiculo`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vehiculo_consumo`
---
-
-LOCK TABLES `vehiculo_consumo` WRITE;
-/*!40000 ALTER TABLE `vehiculo_consumo` DISABLE KEYS */;
-INSERT INTO `vehiculo_consumo` VALUES (1,9,1,1,'183602','440','3.99','50','25','1250',NULL,'2024-03-05T06:00:00.000Z'),(2,9,1,2,'183602','440','3.99','50','25','1250','11:00','2024-03-06T06:00:00.000Z'),(3,10,3,2,'184603','440','3.99','50','25',NULL,'08:00','2024-12-03T06:00:00.000Z'),(4,10,2,2,'183602','440','3.99','50','25',NULL,'09:00','2024-03-26T06:00:00.000Z'),(5,10,2,2,'199999','440','3.99','50','25',NULL,'09:00','2024-03-27T06:00:00.000Z'),(6,10,2,2,'200150','440','4.01','50','25','1250.0','09:00','2024-03-27T06:00:00.000Z');
-/*!40000 ALTER TABLE `vehiculo_consumo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `vehiculo_servicio`
---
-
-DROP TABLE IF EXISTS `vehiculo_servicio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vehiculo_servicio` (
-  `id_vehiculo_servicio` int NOT NULL AUTO_INCREMENT,
-  `vehiculo_id_vehiculo` int NOT NULL,
-  `servicio_id_servicio` int NOT NULL,
-  `proveedor_id_proveedor` int NOT NULL,
-  `kilometraje` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `folio_factura` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `costo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `fecha_servicio` varchar(45) COLLATE utf16_bin DEFAULT NULL,
-  `descripcion` varchar(500) COLLATE utf16_bin DEFAULT NULL,
-  `file` varchar(150) COLLATE utf16_bin DEFAULT NULL,
-  PRIMARY KEY (`id_vehiculo_servicio`,`vehiculo_id_vehiculo`,`servicio_id_servicio`),
-  KEY `fk_vehiculo_has_servicio_servicio1_idx` (`servicio_id_servicio`),
-  KEY `fk_vehiculo_has_servicio_vehiculo1_idx` (`vehiculo_id_vehiculo`),
-  KEY `fk_vehiculo_servicio_proveedor1_idx` (`proveedor_id_proveedor`),
-  CONSTRAINT `fk_vehiculo_has_servicio_servicio1` FOREIGN KEY (`servicio_id_servicio`) REFERENCES `servicio` (`id_servicio`),
-  CONSTRAINT `fk_vehiculo_has_servicio_vehiculo1` FOREIGN KEY (`vehiculo_id_vehiculo`) REFERENCES `vehiculo` (`id_vehiculo`),
-  CONSTRAINT `fk_vehiculo_servicio_proveedor1` FOREIGN KEY (`proveedor_id_proveedor`) REFERENCES `proveedor` (`id_proveedor`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vehiculo_servicio`
---
-
-LOCK TABLES `vehiculo_servicio` WRITE;
-/*!40000 ALTER TABLE `vehiculo_servicio` DISABLE KEYS */;
-INSERT INTO `vehiculo_servicio` VALUES (3,5,2,1,'1000','123456','4500','2024-02-22T06:00:00.000Z',NULL,NULL),(4,5,2,1,'1000','55887541','4500','2024-02-22T06:00:00.000Z','descuento de 150',NULL),(5,5,4,1,'1000','55887541','4500','2024-02-24T06:00:00.000Z','descripcion',NULL),(6,6,1,1,'1000','55887541','4500','2024-02-21T06:00:00.000Z','',NULL),(7,7,2,1,'1000','55887541','4500','2024-03-12T06:00:00.000Z','descuento de 150',NULL),(8,6,4,1,'2500','55887541','4500','2024-03-05T06:00:00.000Z','descripcion',NULL),(9,8,4,1,'2500','55887541','4500','2024-03-20T06:00:00.000Z','descripcion',NULL),(12,8,2,1,'1000','55887541','4500','2024-03-09T06:00:00.000Z','descripcion',NULL),(13,8,2,1,'100','55887541','4500','2024-03-06T06:00:00.000Z','',NULL),(14,6,4,1,'8963','558875418','3205','2024-03-13T06:00:00.000Z','',NULL),(15,5,2,1,'85623','81896521','7521','2024-03-11T06:00:00.000Z','',NULL),(16,6,2,1,'8963','55887541','3205','2024-03-13T06:00:00.000Z','',NULL),(17,6,4,1,'1569','81896521','5500','2024-03-11T06:00:00.000Z','',NULL),(18,8,2,1,'8963','81896521','3205','2024-03-12T06:00:00.000Z','',NULL),(19,10,1,1,'20000','87698790','3500','2024-03-12T06:00:00.000Z','',NULL),(20,10,2,1,'8963','81896521','3205','2024-03-14T06:00:00.000Z','',NULL),(21,10,2,1,'8963','55887541','3205','2024-03-14T06:00:00.000Z','',NULL),(22,10,4,1,'8963','87698790','3205','2024-03-13T06:00:00.000Z','',NULL),(23,10,4,1,'8963','87698790','3205','2024-03-13T06:00:00.000Z','',NULL),(24,10,2,1,'1000','55887541','5500','2024-03-14T06:00:00.000Z','',''),(25,9,2,1,'85623','87698790','5896','2024-03-14T06:00:00.000Z','','1r1SV9mFe3ANjTdSF91MsNHL.pdf'),(26,7,4,1,'8963','87698790','3500','2024-03-13T06:00:00.000Z','','Lb4S7QmnnWRD9S3susfnMhlT.pdf');
-/*!40000 ALTER TABLE `vehiculo_servicio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping routines for database 'lagunachicken'
---
-/*!50003 DROP PROCEDURE IF EXISTS `register_user` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `register_user`(
-	IN `_username` VARCHAR(150),
-    IN `_email` VARCHAR(150),
-    IN `_password` VARCHAR(150),
-    IN `_role_id_role` INT
-)
-BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `register_user` (IN `_username` VARCHAR(150), IN `_email` VARCHAR(150), IN `_password` VARCHAR(150), IN `_role_id_role` INT)   BEGIN
 	-- rollback transaction and bubble up errors if something bad happens
 	DECLARE exit handler FOR SQLEXCEPTION, SQLWARNING
   	BEGIN
@@ -408,20 +47,1223 @@ BEGIN
     -- if no errors happened yet, commit transaction
 	END;
     COMMIT;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+END$$
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `chofer`
+--
+
+CREATE TABLE `chofer` (
+  `id_chofer` int(11) NOT NULL,
+  `nombre` varchar(150) COLLATE utf16_bin DEFAULT NULL,
+  `fecha_nacimiento` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `direccion` varchar(150) COLLATE utf16_bin DEFAULT NULL,
+  `nss` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `vencimiento_licencia` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `tipo_sangre` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `foto` varchar(45) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `chofer`
+--
+
+INSERT INTO `chofer` (`id_chofer`, `nombre`, `fecha_nacimiento`, `direccion`, `nss`, `vencimiento_licencia`, `tipo_sangre`, `foto`) VALUES
+(16, 'SALVADOR HERNANDEZ ORTEGA', '2024-04-12T00:00:00.000Z', 'TORREON', '31955624|', '2024-04-17T00:00:00.000Z', 'O-', ''),
+(17, 'CARLOS IVAN RODRIGUEZ DE SANTIAGO', '1975-02-13T00:00:00.000Z', '31978547', '454736456', '2024-05-11T00:00:00.000Z', 'AB-', ''),
+(18, 'CESAR ANDRES GARCIA', '1972-11-30', 'RINC. LIRIOS # 421 FRACC. RINCONADAS HAMBURGO', '338872295117', '2027-08-15', 'AB+', ''),
+(19, 'JOSE LUIS MARQUEZ MORENO', '1999-05-18', 'C. SAN JOSE DE VIÑEDO # 127, COL. LAZARO CARDENAS', '18179952082', '2027-08-15', 'AB+', ''),
+(20, 'JOSE ALFREDO GUZMAN RIVERA', '1985-05-19', 'C. LAZARO CARDENAS # 351 COL. FELIPE ANGELES', '31068510150', '2027-08-15', 'AB+', ''),
+(21, 'JUAN ANTONIO ESCOBAR MEZA', '1970-04-14', 'AV. PEDERNAL # 894 COL. ALAMOS INFONAVIT', '31866928265', '2024-08-16', 'O+', ''),
+(22, 'CARLOS JONATHAN AVILA MEJIA', '1981-03-17', 'GOMEZ PALACIO', '31068100721', '2027-08-16', 'AB+', ''),
+(23, 'EDSON EDUARDO FLORES GONZALEZ', '1987-04-27', 'PRIV. IZTLACCHIHUATL COL. SANTA MARIA TORREON', '32078724708', '2024-08-16', 'AB+', ''),
+(24, 'CESAR BRETADO GARCIA', '1989-07-21', 'AV. RAYON #737 EL REFUGIO GOMEZ PALACIO', '31088921619', '2027-08-19', 'O+', ''),
+(25, 'OMAR MARENTES ORONA', '1976-11-24', 'AV ZACATECAS # 1775', '32977605990', '2027-08-16', 'AB+', ''),
+(26, 'JOSE ABELARDO SAUCEDO SANDOVAL', '1983-05-02', 'C 10 DE MAYO # 261 COL RICARDO FLORES MAGON GOMEZ PALACIO', '31998311349', '2025-10-10', 'AB+', ''),
+(27, 'GUADALUPE ALBERTO ALVARADO RAMOS', '1979-12-12', 'MUTUALISMO # 1758 COL LA ROSITA', '20207949944', '2027-11-24', 'AB+', ''),
+(28, 'ANTONIO DE JESUS ALDABA GONZALEZ', '1991-02-05', 'C. NIÑOS HEROES #401 COL JOSE ANGEL LEAL DURANGO', '31109112172', '2027-11-24', 'AB+', ''),
+(29, 'MANUEL DELGADO COLLAZO', '1976-03-03', 'C. ILINIO # 208 COL. LUIS ECHEVERRIA, DURANGO', '31927636188', '2027-03-16', 'O+', ''),
+(30, 'FRANCISCO JAVIER GUZMAN ARRIAGA', '1974-01-05', 'ARMANDO DEL CASTILLO FRANCO # 306 COL. GOBERNADORES DURANGO', '41907412740', '2027-03-03', 'AB+', ''),
+(31, 'RAFAEL CANTU MURO', '1987-09-03', 'C. IBIZA # 313 FRACC. GERALDINE, DURANGO', '31098600669', '2027-09-12', 'AB+', ''),
+(32, 'JUAN ANGEL SOTO RANGEL', '1976-07-09', 'C. SAN MARCOS # 103 FRACC SAN JORGE, DURANGO', '31937648827', '2027-12-06', 'O+', ''),
+(33, 'GUILLERMO REYES SANCHEZ HERNANDEZ', '1972-05-05', 'C. REPUBLICA DE PANAMA COL. FCO ZARCO, DURANGO', '31907275775', '2027-03-03', 'AB+', ''),
+(34, 'JORGE VELAZQUEZ CELIS', '1962-09-15T00:00:00.000Z', '', '3184620537-0', '2025-01-01T00:00:00.000Z', 'O+', ''),
+(35, 'PEDRO GONZALEZ RODRIGUEZ', '2024-01-01T00:00:00.000Z', 'X', 'X', '2026-01-01T00:00:00.000Z', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estacion`
+--
+
+CREATE TABLE `estacion` (
+  `id_estacion` int(11) NOT NULL,
+  `estacion` varchar(150) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `estacion`
+--
+
+INSERT INTO `estacion` (`id_estacion`, `estacion`) VALUES
+(1, 'BB Rebollo'),
+(2, 'SHELL Magisteri'),
+(3, 'BB Bravo'),
+(4, 'SHELL Division'),
+(5, 'BB Toro Viejo'),
+(6, 'BB 7 Leguas'),
+(7, 'BB San Agustin'),
+(8, 'ENERGY Fresno'),
+(9, 'ENERGY San Seba'),
+(10, 'BB San Pedro'),
+(11, '(ENERGI)Cedros'),
+(12, '(ENERGI)SantaFe'),
+(13, 'BB El Rayo'),
+(14, '(SERV)La Partida'),
+(15, '(ENERGI)Union'),
+(16, 'SHELL Saltillo'),
+(17, 'BB El Periferico'),
+(18, 'BB San Pedro 2'),
+(19, 'BB Periferico'),
+(20, 'BB Chavez'),
+(21, '(SERV)LaPartida'),
+(22, '(ENERGI)SanSeba'),
+(23, '(ENERGI)Fresno'),
+(24, '(ENERGI)Santari'),
+(25, 'Jardines'),
+(26, 'JardinesVilla'),
+(27, 'Puente Negro');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto`
+--
+
+CREATE TABLE `producto` (
+  `id_producto` int(11) NOT NULL,
+  `producto` varchar(150) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `producto`) VALUES
+(1, 'Diesel Automotriz Sin Marca'),
+(2, 'Shell Super'),
+(3, 'Diesel Pemex'),
+(4, 'Shell Diesel'),
+(5, 'Gasolina Regular'),
+(6, 'Gasolina Regular sin Marca'),
+(7, 'Gasolina Magna Pemex'),
+(8, 'Gasolina Regular sin Marca con indice de Octano minimo'),
+(9, 'Gasolina Regular sin Marca con indice de Octano minimo 87'),
+(10, 'Magna'),
+(11, 'Diesel'),
+(12, 'Premium');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `id_proveedor` int(11) NOT NULL,
+  `proveedor` varchar(45) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`id_proveedor`, `proveedor`) VALUES
+(6, 'LLANTAS Y RINES DEL GUADIANA SA DE CV'),
+(7, 'MUREMI CAMIONES'),
+(8, 'ARTURO NAVARRO NAVA'),
+(9, 'AUTO ELECTRICO PANCHOLIN'),
+(10, 'AUTOMOTRIZ DE DURANGO'),
+(11, 'EL SEÑOR DE LOS TORNILLOS'),
+(12, 'COMERCIALIZADORA DE LUBRICANTES'),
+(13, 'CONRADO ESTRADA VILLEGAS'),
+(14, 'FRANCISCO SALAZAR DELGADO'),
+(15, 'JOSE BERNARDO BORI TORRES'),
+(16, 'LLANTAS Y SERVICIOS INDUSTRIALES'),
+(17, 'LUIS GERARDO ORNA ARREOLA'),
+(18, 'LUZ ADRIANA PATIÑO RUIZ'),
+(19, 'MAXIMINO GARCIA SETURINO'),
+(20, 'MIGUEL ANGEL RAMIREZ'),
+(21, 'MUELLES DE DURANGO S.A. DE C.V.'),
+(22, 'MUELLES Y AMORTIGUADORES'),
+(23, 'MUREMI CAMIONES'),
+(24, 'MUZAR '),
+(25, 'PROVEEDORA CHEVROLET'),
+(26, 'REFACCIONARIA LAGUNA REFRIGERADOS'),
+(27, 'ROSA MARIA GOMEZ DELGADO'),
+(28, 'ROTO CRISTALES Y PARTES'),
+(29, 'SAM AUTOS'),
+(30, 'SOLUCIONES LLANTERAS DE LA LAGUNA'),
+(31, 'STILO LAGUNA'),
+(32, 'SURMAN TRUKS'),
+(33, 'VIDRIOS VISAGO '),
+(34, 'MUELLES Y BALATAS DEL GUADIANA'),
+(35, 'MISOL AUTOMOTRIZ'),
+(36, 'IVAN ELOY GONZALEZ CABRAL'),
+(37, 'MAYRA JUDITH NAVARRO NAVA'),
+(38, 'FABIOLA ESTRELLA COVARRUBIAS GALINDO'),
+(39, 'JOSE MANUEL ALCANTARA HERNANDEZ'),
+(40, 'UNION DE RECOLECTORES DE LA COMARCA LAGUNERA '),
+(41, 'JOSE ALEJANDRO GALVEZ CARO'),
+(42, 'LUIS GONZALEZ VENZON'),
+(43, 'JUAN CARLOS NUÑEZ DOMINGUEZ'),
+(44, 'ANDRES DURAN GOMEZ'),
+(45, 'FERNANDO HERNANDEZ LUNA'),
+(46, 'LLANTAS GENERAL DE DURANGO'),
+(47, 'BATERIAS MEXICANAS S.A. DE C.V.'),
+(48, 'JAVIER JURADO CAZARES'),
+(49, 'MAYOREO AUTOMOTRIZ REFACCIONARIO');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `role`
+--
+
+CREATE TABLE `role` (
+  `id_role` int(11) NOT NULL,
+  `name` varchar(45) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `role`
+--
+
+INSERT INTO `role` (`id_role`, `name`) VALUES
+(5, 'ROLE_ADMIN');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicio`
+--
+
+CREATE TABLE `servicio` (
+  `id_servicio` int(11) NOT NULL,
+  `servicio` varchar(45) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `servicio`
+--
+
+INSERT INTO `servicio` (`id_servicio`, `servicio`) VALUES
+(5, 'LLANTAS'),
+(6, 'SERVICIO POR KILOMETRAJE'),
+(7, 'ELECTRICO'),
+(8, 'MOTOR'),
+(9, 'AMORTIGUADORES'),
+(10, 'FRENOS'),
+(11, 'RADIADOR'),
+(12, 'TERMO'),
+(13, 'BATERIA'),
+(14, 'OTROS'),
+(15, 'TAPIZERIA'),
+(16, 'TRANSMISION');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sucursal`
+--
+
+CREATE TABLE `sucursal` (
+  `id_sucursal` int(11) NOT NULL,
+  `sucursal` varchar(45) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `sucursal`
+--
+
+INSERT INTO `sucursal` (`id_sucursal`, `sucursal`) VALUES
+(1, 'Torreón'),
+(2, 'Gomez Palacio'),
+(3, 'Durango');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `user` (
+  `id_username` int(11) NOT NULL,
+  `username` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `email` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `password` varchar(150) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id_username`, `username`, `email`, `password`) VALUES
+(7, 'admin', 'admin@lagunachicken.com', '$2a$10$8ecq0Vor9Ihy/AIrTSfr4.AR2YhB7yhRJOypUhjxjom9UpMiAHvT2');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user_role`
+--
+
+CREATE TABLE `user_role` (
+  `id_user_role` int(11) NOT NULL,
+  `user_id_username` int(11) NOT NULL,
+  `role_id_role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `user_role`
+--
+
+INSERT INTO `user_role` (`id_user_role`, `user_id_username`, `role_id_role`) VALUES
+(5, 7, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vehiculo`
+--
+
+CREATE TABLE `vehiculo` (
+  `id_vehiculo` int(11) NOT NULL,
+  `sucursal_id_sucursal` int(11) NOT NULL,
+  `num_economico` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `kilometraje` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `kilometraje_aviso` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `kilometraje_periodo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `placas` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `estado_placas` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `modelo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `capacidad` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `marca` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `tipo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `descripcion` varchar(500) COLLATE utf16_bin DEFAULT NULL,
+  `numero_serie` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `numero_motor` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `numero_poliza` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `aseguradora` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `vencimiento_poliza` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `chofer_id_chofer` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`id_vehiculo`, `sucursal_id_sucursal`, `num_economico`, `kilometraje`, `kilometraje_aviso`, `kilometraje_periodo`, `placas`, `estado_placas`, `modelo`, `capacidad`, `marca`, `tipo`, `descripcion`, `numero_serie`, `numero_motor`, `numero_poliza`, `aseguradora`, `vencimiento_poliza`, `chofer_id_chofer`) VALUES
+(13, 1, 'GP-18', '83675', '500', '10000', 'FM9896C', 'DURANGO', '2020', '3.5 TON', 'HINO', 'CAMION', '', 'JHHACP3H9JK003343', '4526789', '004597862-23', 'ANA SEGUROS', '2024-12-06', 16),
+(16, 2, 'GP-21', '108813', '500', '10000', 'FR6256C', 'DURANGO', '2021', '2,500 KGS.', 'HINO', '616 SL', '', 'JHHACS3F6MK504728', '', '', 'ANA SEGUROS', '2025-12-06', 17),
+(17, 1, 'GP-3', '77569', '500', '10000', 'FL7520A', 'DGO', '2016', '3000', 'HINO ', '616 SL', '', 'JHHACP3H0GK002722', '', '004597862-19', 'ANA SEGUROS', '2024-12-06', 19),
+(18, 1, 'GP-4', '196846', '500', '10000', 'FW1825B', 'DGO', '2019', '5500', 'HINO ', '816 SL', '', 'JHHYEP0H1KK002685', '', '004597862-24', 'ANA SEGUROS', '2024-12-06', 22),
+(19, 1, 'GP-6', '325010', '500', '10000', 'FW1835B', 'DGO', '2013', '1000', 'NISSAN', 'NISSAN', '', '3N6DD25T4DK059827', '', '004597862-9', 'ANA SEGUROS', '2024-12-06', 22),
+(20, 1, 'GP-8', '2535071', '500', '10000', 'FW1836B', 'DGO', '2013', '2500', 'ISUZU', '200 DIE \"13', '', 'JAANMR851D7500378', '', '004597862-31', 'ANA SEGUROS', '2024-12-06', 27),
+(21, 1, 'GP-11', '2614742', '500', '10000', 'FW1828B', 'DGO', '2015', '1500', 'HINO', 'HINO', '', 'JHHACN4HXFK002373', '', '004597862-15', 'ANA SEGUROS', '0004-12-06T00:00:00.000Z', 23),
+(22, 1, 'GP-12', '295826', '500', '10000', 'FW1843B', 'DGO', '2015', '1500', 'HINO', 'HINO', '', 'JHHACN4HXFK002374', '', '04597862-16', 'ANA SEGUROS', '2024-12-06', 25),
+(23, 1, 'GP-14', '207511', '500', '10000', 'FW1839B', 'DGO', '2016', '2500', 'HINO', '616 SL', '', 'JHHACP3H8GK002872', '', '004597862-17', 'ANA SEGUROS', '2024-12-06', 24),
+(24, 2, 'GP-20', '112478', '1000', '10000', 'FM9895C', 'DGO', '2021', '2500', 'HINO', '616 SL', '', 'JHHACS3FXMK504747', '', '004597862-25', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 18),
+(25, 2, 'GP22', '138601', '1000', '10000', 'FM9893', 'DGO', '2022', '2500', 'HINO', '616 SL', '', 'JHHACS3F1NK505349', '', '004597862-28', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 20),
+(26, 3, 'GP-17', '270834', '500', '10000', 'FN6850C', 'DGO', '2017', '2500', 'HINO', '616 SL', '', 'JHHACP3H0HK003144', '', '004597862-17', 'ANA SEGUROS', '2024-12-06', 29),
+(27, 2, 'GP-16', '265139', '500', '10000', 'FW1845B', 'DGO', '2017', '2500', 'HINO', 'HINO 616 SL', '', 'JHHACP3H3HK003140', '', '004597862-22', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 21),
+(28, 1, 'GP-13', '217268', '1000', '10000', 'FN6851C', 'DGO', '2016', '2500', 'HINO 616', '', '', 'JHHACP3H0GK002720', '', '', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 28),
+(29, 1, 'GP-15', '244248', '500', '10000', 'FN6852C', 'DGO', '2016', '2500', 'HINO', '616 SL', '', 'JHHACP3H1GK002874', '', '004597862-15', 'ANA SEGUROSA', '2024-12-06T00:00:00.000Z', 30),
+(30, 1, 'GP-19', '218868', '500', '10000', 'FM9896C', 'DGO', '2020', '2500', 'ISUZU', 'ELF 300E', '', 'JAANMR851L7500492', '', '004597862-19', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 31),
+(31, 3, 'GP-25', '28355', '500', '10 000', 'FR6256C', 'DURANGO', '2024', '5500', 'HINO', '818 LONG', '', 'JHHUESOF1RK004477', '', '04597862-25', 'ANA', '2024-12-06T00:00:00.000Z', 32),
+(32, 1, 'GP-23', '194757', '500', '10000', 'FM9899', 'DGO', '2022', '2500', 'HINO', '616 SL', '', 'JHHACS3F1NK505352', '', '004597862-23', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 33),
+(33, 2, 'GP24', '19862', '500', '10000', 'FR6257C', 'DURANGO', '2024', '5,500', 'HINO', '818 LONG', '', 'JHHUESOF8RK004475', '', '04597862-24', 'ANA SEGUROS', '2024-12-06', 26),
+(34, 3, 'GP-10', '238100', '500', '10000', 'FN6853C', 'DURANGO', '2015', '2500', 'ISUZU', '200 DIE', '', 'JAANMR851F7500514', '', '004597862-31', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 32),
+(35, 1, 'RAM 700 DGO', '14569', '500', '15000', 'FN6854C', 'DURANGO', '2023', '', 'DODGE', 'RAM 700', '', '9BD281H5XPYY56777', '', '004597862-31', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 34),
+(36, 1, 'GP-7', '340784', '500', '10000', 'FN6855C', 'DURANGO', '2013', '', 'NISSAN', 'PICK UP', '', '3N6DD25T8DK066439', '', '004597862-', 'ANA SEGUROS', '2024-12-06T00:00:00.000Z', 28),
+(37, 1, ' RAM-GOMEZ', '14563', '1000', '10000', 'FR6191C', 'DURANGO', '2023', '', 'RAM', '', '', '9BD281H5XPYY56780', '', '', 'ANA ', '2025-01-01T00:00:00.000Z', 35);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vehiculo_consumo`
+--
+
+CREATE TABLE `vehiculo_consumo` (
+  `id_vehiculo_consumo` int(11) NOT NULL,
+  `despacho` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `vehiculo_id_vehiculo` int(11) NOT NULL,
+  `estacion_id_estacion` int(11) NOT NULL,
+  `producto_id_producto` int(11) NOT NULL,
+  `odometro` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `recorrido` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `rendimiento` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `cantidad` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `precio` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `monto` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `hora_consumo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `fecha_consumo` varchar(45) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `vehiculo_consumo`
+--
+
+INSERT INTO `vehiculo_consumo` (`id_vehiculo_consumo`, `despacho`, `vehiculo_id_vehiculo`, `estacion_id_estacion`, `producto_id_producto`, `odometro`, `recorrido`, `rendimiento`, `cantidad`, `precio`, `monto`, `hora_consumo`, `fecha_consumo`) VALUES
+(1, '97885760', 13, 1, 1, '80742', '333', '7.26', '45.894', '25.19', '1156.06986', '12:24', '2024-04-02T06:00:00.000Z'),
+(2, '97952830', 13, 1, 1, '81031', '289', '7.11', '40.673', '25.29', '1028.62017', '08:30', '2024-04-11T06:00:00.000Z'),
+(3, '98045440', 13, 1, 1, '81374', '343', '7.26', '47.255', '25.39', '1199.80445', '08:31', '2024-04-22T06:00:00.000Z'),
+(4, '97883920', 16, 1, 1, '102087', '194', '5.33', '36.417', '25.19', '917.34423', '07:56', '2024-04-02T06:00:00.000Z'),
+(5, '97973340', 16, 1, 1, '103065', '432', '8.98', '48.09', '25.29', '1216.1961000000001', '13:04', '2024-04-13T06:00:00.000Z'),
+(6, '68617970', 16, 15, 3, '100125', '393', '7.85', '50.09', '25.19', '1261.7671000000003', '09:12', '2024-03-06T06:00:00.000Z'),
+(7, '122059870', 16, 19, 1, '100577', '452', '7.8', '57.92', '25.19', '1459.0048000000002', '14:19', '2024-03-11T06:00:00.000Z'),
+(8, '98005910', 18, 1, 1, '590912', '0', '0', '60.681', '25.29', '1534.62249', '14:42', '2024-04-17T06:00:00.000Z'),
+(9, '97929450', 18, 1, 1, '590912', '1', '0.01', '120.778', '25.29', '3054.47562', '08:27', '2024-04-08T06:00:00.000Z'),
+(10, '98005790', 18, 1, 1, '590912', '0', '0', '156.874', '25.29', '3967.3434599999996', '14:32', '2024-04-17T06:00:00.000Z'),
+(11, '27244160', 22, 3, 1, '288954', '376', '8.43', '44.598', '25.19', '1123.42362', '13:45', '2024-04-04T06:00:00.000Z'),
+(12, '27225790', 22, 3, 1, '288578', '297', '7.34', '40.441', '25.19', '1018.7087900000001', '10:01', '2024-04-01T06:00:00.000Z'),
+(13, '95932530', 22, 12, 3, '289296', '342', '7.56', '45.249', '25.29', '1144.3472100000001', '09:17', '2024-04-09T06:00:00.000Z'),
+(14, '97955080', 19, 1, 9, '323549', '349', '7.26', '48.103', '23.59', '1134.7497700000001', '13:12', '2024-04-11T06:00:00.000Z'),
+(15, '98049800', 18, 1, 1, '590913', '1', '0.01', '137.105', '25.39', '3481.09595', '15:36', '2024-04-22T06:00:00.000Z'),
+(16, '96029970', 19, 12, 7, '323802', '253', '6.52', '38.781', '23.99', '930.3561899999999', '08:55', '2024-04-18T06:00:00.000Z'),
+(17, '27248090', 20, 3, 1, '2535061', '4130', '73.56', '56.142', '25.19', '1414.2169800000001', '08:29', '2024-04-05T06:00:00.000Z'),
+(18, '27281270', 20, 3, 1, '2535063', '2', '0.03', '63.17', '25.29', '1597.5692999999999', '10:13', '2024-04-11T06:00:00.000Z'),
+(19, '41873160', 22, 2, 4, '290634', '710', '15.21', '46.677', '25.29', '1180.4613299999999', '10:09', '2024-04-24T06:00:00.000Z'),
+(20, '26672530', 21, 5, 1, '2565384', '1', '0.02', '50.865', '25.19', '1281.28935', '12:19', '2024-04-05T06:00:00.000Z'),
+(21, '27358570', 20, 3, 1, '2535064', '1', '0.02', '58.654', '25.39', '1489.2250600000002', '08:16', '2024-04-24T06:00:00.000Z'),
+(22, '26711980', 21, 5, 1, '2565385', '1', '0.02', '46.849', '25.29', '1184.8112099999998', '11:28', '2024-04-10T06:00:00.000Z'),
+(23, '97986610', 21, 1, 1, '2579435', '14050', '362.36', '38.774', '25.29', '980.59446', '08:29', '2024-04-15T06:00:00.000Z'),
+(24, '26784670', 21, 5, 1, '2579436', '1', '0.02', '46.092', '25.39', '1170.27588', '13:29', '2024-04-19T06:00:00.000Z'),
+(25, '27237960', 23, 3, 1, '201611', '376', '11.09', '33.907', '25.19', '854.1173299999999', '12:30', '2024-04-03T06:00:00.000Z'),
+(26, '26268850', 23, 7, 1, '201844', '233', '7.84', '29.732', '25.19', '748.94908', '08:57', '2024-04-06T06:00:00.000Z'),
+(27, '26301290', 23, 7, 1, '202097', '253', '5.93', '42.688', '25.19', '1075.3107200000002', '08:58', '2024-04-10T06:00:00.000Z'),
+(28, '26328200', 23, 7, 1, '202359', '262', '8.32', '31.487', '25.19', '793.15753', '09:30', '2024-04-13T06:00:00.000Z'),
+(29, '26361390', 23, 7, 1, '202627', '268', '8.55', '31.34', '25.19', '789.4546', '08:38', '2024-04-17T06:00:00.000Z'),
+(30, '26389510', 23, 7, 1, '202899', '272', '9.63', '28.237', '25.19', '711.29003', '08:52', '2024-04-20T06:00:00.000Z'),
+(31, '59788870', 23, 4, 4, '203187', '288', '6.25', '46.058', '25.39', '1169.41262', '11:12', '2024-04-23T06:00:00.000Z'),
+(32, '38577830', 27, 6, 1, '257694', '297', '6.33', '46.949', '25.19', '1182.64531', '10:49', '2024-04-03T06:00:00.000Z'),
+(33, '231514240', 27, 13, 1, '258012', '318', '6.47', '49.177', '25.19', '1238.76863', '11:47', '2024-04-05T06:00:00.000Z'),
+(34, '38641450', 27, 6, 1, '258264', '252', '6.09', '41.365', '25.29', '1046.12085', '11:15', '2024-04-08T06:00:00.000Z'),
+(35, '231527520', 27, 13, 1, '258557', '293', '6.24', '46.956', '25.29', '1187.5172400000001', '10:14', '2024-04-11T06:00:00.000Z'),
+(36, '231532330', 27, 13, 1, '258842', '285', '6.38', '44.649', '25.29', '1129.17321', '11:24', '2024-04-13T06:00:00.000Z'),
+(37, '231541430', 27, 13, 1, '259137', '295', '6.61', '44.63', '25.29', '1128.6927', '11:21', '2024-04-17T06:00:00.000Z'),
+(38, '98029040', 27, 1, 1, '259479', '342', '6.51', '52.536', '25.39', '1333.88904', '07:24', '2024-04-20T06:00:00.000Z'),
+(39, '98062360', 27, 1, 1, '259480', '1', '0.02', '41.838', '25.39', '1062.26682', '07:59', '2024-04-24T06:00:00.000Z'),
+(40, '97898170', 24, 1, 1, '105279', '303', '5.48', '55.275', '25.19', '1392.37725', '07:36', '2024-04-04T06:00:00.000Z'),
+(41, '26680060', 24, 5, 1, '105493', '214', '5.92', '36.163', '25.29', '914.5622699999999', '09:52', '2024-04-06T06:00:00.000Z'),
+(42, '97944930', 24, 1, 1, '105779', '286', '5', '57.196', '25.29', '1446.4868399999998', '08:15', '2024-04-10T06:00:00.000Z'),
+(43, '97970490', 24, 1, 1, '106056', '277', '5.59', '49.548', '25.29', '1253.06892', '07:50', '2024-04-13T06:00:00.000Z'),
+(44, '26767590', 24, 5, 1, '106289', '233', '6.63', '35.117', '25.29', '888.1089299999999', '09:06', '2024-04-17T06:00:00.000Z'),
+(45, '26782710', 24, 5, 1, '106465', '176', '6.27', '28.087', '25.39', '713.12893', '09:39', '2024-04-19T06:00:00.000Z'),
+(46, '26823620', 24, 5, 1, '106832', '106832', '2674.21', '39.949', '25.39', '1014.30511', '09:01', '2024-04-24T06:00:00.000Z'),
+(47, '68905900', 16, 15, 3, '102633', '333', '6.06', '54.985', '25.29', '1390.57065', '08:46', '2024-04-09T06:00:00.000Z'),
+(48, '69001630', 16, 15, 3, '103439', '374', '7.13', '52.477', '25.39', '1332.39103', '10:14', '2024-04-19T06:00:00.000Z'),
+(49, '66067620', 25, 20, 1, '127140', '236', '4.82', '48.973', '25.19', '1233.62987', '09:35', '2024-04-05T06:00:00.000Z'),
+(50, '36687320', 25, 18, 1, '127832', '221', '5.61', '39.392', '25.29', '996.2236800000001', '11:57', '2024-04-10T06:00:00.000Z'),
+(51, '36737730', 25, 18, 1, '128304', '243', '5.93', '40.965', '25.29', '1036.00485', '12:42', '2024-04-13T06:00:00.000Z'),
+(52, '36806180', 25, 18, 1, '128785', '232', '6.8', '34.105', '25.29', '862.5154499999999', '11:10', '2024-04-17T06:00:00.000Z'),
+(53, '41842820', 22, 2, 4, '289924', '1', '0.02', '43.693', '25.29', '1104.99597', '11:05', '2024-04-20T06:00:00.000Z'),
+(54, '27288760', 22, 3, 1, '289614', '318', '8.66', '36.703', '25.29', '928.21887', '13:30', '2024-04-12T06:00:00.000Z'),
+(55, '26353320', 22, 7, 1, '289923', '309', '7.34', '42.076', '25.19', '1059.89444', '09:54', '2024-04-16T06:00:00.000Z'),
+(56, '26808440', 24, 5, 1, '0', '0', '0', '35.265', '25.39', '895.3783500000001', '09:26', '2024-04-22T06:00:00.000Z'),
+(57, '36927440', 25, 18, 1, '129625', '236', '5.71', '41.362', '25.39', '1050.18118', '12:20', '2024-04-24T06:00:00.000Z'),
+(58, '2147830', 16, 21, 1, '102300', '213', '7.28', '29.253', '25.19', '736.8830700000001', '10:27', '2024-04-04T06:00:00.000Z'),
+(59, '52720', 25, 22, 3, '126449', '192', '5.1', '37.651', '23.99', '903.24749', '07:49', '2024-04-01T06:00:00.000Z'),
+(60, '58480', 25, 22, 3, '126631', '182', '5.25', '34.661', '23.99', '831.51739', '07:43', '2024-04-02T06:00:00.000Z'),
+(61, '65360', 25, 22, 3, '126904', '273', '6.96', '39.197', '23.99', '940.33603', '13:42', '2024-04-03T06:00:00.000Z'),
+(62, '96400', 25, 22, 3, '127428', '288', '5.87', '49.029', '23.99', '1176.20571', '08:15', '2024-04-08T06:00:00.000Z'),
+(63, '102120', 25, 22, 3, '127611', '183', '6.61', '27.68', '24.39', '675.1152', '07:54', '2024-04-09T06:00:00.000Z'),
+(64, '111810', 25, 22, 3, '128061', '229', '5.83', '39.279', '24.39', '958.0148100000001', '13:38', '2024-04-11T06:00:00.000Z'),
+(65, '130400', 25, 22, 3, '128553', '249', '5.21', '47.818', '24.39', '1166.28102', '15:41', '2024-04-15T06:00:00.000Z'),
+(66, '144280', 25, 22, 3, '129026', '241', '5.66', '42.602', '24.79', '1056.10358', '14:48', '2024-04-19T06:00:00.000Z'),
+(67, '159130', 25, 22, 3, '129389', '118', '4.99', '23.657', '24.79', '586.45703', '07:40', '2024-04-23T06:00:00.000Z'),
+(68, '20902860', 25, 23, 3, '129271', '245', '5.03', '48.663', '25.39', '1235.55357', '11:13', '2024-04-22T06:00:00.000Z'),
+(69, '65687720', 25, 20, 1, '123809', '256', '5.64', '45.379', '25.19', '1143.09701', '11:44', '2024-03-09T06:00:00.000Z'),
+(70, '97678130', 20, 1, 1, '2518611', '2258773', '35393.98', '63.818', '25.19', '1607.5754200000001', '09:26', '2024-03-07T06:00:00.000Z'),
+(71, '97688010', 19, 1, 9, '322538', '294', '6.54', '44.953', '23.49', '1055.94597', '13:32', '2024-03-08T06:00:00.000Z'),
+(72, '97677170', 18, 1, 1, '189200', '372', '3.06', '121.509', '25.19', '3060.81171', '08:18', '2024-03-07T06:00:00.000Z'),
+(73, '97677240', 18, 1, 1, '189201', '1', '0.03', '35.42', '25.19', '892.2298000000001', '08:23', '2024-03-07T06:00:00.000Z'),
+(74, '27086980', 22, 3, 1, '286365', '389', '8.83', '44.052', '25.19', '1109.6698800000001', '08:26', '2024-03-05T06:00:00.000Z'),
+(75, '504096410', 22, 16, 4, '286618', '253', '7.94', '31.859', '25.19', '802.5282100000001', '12:11', '2024-03-07T06:00:00.000Z'),
+(76, '27087050', 21, 3, 1, '2555510', '3510', '71.41', '49.151', '25.19', '1238.1136900000001', '08:46', '2024-03-05T06:00:00.000Z'),
+(77, '97694320', 17, 1, 1, '75150', '347', '6.72', '51.647', '25.19', '1300.98793', '08:38', '2024-03-09T06:00:00.000Z'),
+(78, '97669550', 27, 1, 1, '254773', '269', '5.6', '48.031', '25.19', '1209.9008900000001', '08:21', '2024-03-06T06:00:00.000Z'),
+(79, '26440670', 24, 5, 1, '102959', '252', '5.86', '43.005', '25.19', '1083.2959500000002', '09:24', '2024-03-06T06:00:00.000Z'),
+(80, '38249380', 27, 6, 1, '255057', '284', '6.76', '42.019', '25.19', '1058.45861', '08:54', '2024-03-08T06:00:00.000Z'),
+(81, '38290510', 27, 6, 1, '255369', '312', '6.69', '46.604', '25.19', '1173.95476', '11:13', '2024-03-11T06:00:00.000Z'),
+(82, '26479570', 24, 5, 1, '103330', '206', '6.13', '33.592', '25.19', '846.18248', '09:24', '2024-03-11T06:00:00.000Z'),
+(83, '26454880', 24, 5, 1, '103124', '165', '4.85', '34.008', '25.19', '856.6615200000001', '09:13', '2024-03-08T06:00:00.000Z'),
+(84, '36101920', 25, 18, 1, '123305', '297', '6.74', '44.065', '25.19', '1109.99735', '12:18', '2024-03-06T06:00:00.000Z'),
+(85, '21523980', 25, 11, 3, '123553', '248', '5.32', '46.626', '25.19', '1174.50894', '14:31', '2024-03-07T06:00:00.000Z'),
+(86, '21537740', 18, 11, 3, '189512', '311', '4.08', '76.157', '25.19', '1918.39483', '08:23', '2024-03-11T06:00:00.000Z'),
+(87, '26029830', 23, 7, 1, '199535', '233', '6.86', '33.954', '25.19', '855.3012600000001', '08:55', '2024-03-07T06:00:00.000Z'),
+(88, '26055960', 23, 7, 1, '199811', '276', '8.33', '33.118', '25.19', '834.2424200000002', '08:55', '2024-03-10T06:00:00.000Z'),
+(89, '97892660', 33, 1, 1, '14874', '490', '5.16', '95.014', '25.19', '2393.40266', '11:23', '2024-04-03T00:00:00.000Z'),
+(90, '97945450', 33, 1, 1, '15249', '375', '2.85', '131.78', '25.29', '3332.7162', '09:21', '2024-04-10T06:00:00.000Z'),
+(91, '38671850', 33, 6, 1, '15493', '244', '3.21', '75.983', '25.29', '1921.61007', '19:41', '2024-04-10T06:00:00.000Z'),
+(92, '97989480', 33, 1, 1, '15676', '183', '2.44', '74.994', '25.29', '1896.59826', '12:44', '2024-04-15T06:00:00.000Z'),
+(93, '140670', 33, 22, 3, '16222', '546', '5.18', '105.306', '24.69', '2600.00514', '14:49', '2024-04-18T06:00:00.000Z'),
+(94, '26508770', 24, 5, 1, '103703', '163', '5.88', '27.736', '25.19', '698.66984', '09:01', '2024-03-15T06:00:00.000Z'),
+(95, '27151550', 20, 3, 1, '2522511', '3900', '68.04', '57.316', '25.19', '1443.79004', '10:22', '2024-03-17T06:00:00.000Z'),
+(96, '26072050', 22, 7, 1, '286921', '303', '6.9', '43.891', '25.19', '1105.61429', '09:15', '2024-03-12T06:00:00.000Z'),
+(97, '26518750', 24, 5, 1, '103857', '154', '4.69', '32.858', '25.19', '827.6930199999999', '10:51', '2024-03-16T06:00:00.000Z'),
+(98, '97766950', 16, 1, 1, '101033', '456', '8.37', '54.479', '25.19', '1372.32601', '08:01', '2024-03-18T06:00:00.000Z'),
+(99, '21541610', 25, 11, 3, '123953', '144', '8.25', '17.465', '25.19', '439.94335', '08:28', '2024-03-12T06:00:00.000Z'),
+(100, '97728980', 18, 1, 1, '189715', '203', '1.61', '126.358', '25.19', '3182.9580200000005', '14:52', '2024-03-13T06:00:00.000Z'),
+(101, '21544620', 25, 11, 3, '129703', '5750', '211.65', '27.167', '25.19', '684.3367300000001', '07:47', '2024-03-13T06:00:00.000Z'),
+(102, '21555290', 25, 11, 3, '129816', '1', '0.05', '18.736', '25.19', '471.95984000000004', '07:26', '2024-03-16T06:00:00.000Z'),
+(103, '21548250', 25, 11, 3, '129704', '1', '0.04', '23.708', '25.19', '597.20452', '08:06', '2024-03-14T06:00:00.000Z'),
+(104, '65771450', 25, 20, 1, '129815', '111', '2.7', '41.091', '25.19', '1035.08229', '09:48', '2024-03-15T06:00:00.000Z'),
+(105, '20774650', 25, 23, 3, '129817', '1', '0.02', '45.43', '25.19', '1144.3817000000001', '11:33', '2024-03-18T06:00:00.000Z'),
+(106, '95708100', 33, 12, 3, '13793', '1467', '14.37', '102.1', '25.19', '2571.899', '15:13', '2024-03-18T06:00:00.000Z'),
+(107, '59542040', 21, 4, 4, '2559010', '3500', '83.38', '41.978', '25.19', '1057.4258200000002', '10:41', '2024-03-12T06:00:00.000Z'),
+(108, '27145250', 22, 3, 1, '287293', '372', '9.31', '39.955', '25.19', '1006.46645', '08:31', '2024-03-16T06:00:00.000Z'),
+(109, '97767260', 21, 1, 1, '2559011', '1', '0.03', '36.541', '25.19', '920.4677899999999', '09:07', '2024-03-18T06:00:00.000Z'),
+(110, '97767290', 21, 1, 1, '2559012', '1', '0.07', '14.083', '25.19', '354.75077000000005', '09:11', '2024-03-18T06:00:00.000Z'),
+(111, '38327870', 27, 6, 1, '255660', '291', '6.15', '47.333', '25.19', '1192.31827', '11:26', '2024-03-14T06:00:00.000Z'),
+(112, '231466590', 27, 13, 1, '255938', '278', '6.84', '40.621', '25.19', '1023.2429900000001', '11:11', '2024-03-16T06:00:00.000Z'),
+(113, '26494090', 24, 5, 1, '103540', '210', '4.85', '43.289', '25.19', '1090.44991', '09:32', '2024-03-13T06:00:00.000Z'),
+(114, '97718160', 13, 1, 1, '80063', '297', '6.87', '43.231', '25.19', '1088.98889', '08:35', '2024-03-12T06:00:00.000Z'),
+(115, '26088010', 23, 7, 1, '0', '0', '0', '33.975', '25.19', '855.8302500000001', '08:58', '2024-03-14T06:00:00.000Z'),
+(116, '95704360', 23, 12, 3, '0', '0', '0', '43.431', '25.19', '1094.02689', '09:24', '2024-03-18T06:00:00.000Z'),
+(117, '98181600', 18, 1, 1, '193606', '0', '0', '30', '25.49', '764.6999999999999', '10:19', '2024-05-08T06:00:00.000Z'),
+(118, '98202500', 19, 1, 9, '324089', '0', '0', '46.46', '23.89', '1109.9294', '15:10', '2024-05-10T06:00:00.000Z'),
+(119, '27468980', 20, 3, 1, '2535066', '1', '0.02', '61.645', '25.49', '1571.33105', '08:52', '2024-05-12T06:00:00.000Z'),
+(120, '98181650', 18, 1, 1, '193607', '1', '0.01', '113.657', '25.49', '2897.1169299999997', '10:26', '2024-05-08T06:00:00.000Z'),
+(121, '26989250', 18, 5, 1, '193608', '1', '0.02', '45.435', '25.49', '1158.13815', '17:22', '2024-05-13T06:00:00.000Z'),
+(122, '26986010', 17, 5, 1, '75522', '0', '0', '54.016', '25.49', '1376.86784', '11:46', '2024-05-13T06:00:00.000Z'),
+(123, '27474430', 22, 3, 1, '292083', '292083', '5961.61', '48.994', '25.49', '1248.8570599999998', '09:37', '2024-05-13T06:00:00.000Z'),
+(124, '26932840', 21, 5, 1, '2579439', '1', '0.02', '52.697', '25.49', '1343.24653', '12:11', '2024-05-07T06:00:00.000Z'),
+(125, '26597360', 23, 7, 1, '204834', '331', '8.37', '39.55', '25.49', '1008.1294999999999', '09:05', '2024-05-13T06:00:00.000Z'),
+(126, '26559330', 23, 7, 1, '204503', '239', '7.41', '32.262', '25.49', '822.35838', '09:21', '2024-05-09T06:00:00.000Z'),
+(127, '231595740', 27, 13, 1, '261299', '228', '6.49', '35.116', '25.49', '895.1068399999999', '11:12', '2024-05-09T06:00:00.000Z'),
+(128, '26939410', 24, 5, 1, '107674', '1', '0.02', '42.231', '25.49', '1076.46819', '08:51', '2024-05-08T06:00:00.000Z'),
+(129, '26955670', 24, 5, 1, '108137', '463', '17.64', '26.244', '25.49', '668.9595599999999', '08:48', '2024-05-10T06:00:00.000Z'),
+(130, '39089050', 27, 6, 1, '261568', '269', '6.16', '43.699', '25.49', '1113.8875099999998', '10:25', '2024-05-11T06:00:00.000Z'),
+(131, '98188880', 13, 1, 1, '82056', '328', '7.57', '43.351', '25.49', '1105.0169899999999', '08:20', '2024-05-09T06:00:00.000Z'),
+(132, '26984960', 24, 5, 1, '108374', '237', '6.73', '35.196', '25.49', '897.1460399999999', '09:25', '2024-05-13T06:00:00.000Z'),
+(133, '66552620', 25, 20, 1, '131623', '245', '5.73', '42.749', '25.49', '1089.67201', '12:01', '2024-05-08T06:00:00.000Z'),
+(134, '69213940', 16, 15, 3, '105138', '398', '7.54', '52.804', '25.49', '1345.97396', '08:15', '2024-05-11T06:00:00.000Z'),
+(135, '213310', 25, 22, 3, '131378', '181', '5.77', '31.369', '24.89', '780.77441', '07:42', '2024-05-07T06:00:00.000Z'),
+(136, '225280', 25, 22, 3, '131853', '230', '4.61', '49.899', '24.89', '1241.98611', '07:47', '2024-05-10T06:00:00.000Z'),
+(137, '37234980', 25, 18, 1, '132117', '264', '16.12', '16.382', '25.49', '417.57718', '13:29', '2024-05-11T06:00:00.000Z'),
+(138, '37235180', 25, 18, 9, '132117', '0', '0', '3.752', '23.99', '90.01047999999999', '13:37', '2024-05-11T06:00:00.000Z'),
+(139, '98229150', 33, 1, 1, '17282', '502', '4.89', '102.685', '25.49', '2617.44065', '14:50', '2024-05-13T06:00:00.000Z'),
+(140, '98217770', 25, 1, 1, '132184', '67', '1.53', '43.81', '25.49', '1116.7169', '07:36', '2024-05-12T06:00:00.000Z'),
+(141, '96266480', 22, 12, 3, '0', '0', '0', '39.455', '25.49', '1005.7079499999999', '08:57', '2024-05-08T06:00:00.000Z'),
+(142, '27000950', 24, 5, 1, '108375', '1', '0.03', '31.417', '25.49', '800.81933', '08:55', '2024-05-15T06:00:00.000Z'),
+(143, '96420650', 18, 12, 3, '194845', '276', '3.34', '82.523', '25.49', '2103.51127', '15:29', '2024-05-20T06:00:00.000Z'),
+(144, '98244630', 18, 1, 1, '194568', '960', '32', '30', '25.49', '764.6999999999999', '14:26', '2024-05-15T06:00:00.000Z'),
+(145, '98244710', 18, 1, 1, '194569', '1', '0.01', '191.363', '25.49', '4877.8428699999995', '14:36', '2024-05-15T06:00:00.000Z'),
+(146, '27027050', 24, 5, 1, '108848', '473', '10.48', '45.122', '25.49', '1150.15978', '10:02', '2024-05-18T06:00:00.000Z'),
+(147, '246030', 25, 22, 3, '132383', '199', '4.99', '39.848', '24.89', '991.81672', '07:50', '2024-05-14T06:00:00.000Z'),
+(148, '96379900', 16, 12, 3, '105608', '470', '8.72', '53.914', '25.49', '1374.26786', '09:40', '2024-05-17T06:00:00.000Z'),
+(149, '37303690', 25, 18, 1, '132605', '222', '6.73', '32.987', '25.49', '840.83863', '11:01', '2024-05-15T06:00:00.000Z'),
+(150, '37323260', 25, 18, 1, '132788', '183', '5.48', '33.42', '25.49', '851.8758', '14:00', '2024-05-16T06:00:00.000Z'),
+(151, '259560', 25, 22, 3, '132991', '203', '4.76', '42.66', '24.89', '1061.8074', '13:52', '2024-05-17T06:00:00.000Z'),
+(152, '98276290', 25, 1, 1, '133147', '156', '6.1', '25.581', '25.49', '652.0596899999999', '07:49', '2024-05-19T06:00:00.000Z'),
+(153, '29301830', 25, 24, 3, '133374', '227', '4.76', '47.699', '25.49', '1215.8475099999998', '07:45', '2024-05-21T06:00:00.000Z'),
+(154, '37425200', 25, 18, 1, '133627', '253', '6.74', '37.535', '25.49', '956.7671499999999', '10:20', '2024-05-22T06:00:00.000Z'),
+(155, '98304750', 18, 1, 1, '195221', '376', '12.53', '30', '25.49', '764.6999999999999', '14:20', '2024-05-22T06:00:00.000Z'),
+(156, '98313120', 33, 1, 1, '17979', '697', '9.05', '77.004', '25.49', '1962.83196', '12:16', '2024-05-23T06:00:00.000Z'),
+(157, '98304870', 18, 1, 1, '195222', '1', '0.01', '137.325', '25.49', '3500.4142499999994', '14:32', '2024-05-22T06:00:00.000Z'),
+(158, '26651110', 23, 7, 1, '205033', '1', '0.04', '25.317', '25.49', '645.33033', '08:59', '2024-05-19T06:00:00.000Z'),
+(159, '26679100', 23, 7, 1, '205035', '1', '0.03', '33.283', '25.49', '848.3836699999999', '12:40', '2024-05-22T06:00:00.000Z'),
+(160, '98302030', 19, 1, 9, '324647', '558', '14.22', '39.241', '23.89', '937.46749', '08:14', '2024-05-22T06:00:00.000Z'),
+(161, '27523630', 22, 3, 1, '292720', '315', '7.21', '43.664', '25.49', '1112.99536', '11:48', '2024-05-21T06:00:00.000Z'),
+(162, '27505520', 20, 3, 1, '2535066', '0', '0', '58.677', '25.49', '1495.67673', '10:05', '2024-05-18T06:00:00.000Z'),
+(163, '26994720', 21, 5, 1, '2579440', '1', '0.02', '49.251', '25.49', '1255.40799', '12:19', '2024-05-14T06:00:00.000Z'),
+(164, '69301950', 17, 15, 3, '75790', '268', '5.9', '45.457', '25.49', '1158.69893', '08:57', '2024-05-20T06:00:00.000Z'),
+(165, '26623420', 23, 7, 1, '205032', '198', '7.33', '27.028', '25.49', '688.9437199999999', '09:31', '2024-05-16T06:00:00.000Z'),
+(166, '26679070', 23, 7, 1, '205034', '1', '0.5', '2', '25.49', '50.98', '12:37', '2024-05-22T06:00:00.000Z'),
+(167, '39143990', 27, 6, 1, '261818', '250', '6.53', '38.311', '25.49', '976.54739', '10:24', '2024-05-15T06:00:00.000Z'),
+(168, '231614170', 27, 13, 1, '262127', '309', '6.48', '47.653', '25.49', '1214.6749699999998', '11:02', '2024-05-17T06:00:00.000Z'),
+(169, '231621860', 27, 13, 1, '262390', '263', '6.17', '42.628', '25.49', '1086.58772', '12:00', '2024-05-20T06:00:00.000Z'),
+(170, '39250770', 27, 6, 1, '262670', '280', '6.64', '42.163', '25.49', '1074.7348699999998', '10:11', '2024-05-23T06:00:00.000Z'),
+(171, '98268930', 13, 1, 1, '82057', '1', '0.02', '46.246', '25.49', '1178.81054', '10:38', '2024-05-18T06:00:00.000Z'),
+(172, '96380380', 22, 12, 3, '292405', '322', '9.76', '32.983', '25.49', '840.7366699999999', '10:18', '2024-05-17T06:00:00.000Z'),
+(173, '37440790', 24, 18, 1, '109137', '289', '6.43', '44.975', '25.49', '1146.41275', '10:22', '2024-05-23T06:00:00.000Z'),
+(174, '787844280', 26, 25, 11, '268099', '247', '8.55', '41.159', '25.15', '1035.1488499999998', '10:22', '2024-05-02T06:00:00.000Z'),
+(175, '787630670', 26, 25, 11, '266739', '263', '7.25', '40.004', '25.05', '1002.1002', '09:47', '2024-04-09T06:00:00.000Z'),
+(176, '787564920', 34, 25, 11, '231971', '0', '0', '47.847', '25.05', '1198.56735', '09:41', '2024-04-01T06:00:00.000Z'),
+(177, '787582250', 28, 25, 11, '215297', '274', '5.22', '46.342', '25.05', '1160.8671', '10:14', '2024-04-03T06:00:00.000Z'),
+(178, '787581470', 26, 25, 11, '266476', '219', '4.98', '36.283', '25.05', '908.8891500000001', '09:09', '2024-04-03T06:00:00.000Z'),
+(179, '787621500', 28, 25, 11, '215576', '279', '6.02', '42.678', '25.05', '1069.0838999999999', '09:52', '2024-04-08T06:00:00.000Z'),
+(180, '47964760', 30, 26, 11, '206163', '404', '7.97', '52.125', '25.19', '1313.0287500000002', '09:11', '2024-04-01T06:00:00.000Z'),
+(181, '47976880', 30, 26, 11, '206333', '170', '3.26', '32.756', '25.19', '825.12364', '08:34', '2024-04-02T06:00:00.000Z'),
+(182, '787589000', 30, 25, 11, '206733', '400', '12.21', '57.232', '25.05', '1433.6616000000001', '08:57', '2024-04-04T06:00:00.000Z'),
+(183, '48010540', 30, 26, 11, '206945', '212', '3.7', '29.06', '25.19', '732.0214', '08:52', '2024-04-05T06:00:00.000Z'),
+(184, '48057980', 30, 26, 11, '707516', '500173', '8537.27', '25.762', '25.19', '648.94478', '08:42', '2024-04-09T06:00:00.000Z'),
+(185, '48045970', 30, 26, 11, '207343', '398', '13.7', '58.587', '25.19', '1475.80653', '08:47', '2024-04-08T06:00:00.000Z'),
+(186, '787620570', 29, 25, 11, '240179', '248', '5.18', '47.342', '25.05', '1185.9171', '08:20', '2024-04-08T06:00:00.000Z'),
+(187, '787606880', 32, 25, 11, '180922', '350', '7.26', '62.565', '25.05', '1567.25325', '10:43', '2024-04-06T06:00:00.000Z'),
+(188, '787581060', 32, 25, 11, '180313', '330', '7.9', '54.176', '25.05', '1357.1088', '08:14', '2024-04-03T06:00:00.000Z'),
+(189, '787596960', 32, 25, 11, '180572', '259', '4.78', '48.225', '25.05', '1208.03625', '08:45', '2024-04-05T06:00:00.000Z'),
+(190, '787639360', 32, 25, 11, '181470', '328', '8.93', '54.917', '25.05', '1375.67085', '08:29', '2024-04-10T06:00:00.000Z'),
+(191, '787629930', 32, 25, 11, '181142', '220', '3.52', '36.741', '25.05', '920.3620500000001', '08:35', '2024-04-09T06:00:00.000Z'),
+(192, '787610050', 35, 25, 12, '11425', '721', '16.4', '49.409', '25.89', '1279.19901', '15:10', '2024-04-06T06:00:00.000Z'),
+(193, '787564680', 32, 25, 11, '179779', '345', '8.48', '55.956', '25.05', '1401.6978000000001', '09:22', '2024-04-01T06:00:00.000Z'),
+(194, '787573200', 32, 25, 11, '179983', '204', '3.65', '41.764', '25.05', '1046.1882', '08:37', '2024-04-02T06:00:00.000Z'),
+(195, '787582420', 29, 25, 11, '239931', '259', '5.53', '47.882', '25.05', '1199.4441', '10:31', '2024-04-03T06:00:00.000Z'),
+(196, '787667830', 26, 25, 11, '266983', '244', '6.1', '43.124', '25.05', '1080.2562', '09:09', '2024-04-13T06:00:00.000Z'),
+(197, '787714430', 26, 25, 11, '267175', '192', '4.45', '34.082', '25.05', '853.7541', '10:04', '2024-04-18T06:00:00.000Z'),
+(198, '787733290', 36, 25, 10, '338280', '0', '0', '41.535', '23.99', '996.4246499999998', '09:00', '2024-04-20T06:00:00.000Z'),
+(199, '787669240', 28, 25, 11, '215882', '306', '7.17', '49.777', '25.05', '1246.9138500000001', '11:08', '2024-04-13T06:00:00.000Z'),
+(200, '787723910', 28, 25, 11, '216206', '324', '6.51', '49.609', '25.05', '1242.7054500000002', '10:13', '2024-04-19T06:00:00.000Z'),
+(201, '787697680', 34, 25, 11, '232275', '304', '6.35', '41.993', '25.05', '1051.9246500000002', '12:50', '2024-04-16T06:00:00.000Z'),
+(202, '48135300', 30, 26, 11, '708320', '803', '13.94', '56.527', '25.19', '1423.91513', '09:01', '2024-04-15T06:00:00.000Z'),
+(203, '48162690', 30, 26, 11, '708321', '0', '0', '28.541', '25.19', '718.94779', '09:27', '2024-04-17T06:00:00.000Z'),
+(204, '787660630', 29, 25, 11, '240454', '275', '5.81', '46.18', '25.05', '1156.809', '12:26', '2024-04-12T06:00:00.000Z'),
+(205, '48149660', 30, 26, 11, '708321', '1', '0.02', '30.777', '25.19', '775.27263', '09:22', '2024-04-16T06:00:00.000Z'),
+(206, '48096640', 30, 26, 11, '707517', '1', '0.04', '57.594', '25.19', '1450.79286', '08:57', '2024-04-12T06:00:00.000Z'),
+(207, '48188790', 30, 26, 11, '708322', '1', '0.04', '29.484', '25.19', '742.7019600000001', '08:58', '2024-04-19T06:00:00.000Z'),
+(208, '787704110', 29, 25, 11, '240657', '203', '4.4', '45.581', '25.05', '1141.8040500000002', '08:31', '2024-04-17T06:00:00.000Z'),
+(209, '48202690', 30, 26, 11, '708324', '2', '0.07', '34.659', '25.29', '876.5261099999999', '09:16', '2024-04-20T06:00:00.000Z'),
+(210, '787668300', 32, 25, 11, '181946', '217', '5.55', '40.658', '25.05', '1018.4829000000001', '09:50', '2024-04-13T06:00:00.000Z'),
+(211, '787695390', 32, 25, 11, '182492', '206', '4.47', '41.846', '25.05', '1048.2423', '09:15', '2024-04-16T06:00:00.000Z'),
+(212, '787685100', 32, 25, 11, '182286', '340', '8.36', '46.045', '25.05', '1153.4272500000002', '09:07', '2024-04-15T06:00:00.000Z'),
+(213, '787649850', 32, 25, 11, '181729', '259', '4.72', '39.117', '25.05', '979.88085', '10:08', '2024-04-11T06:00:00.000Z'),
+(214, '787704450', 32, 25, 11, '182822', '330', '7.89', '51.835', '25.05', '1298.46675', '09:06', '2024-04-17T06:00:00.000Z'),
+(215, '48148950', 35, 26, 12, '12006', '581', '11.76', '40.653', '26.29', '1068.76737', '08:35', '2024-04-16T06:00:00.000Z'),
+(216, '787724070', 32, 25, 11, '183293', '211', '4.41', '32.886', '25.05', '823.7943000000001', '10:27', '2024-04-19T06:00:00.000Z'),
+(217, '787724130', 32, 25, 11, '183294', '1', '0.03', '5.7', '25.05', '142.785', '10:32', '2024-04-19T06:00:00.000Z'),
+(218, '787714270', 32, 25, 11, '183082', '260', '5.02', '47.887', '25.05', '1199.56935', '09:44', '2024-04-18T06:00:00.000Z'),
+(219, '787814560', 34, 25, 11, '237992', '5717', '136.14', '43.724', '25.15', '1099.6585999999998', '09:12', '2024-04-29T06:00:00.000Z'),
+(220, '787769560', 32, 25, 11, '184178', '330', '9.54', '59.688', '25.15', '1501.1532', '10:18', '2024-04-24T06:00:00.000Z'),
+(221, '787788000', 28, 25, 11, '216478', '272', '5.48', '41.108', '25.15', '1033.8662', '09:46', '2024-04-26T06:00:00.000Z'),
+(222, '787787940', 32, 25, 11, '184451', '273', '4.57', '49.758', '25.15', '1251.4137', '09:36', '2024-04-26T06:00:00.000Z'),
+(223, '787814910', 32, 25, 11, '184794', '343', '6.89', '58.841', '25.15', '1479.85115', '09:38', '2024-04-29T06:00:00.000Z'),
+(224, '787825690', 32, 25, 11, '185000', '206', '3.5', '35.52', '25.15', '893.328', '09:47', '2024-04-30T06:00:00.000Z'),
+(225, '787797840', 26, 25, 11, '267635', '227', '5.56', '34.067', '25.15', '856.78505', '10:37', '2024-04-27T06:00:00.000Z'),
+(226, '787759270', 26, 25, 11, '267408', '233', '6.84', '40.847', '25.15', '1027.30205', '09:17', '2024-04-23T06:00:00.000Z'),
+(227, '48240980', 30, 26, 11, '708324', '0', '0', '48.672', '25.29', '1230.9148799999998', '08:48', '2024-04-23T06:00:00.000Z'),
+(228, '48332830', 26, 26, 11, '267852', '217', '6.37', '28.893', '25.39', '733.5932700000001', '08:58', '2024-04-30T06:00:00.000Z'),
+(229, '48333490', 28, 26, 11, '216691', '213', '5.18', '35.575', '25.39', '903.2492500000001', '09:46', '2024-04-30T06:00:00.000Z'),
+(230, '787786920', 29, 25, 11, '241180', '248', '5.09', '42.431', '25.15', '1067.1396499999998', '08:02', '2024-04-26T06:00:00.000Z'),
+(231, '787748950', 29, 25, 11, '240932', '275', '6.03', '48.767', '25.15', '1226.49005', '08:16', '2024-04-22T06:00:00.000Z'),
+(232, '787749850', 32, 25, 11, '183641', '347', '60.88', '54.372', '25.15', '1367.4558', '09:29', '2024-04-22T06:00:00.000Z'),
+(233, '787759060', 32, 25, 11, '183848', '207', '3.81', '34.576', '25.15', '869.5863999999999', '08:58', '2024-04-23T06:00:00.000Z'),
+(234, '48335860', 29, 26, 11, '241435', '255', '6.01', '50.603', '25.39', '1284.81017', '12:52', '2024-04-30T06:00:00.000Z'),
+(235, '48280170', 30, 26, 11, '99999999', '99290096', '1882598', '33.184', '25.29', '839.22336', '08:40', '2024-04-26T06:00:00.000Z'),
+(236, '787777550', 30, 25, 11, '709899', '1575', '32.36', '52.741', '25.15', '1326.43615', '08:08', '2024-04-25T06:00:00.000Z'),
+(237, '48294650', 30, 26, 11, '99999999', '0', '0', '29.77', '25.29', '752.8833', '09:42', '2024-04-27T06:00:00.000Z'),
+(238, '27559100', 22, 3, 1, '293135', '415', '8.59', '48.321', '25.49', '1231.70229', '09:25', '2024-05-27T06:00:00.000Z'),
+(239, '98367470', 18, 1, 1, '195630', '407', '2.53', '160.83', '25.49', '4099.5567', '14:41', '2024-05-29T06:00:00.000Z'),
+(240, '59998910', 20, 4, 4, '253506', '1', '0.02', '62.156', '25.49', '1584.3564399999998', '10:59', '2024-05-25T06:00:00.000Z'),
+(241, '98367360', 18, 1, 1, '195223', '1', '0.03', '30', '25.49', '764.6999999999999', '14:29', '2024-05-29T06:00:00.000Z'),
+(242, '27579520', 22, 3, 1, '293511', '376', '9.04', '41.594', '25.49', '1060.23106', '13:52', '2024-05-30T06:00:00.000Z'),
+(243, '98320940', 21, 1, 1, '260310', '23660', '527.29', '44.871', '25.49', '1143.76179', '08:42', '2024-05-24T06:00:00.000Z'),
+(244, '96528820', 23, 12, 3, '206028', '285', '7.73', '36.869', '25.49', '939.79081', '12:12', '2024-05-29T06:00:00.000Z'),
+(245, '26705300', 23, 7, 1, '205743', '708', '24.28', '29.162', '25.49', '743.3393799999999', '08:57', '2024-05-25T06:00:00.000Z'),
+(246, '39264120', 17, 6, 1, '76112', '322', '6.92', '46.557', '25.49', '1186.73793', '08:59', '2024-05-24T06:00:00.000Z'),
+(247, '29347470', 17, 24, 3, '76372', '260', '5.45', '47.727', '25.49', '1216.5612299999998', '07:44', '2024-05-28T06:00:00.000Z'),
+(248, '98355870', 13, 1, 1, '82697', '640', '15.11', '42.361', '25.49', '1079.7818899999997', '08:04', '2024-05-28T06:00:00.000Z'),
+(249, '39346120', 27, 6, 1, '263191', '256', '5.84', '43.834', '25.49', '1117.32866', '10:41', '2024-05-30T06:00:00.000Z'),
+(250, '96468170', 16, 12, 3, '106031', '423', '7.63', '55.474', '25.49', '1414.0322599999997', '13:15', '2024-05-24T06:00:00.000Z'),
+(251, '231639550', 27, 13, 1, '262935', '265', '6.02', '44.006', '25.49', '1121.71294', '14:03', '2024-05-27T06:00:00.000Z'),
+(252, '69405130', 16, 15, 3, '106408', '377', '8.01', '47.076', '25.49', '1199.96724', '08:50', '2024-05-30T06:00:00.000Z'),
+(253, '37461030', 25, 18, 1, '133796', '91193120', '2550143.25', '35.76', '25.49', '911.5224', '12:45', '2024-05-24T06:00:00.000Z'),
+(254, '21832270', 25, 11, 3, '134261', '1', '0.02', '45.543', '25.49', '1160.89107', '07:54', '2024-05-29T06:00:00.000Z'),
+(255, '98339790', 25, 1, 1, '134000', '1', '0.02', '42.57', '25.49', '1085.1092999999998', '09:37', '2024-05-26T06:00:00.000Z'),
+(256, '21040730', 25, 23, 3, '134482', '1', '0.02', '46.838', '25.49', '1193.90062', '11:23', '2024-05-30T06:00:00.000Z'),
+(257, '98351010', 33, 1, 1, '18139', '1', '0.01', '98.065', '25.49', '2499.67685', '15:42', '2024-05-27T06:00:00.000Z'),
+(258, '98355700', 24, 1, 1, '109622', '233', '6.05', '38.52', '25.49', '981.8748', '07:47', '2024-05-28T06:00:00.000Z'),
+(259, '39278010', 24, 6, 1, '109389', '252', '5.06', '49.8', '25.49', '1269.4019999999998', '08:48', '2024-05-25T06:00:00.000Z'),
+(260, '787751700', 31, 25, 11, '22675', '486', '9.58', '84.868', '25.15', '2134.4302', '12:09', '2024-04-22T06:00:00.000Z'),
+(261, '787796400', 31, 25, 11, '23467', '333', '4.19', '56.225', '25.15', '1414.05875', '08:40', '2024-04-27T06:00:00.000Z'),
+(262, '787787270', 31, 25, 11, '23134', '459', '5.41', '79.411', '25.15', '1997.1866499999999', '08:41', '2024-04-26T06:00:00.000Z'),
+(263, '787824490', 31, 25, 11, '23936', '469', '8.34', '83.048', '25.15', '2088.6572', '07:51', '2024-04-30T06:00:00.000Z'),
+(264, '788165830', 34, 25, 11, '238098', '101', '1.78', '54.442', '25.15', '1369.2162999999998', '09:09', '2024-06-05T06:00:00.000Z'),
+(265, '788230400', 36, 25, 10, '340038', '337', '7.03', '42.966', '24.09', '1035.05094', '08:59', '2024-06-12T06:00:00.000Z'),
+(266, '788221590', 34, 25, 11, '238099', '1', '0.02', '38.925', '25.15', '978.9637499999999', '09:35', '2024-06-11T06:00:00.000Z'),
+(267, '788194090', 29, 25, 11, '243519', '281', '6.11', '50.169', '25.15', '1261.7503499999998', '07:34', '2024-06-08T06:00:00.000Z'),
+(268, '788231680', 29, 25, 11, '243763', '244', '4.86', '45.784', '25.15', '1151.4676', '11:00', '2024-06-12T06:00:00.000Z'),
+(269, '788156440', 32, 25, 11, '191463', '205', '3.76', '40.894', '25.15', '1028.4841', '08:34', '2024-06-04T06:00:00.000Z'),
+(270, '788128670', 32, 25, 11, '191258', '349', '8.94', '54.54', '25.15', '1371.6809999999998', '09:54', '2024-06-01T06:00:00.000Z'),
+(271, '788175360', 32, 25, 11, '192054', '258', '4.12', '41.947', '25.15', '1054.96705', '08:48', '2024-06-06T06:00:00.000Z'),
+(272, '788166180', 32, 25, 11, '191796', '333', '8.14', '62.603', '25.15', '1574.46545', '09:38', '2024-06-05T06:00:00.000Z'),
+(273, '788221300', 32, 25, 11, '192484', '209', '5.62', '35.139', '25.15', '883.74585', '09:11', '2024-06-11T06:00:00.000Z'),
+(274, '788240500', 32, 25, 11, '193073', '259', '4.18', '43.015', '25.15', '1081.82725', '09:16', '2024-06-13T06:00:00.000Z'),
+(275, '788211600', 32, 25, 11, '192275', '221', '5.27', '37.188', '25.15', '935.2782', '09:29', '2024-06-10T06:00:00.000Z'),
+(276, '788231170', 32, 25, 11, '192814', '330', '9.39', '61.889', '25.15', '1556.50835', '10:12', '2024-06-12T06:00:00.000Z'),
+(277, '788250240', 32, 25, 11, '193281', '208', '4.84', '39.622', '25.15', '996.4933', '09:52', '2024-06-14T06:00:00.000Z'),
+(278, '788261140', 32, 25, 11, '193626', '345', '8.71', '58.351', '25.15', '1467.52765', '11:27', '2024-06-15T06:00:00.000Z'),
+(279, '788240610', 26, 25, 11, '270144', '190', '4.49', '31.938', '25.15', '803.2407', '09:25', '2024-06-13T06:00:00.000Z'),
+(280, '48781450', 30, 26, 11, '215072', '402', '7.53', '56.818', '25.63', '1456.24534', '09:02', '2024-06-03T06:00:00.000Z'),
+(281, '788213280', 35, 25, 12, '14069', '495', '9.49', '52.262', '26.39', '1379.19418', '12:00', '2024-06-10T06:00:00.000Z'),
+(282, '788178570', 31, 25, 11, '26974', '553', '8.95', '103.328', '25.15', '2598.6992', '13:55', '2024-06-06T06:00:00.000Z'),
+(283, '788195210', 31, 25, 11, '27322', '348', '3.37', '67.273', '25.15', '1691.9159499999998', '09:34', '2024-06-08T06:00:00.000Z'),
+(284, '48874550', 30, 26, 11, '216050', '402', '7.52', '49.755', '25.63', '1275.22065', '08:59', '2024-06-10T06:00:00.000Z'),
+(285, '48795130', 30, 26, 11, '215241', '169', '2.97', '21.526', '25.63', '551.71138', '08:41', '2024-06-04T06:00:00.000Z'),
+(286, '48834950', 30, 26, 11, '215648', '407', '18.91', '53.442', '25.63', '1369.71846', '09:04', '2024-06-07T06:00:00.000Z'),
+(287, '48929090', 30, 26, 11, '216695', '216', '6.54', '27.925', '25.63', '715.71775', '08:48', '2024-06-14T06:00:00.000Z'),
+(288, '48888040', 30, 26, 11, '216245', '195', '3.92', '27.491', '25.63', '704.59433', '09:11', '2024-06-11T06:00:00.000Z'),
+(289, '48901460', 30, 26, 11, '216479', '234', '8.51', '33.003', '25.63', '845.86689', '09:11', '2024-06-12T06:00:00.000Z'),
+(290, '48944450', 30, 26, 11, '216926', '231', '8.27', '34.583', '25.63', '886.3622899999999', '09:18', '2024-06-15T06:00:00.000Z'),
+(291, '788149490', 29, 25, 11, '243238', '239', '4.96', '46.005', '25.15', '1157.02575', '13:58', '2024-06-03T06:00:00.000Z'),
+(292, '788166040', 26, 25, 11, '269704', '227', '6.42', '32.007', '25.15', '804.9760499999999', '09:26', '2024-06-05T06:00:00.000Z'),
+(293, '788174890', 36, 25, 10, '339701', '399', '8.26', '47.926', '24.09', '1154.53734', '08:09', '2024-06-06T06:00:00.000Z'),
+(294, '788211490', 26, 25, 11, '269954', '250', '7.81', '42.361', '25.15', '1065.3791499999998', '09:22', '2024-06-10T06:00:00.000Z'),
+(295, '787835790', 32, 25, 11, '185328', '328', '9.23', '61.017', '25.15', '1534.57755', '09:56', '2024-05-01T06:00:00.000Z'),
+(296, '787948680', 36, 25, 10, '338715', '214', '6.07', '33.837', '23.99', '811.74963', '11:33', '2024-05-13T06:00:00.000Z'),
+(297, '787956630', 34, 25, 11, '237994', '2', '0.05', '58.921', '25.15', '1481.86315', '08:27', '2024-05-14T06:00:00.000Z'),
+(298, '787854520', 32, 25, 11, '185791', '204', '5.42', '40.599', '25.15', '1021.0648499999999', '09:48', '2024-05-03T06:00:00.000Z'),
+(299, '787844100', 32, 25, 11, '185587', '259', '4.24', '37.657', '25.15', '947.0735499999998', '10:05', '2024-05-02T06:00:00.000Z'),
+(300, '787863940', 36, 25, 10, '338501', '0', '0', '35.228', '23.99', '845.11972', '09:17', '2024-05-04T06:00:00.000Z'),
+(301, '787880500', 32, 25, 11, '186142', '351', '8.65', '58.747', '25.15', '1477.48705', '09:22', '2024-05-06T06:00:00.000Z'),
+(302, '787911080', 32, 25, 11, '186941', '263', '4.46', '51.045', '25.15', '1283.7817499999999', '10:14', '2024-05-09T06:00:00.000Z'),
+(303, '787900670', 32, 25, 11, '186678', '186678', '4957.19', '58.906', '25.15', '1481.4859', '09:43', '2024-05-08T06:00:00.000Z'),
+(304, '787921260', 32, 25, 11, '187147', '206', '4.04', '36.785', '25.15', '925.1427499999999', '10:17', '2024-05-10T06:00:00.000Z'),
+(305, '787947530', 32, 25, 11, '187148', '1', '0.03', '62.347', '25.15', '1568.02705', '09:50', '2024-05-13T06:00:00.000Z'),
+(306, '787956930', 32, 25, 11, '187704', '556', '8.92', '35.215', '25.15', '885.6572500000001', '08:58', '2024-05-14T06:00:00.000Z'),
+(307, '787967070', 32, 25, 11, '188035', '331', '9.4', '61.737', '25.15', '1552.68555', '09:51', '2024-05-15T06:00:00.000Z'),
+(308, '787836820', 35, 25, 12, '12545', '0', '0', '52.706', '26.39', '1390.91134', '12:05', '2024-05-01T06:00:00.000Z'),
+(309, '787954930', 35, 25, 12, '13070', '525', '9.96', '49.579', '26.39', '1308.3898100000001', '20:41', '2024-05-13T06:00:00.000Z'),
+(310, '787853640', 31, 25, 11, '24394', '458', '5.51', '73.301', '25.15', '1843.52015', '08:34', '2024-05-03T06:00:00.000Z'),
+(311, '787923310', 31, 25, 11, '25082', '355', '6.46', '62.107', '25.15', '1561.9910499999999', '13:16', '2024-05-10T06:00:00.000Z'),
+(312, '787879790', 31, 25, 11, '24727', '333', '4.54', '54.939', '25.15', '1381.7158499999998', '08:24', '2024-05-06T06:00:00.000Z'),
+(313, '787921880', 28, 25, 11, '216968', '277', '7.79', '50.387', '25.15', '1267.23305', '11:11', '2024-05-10T06:00:00.000Z'),
+(314, '787900700', 26, 25, 11, '268350', '251', '6.1', '37.322', '25.15', '938.6483000000001', '09:47', '2024-05-08T06:00:00.000Z'),
+(315, '787947690', 26, 25, 11, '268583', '233', '6.24', '42.436', '25.15', '1067.2654', '10:03', '2024-05-13T06:00:00.000Z'),
+(316, '48435840', 30, 26, 11, '211515', '0', '0', '32.111', '25.63', '823.00493', '09:53', '2024-05-08T06:00:00.000Z'),
+(317, '48477840', 30, 26, 11, '211969', '242', '6.87', '34.633', '25.63', '887.6437900000001', '09:55', '2024-05-11T06:00:00.000Z'),
+(318, '48462590', 30, 26, 11, '211727', '212', '6.6', '35.248', '25.63', '903.4062399999999', '09:09', '2024-05-10T06:00:00.000Z'),
+(319, '48516050', 30, 26, 11, '212311', '342', '9.87', '46.049', '25.63', '1180.23587', '08:42', '2024-05-14T06:00:00.000Z'),
+(320, '48528390', 30, 26, 11, '212591', '280', '6.08', '36.724', '25.63', '941.2361199999999', '09:17', '2024-05-15T06:00:00.000Z'),
+(321, '787882220', 29, 25, 11, '241719', '284', '5.61', '52.639', '25.15', '1323.87085', '11:41', '2024-05-06T06:00:00.000Z'),
+(322, '787929410', 29, 25, 11, '241991', '272', '5.17', '49.82', '25.15', '1252.973', '08:10', '2024-05-11T06:00:00.000Z'),
+(323, '787890430', 32, 25, 11, '0', '0', '0', '37.658', '25.15', '947.0987', '08:47', '2024-05-07T06:00:00.000Z'),
+(324, '48345260', 30, 26, 11, '99999999', '0', '0', '36.952', '25.39', '938.21128', '08:59', '2024-05-01T06:00:00.000Z'),
+(325, '48422460', 30, 26, 11, '99999999', '0', '0', '31.292', '25.63', '802.01396', '08:31', '2024-05-07T06:00:00.000Z'),
+(326, '48371220', 30, 26, 11, '99999999', '0', '0', '23.928', '25.63', '613.27464', '08:49', '2024-05-03T06:00:00.000Z'),
+(327, '48409730', 30, 26, 11, '99999999', '0', '0', '49.013', '25.63', '1256.20319', '08:50', '2024-05-06T06:00:00.000Z'),
+(328, '788032480', 34, 25, 11, '237996', '2', '0.03', '35.586', '25.15', '894.9879', '09:33', '2024-05-22T06:00:00.000Z'),
+(329, '48662230', 36, 26, 10, '339302', '373', '10.91', '48.307', '24.69', '1192.69983', '10:24', '2024-05-25T06:00:00.000Z'),
+(330, '788097380', 34, 25, 11, '237997', '1', '0.03', '56.756', '25.15', '1427.4134', '08:56', '2024-05-29T06:00:00.000Z'),
+(331, '787987240', 36, 25, 10, '338929', '214', '6.32', '34.204', '23.99', '820.55396', '11:00', '2024-05-17T06:00:00.000Z'),
+(332, '787986170', 26, 25, 11, '268795', '212', '5', '31.633', '25.15', '795.56995', '09:28', '2024-05-17T06:00:00.000Z'),
+(333, '788032380', 26, 25, 11, '269018', '223', '7.05', '30.827', '25.15', '775.29905', '09:22', '2024-05-22T06:00:00.000Z'),
+(334, '788117470', 26, 25, 11, '269477', '233', '6.09', '35.342', '25.15', '888.8512999999999', '09:10', '2024-05-31T06:00:00.000Z'),
+(335, '788077970', 26, 25, 11, '269244', '226', '7.33', '38.274', '25.15', '962.5911', '09:03', '2024-05-27T06:00:00.000Z'),
+(336, '48554470', 30, 26, 11, '212713', '122', '3.32', '27.61', '25.63', '707.6442999999999', '08:56', '2024-05-17T06:00:00.000Z'),
+(337, '48593040', 30, 26, 11, '213122', '409', '14.81', '51.147', '25.63', '1310.89761', '09:32', '2024-05-20T06:00:00.000Z'),
+(338, '48606200', 30, 26, 11, '213290', '168', '3.28', '29.715', '25.63', '761.5954499999999', '08:39', '2024-05-21T06:00:00.000Z'),
+(339, '48646670', 30, 26, 11, '213692', '402', '13.53', '55.434', '25.63', '1420.77342', '09:13', '2024-05-24T06:00:00.000Z'),
+(340, '48740180', 30, 26, 11, '214670', '400', '13.98', '53.373', '25.63', '1367.9499899999998', '08:47', '2024-05-31T06:00:00.000Z'),
+(341, '48686210', 30, 26, 11, '214101', '409', '7.38', '51.629', '25.63', '1323.25127', '08:40', '2024-05-27T06:00:00.000Z'),
+(342, '48699280', 30, 26, 11, '214270', '169', '3.27', '28.621', '25.63', '733.5562299999999', '08:29', '2024-05-28T06:00:00.000Z'),
+(343, '788014670', 29, 25, 11, '242480', '249', '5.57', '48.131', '25.15', '1210.4946499999999', '11:48', '2024-05-20T06:00:00.000Z'),
+(344, '787976670', 32, 25, 11, '188294', '259', '4.2', '42.616', '25.15', '1071.7924', '09:54', '2024-05-16T06:00:00.000Z'),
+(345, '788107060', 29, 25, 11, '242999', '250', '5.11', '48.147', '25.15', '1210.8970499999998', '08:22', '2024-05-30T06:00:00.000Z'),
+(346, '787986830', 32, 25, 11, '188498', '204', '4.79', '36.385', '25.15', '915.0827499999999', '10:21', '2024-05-17T06:00:00.000Z'),
+(347, '788060260', 29, 25, 11, '242749', '269', '5.59', '48.897', '25.15', '1229.75955', '07:51', '2024-05-25T06:00:00.000Z'),
+(348, '788012830', 32, 25, 11, '188850', '352', '9.67', '42.249', '25.15', '1062.56235', '09:17', '2024-05-20T06:00:00.000Z'),
+(349, '788032830', 32, 25, 11, '189385', '330', '8.06', '63.379', '25.15', '1593.98185', '10:09', '2024-05-22T06:00:00.000Z'),
+(350, '788022920', 32, 25, 11, '189055', '205', '4.85', '40.941', '25.15', '1029.66615', '09:43', '2024-05-21T06:00:00.000Z'),
+(351, '787975260', 29, 25, 11, '242231', '240', '4.82', '44.698', '25.15', '1124.1547', '07:50', '2024-05-16T06:00:00.000Z'),
+(352, '788087810', 32, 25, 11, '190111', '469', '12.17', '35.927', '25.15', '903.56405', '09:03', '2024-05-28T06:00:00.000Z'),
+(353, '788097720', 32, 25, 11, '190443', '332', '9.24', '55.371', '25.15', '1392.5806499999999', '09:16', '2024-05-29T06:00:00.000Z'),
+(354, '788107900', 32, 25, 11, '190704', '261', '4.71', '46.502', '25.15', '1169.5253', '09:34', '2024-05-30T06:00:00.000Z'),
+(355, '788118050', 32, 25, 11, '190909', '205', '4.41', '39.03', '25.15', '981.6044999999999', '09:51', '2024-05-31T06:00:00.000Z'),
+(356, '788092050', 35, 25, 12, '13574', '504', '10.17', '52.164', '26.39', '1376.60796', '15:34', '2024-05-28T06:00:00.000Z'),
+(357, '788021560', 31, 25, 11, '25586', '504', '8.12', '88.981', '25.15', '2237.8721499999997', '07:44', '2024-05-21T06:00:00.000Z'),
+(358, '788051420', 31, 25, 11, '26068', '482', '5.42', '85.064', '25.15', '2139.3596', '09:44', '2024-05-24T06:00:00.000Z'),
+(359, '788088620', 31, 25, 11, '26421', '353', '4.15', '61.817', '25.15', '1554.6975499999999', '10:16', '2024-05-28T06:00:00.000Z'),
+(360, '788078120', 32, 25, 11, '189642', '0', '0', '38.547', '25.15', '969.4570499999999', '09:13', '2024-05-27T06:00:00.000Z'),
+(361, '788041940', 32, 25, 11, '189642', '257', '4.05', '42.787', '25.15', '1076.09305', '10:00', '2024-05-23T06:00:00.000Z'),
+(362, '98497220', 18, 1, 1, '196545', '501', '2.64', '189.589', '25.49', '4832.62361', '09:43', '2024-06-13T06:00:00.000Z'),
+(363, '98496990', 18, 1, 1, '196044', '0', '0', '30', '25.49', '764.6999999999999', '09:29', '2024-06-13T06:00:00.000Z'),
+(364, '98430440', 18, 1, 1, '196044', '414', '2.71', '152.514', '25.49', '3887.5818600000002', '14:09', '2024-06-05T06:00:00.000Z'),
+(365, '98430330', 18, 1, 1, '195630', '0', '0', '30', '25.49', '764.6999999999999', '13:57', '2024-06-05T06:00:00.000Z'),
+(366, '98396340', 19, 1, 9, '325009', '362', '7.67', '47.221', '23.89', '1128.10969', '14:44', '2024-06-01T06:00:00.000Z'),
+(367, '98454470', 24, 1, 1, '110391', '513', '10.96', '46.819', '25.39', '1188.73441', '07:46', '2024-06-08T06:00:00.000Z'),
+(368, '98487290', 24, 1, 1, '110656', '265', '5.15', '51.409', '25.49', '1310.4154099999998', '07:36', '2024-06-12T06:00:00.000Z'),
+(369, '26776660', 23, 7, 1, '206309', '281', '7.61', '36.913', '25.49', '940.9123699999999', '09:10', '2024-06-02T06:00:00.000Z'),
+(370, '27255950', 24, 5, 1, '110842', '186', '6.08', '30.577', '25.69', '785.52313', '08:56', '2024-06-14T06:00:00.000Z'),
+(371, '27266630', 24, 5, 1, '111034', '192', '5.21', '36.881', '25.79', '951.16099', '10:29', '2024-06-15T06:00:00.000Z'),
+(372, '69454920', 16, 15, 3, '106771', '363', '8.37', '43.381', '25.49', '1105.78169', '08:27', '2024-06-04T06:00:00.000Z'),
+(373, '69494820', 16, 15, 3, '107124', '353', '7.01', '50.39', '25.39', '1279.4021', '08:39', '2024-06-08T06:00:00.000Z'),
+(374, '21054710', 25, 23, 3, '91326756', '1', '0.03', '39.283', '25.49', '1001.32367', '11:09', '2024-06-03T06:00:00.000Z'),
+(375, '354670', 25, 22, 3, '91326756', '0', '0', '25.043', '24.89', '623.32027', '07:55', '2024-06-04T06:00:00.000Z'),
+(376, '336310', 25, 22, 3, '91326755', '1', '0.02', '48.573', '24.89', '1208.98197', '07:41', '2024-06-01T06:00:00.000Z'),
+(377, '37672280', 25, 18, 1, '91326757', '1', '0.03', '35.73', '25.49', '910.7576999999999', '10:53', '2024-06-05T06:00:00.000Z'),
+(378, '21065870', 25, 23, 3, '91326758', '1', '0.03', '37.124', '25.39', '942.5783600000001', '13:17', '2024-06-06T06:00:00.000Z'),
+(379, '96728180', 22, 12, 3, '294856', '338', '8.68', '38.934', '25.69', '1000.21446', '09:14', '2024-06-14T06:00:00.000Z'),
+(380, '377010', 25, 22, 3, '91326759', '1', '0.02', '42.225', '24.89', '1050.98025', '07:42', '2024-06-08T06:00:00.000Z'),
+(381, '37765970', 25, 18, 1, '91326760', '1', '0.02', '42.45', '25.39', '1077.8055000000002', '13:24', '2024-06-10T06:00:00.000Z'),
+(382, '37796260', 25, 18, 1, '91326762', '1', '0.03', '30.847', '25.49', '786.29003', '11:04', '2024-06-12T06:00:00.000Z'),
+(383, '395140', 25, 22, 3, '91326761', '1', '0.05', '20.553', '24.89', '511.56417000000005', '07:54', '2024-06-11T06:00:00.000Z'),
+(384, '37814760', 25, 18, 1, '91326763', '1', '16.13', '0.062', '25.49', '1.58038', '13:26', '2024-06-13T06:00:00.000Z'),
+(385, '27591010', 20, 3, 1, '2535068', '1', '0.02', '61.22', '25.49', '1560.4977999999999', '10:25', '2024-06-01T06:00:00.000Z'),
+(386, '37814820', 25, 18, 1, '91326764', '1', '0.03', '38.457', '25.49', '980.26893', '13:31', '2024-06-13T06:00:00.000Z'),
+(387, '413670', 25, 22, 3, '91326765', '1', '0.03', '32.932', '25.19', '829.55708', '14:47', '2024-06-14T06:00:00.000Z'),
+(388, '421400', 25, 22, 3, '91326766', '1', '0.03', '33.338', '25.29', '843.11802', '14:18', '2024-06-15T06:00:00.000Z'),
+(389, '98413770', 33, 1, 1, '18684', '704', '6.26', '112.454', '25.49', '2866.4524599999995', '14:41', '2024-06-03T06:00:00.000Z'),
+(390, '98475150', 33, 1, 1, '19256', '572', '4.69', '121.974', '25.39', '3096.91986', '15:48', '2024-06-10T06:00:00.000Z'),
+(391, '26803340', 23, 7, 1, '206574', '1', '0.08', '13.301', '25.49', '339.04249', '08:41', '2024-06-05T06:00:00.000Z'),
+(392, '231661010', 27, 13, 1, '263753', '297', '6.33', '46.941', '25.49', '1196.52609', '10:47', '2024-06-05T06:00:00.000Z'),
+(393, '27654890', 20, 3, 1, '2535069', '1', '0.02', '59.244', '25.39', '1504.20516', '13:20', '2024-06-11T06:00:00.000Z'),
+(394, '504531280', 22, 16, 4, '293512', '1', '0.02', '44.893', '25.49', '1144.32257', '11:29', '2024-06-03T06:00:00.000Z'),
+(395, '27646520', 22, 3, 1, '294517', '340', '15.71', '21.639', '25.39', '549.41421', '09:15', '2024-06-10T06:00:00.000Z'),
+(396, '96629630', 22, 12, 3, '294177', '665', '17.13', '38.812', '25.39', '985.4366799999999', '09:31', '2024-06-06T06:00:00.000Z'),
+(397, '27646530', 22, 3, 1, '294518', '1', '0.05', '22.156', '25.39', '562.54084', '09:17', '2024-06-10T06:00:00.000Z'),
+(398, '98471530', 21, 1, 1, '2610730', '3850', '74.35', '51.78', '25.39', '1314.6942000000001', '09:20', '2024-06-10T06:00:00.000Z');
+INSERT INTO `vehiculo_consumo` (`id_vehiculo_consumo`, `despacho`, `vehiculo_id_vehiculo`, `estacion_id_estacion`, `producto_id_producto`, `odometro`, `recorrido`, `rendimiento`, `cantidad`, `precio`, `monto`, `hora_consumo`, `fecha_consumo`) VALUES
+(399, '27258500', 17, 5, 1, '77000', '277', '5.71', '48.529', '25.69', '1246.7100100000002', '13:13', '2024-06-14T06:00:00.000Z'),
+(400, '98410450', 21, 1, 1, '2606880', '3780', '70.58', '53.56', '25.49', '1365.2444', '09:08', '2024-06-03T06:00:00.000Z'),
+(401, '98385340', 17, 1, 1, '76723', '351', '7.14', '49.192', '25.49', '1253.90408', '12:23', '2024-05-31T06:00:00.000Z'),
+(402, '26840400', 23, 7, 1, '206904', '330', '7.77', '42.463', '25.49', '1082.38187', '09:14', '2024-06-09T06:00:00.000Z'),
+(403, '26803240', 23, 7, 1, '206573', '264', '12', '22', '25.49', '560.78', '08:36', '2024-06-05T06:00:00.000Z'),
+(404, '96717900', 23, 12, 3, '207212', '308', '7.85', '39.226', '25.49', '999.87074', '12:27', '2024-06-13T06:00:00.000Z'),
+(405, '39374690', 27, 6, 1, '263456', '265', '5.77', '45.95', '25.49', '1171.2655', '10:22', '2024-06-01T06:00:00.000Z'),
+(406, '231666070', 27, 13, 1, '264028', '275', '6.87', '40.015', '25.39', '1015.98085', '11:20', '2024-06-07T06:00:00.000Z'),
+(407, '231675020', 27, 13, 1, '264304', '276', '6.14', '44.957', '25.39', '1141.45823', '12:21', '2024-06-10T06:00:00.000Z'),
+(408, '39536850', 27, 6, 1, '264558', '254', '6.35', '40.018', '25.49', '1020.05882', '10:41', '2024-06-13T06:00:00.000Z'),
+(409, '231688010', 27, 13, 1, '264833', '275', '5.75', '47.787', '25.79', '1232.42673', '11:29', '2024-06-15T06:00:00.000Z'),
+(410, '98438540', 13, 1, 1, '83039', '342', '7.39', '46.268', '25.39', '1174.74452', '11:52', '2024-06-06T06:00:00.000Z'),
+(411, '96718630', 16, 12, 3, '0', '0', '0', '50.014', '25.49', '1274.85686', '13:40', '2024-06-13T06:00:00.000Z'),
+(412, '27181870', 24, 5, 1, '109878', '1', '0.02', '48.239', '25.49', '1229.6121099999998', '08:48', '2024-06-05T06:00:00.000Z'),
+(413, '98392370', 24, 1, 1, '109877', '255', '6.31', '40.426', '25.49', '1030.45874', '07:47', '2024-06-01T06:00:00.000Z'),
+(414, '98552240', 18, 1, 1, '196846', '300', '18.22', '16.466', '25.99', '427.95134', '14:04', '2024-06-19T06:00:00.000Z'),
+(415, '98531280', 19, 1, 9, '325009', '0', '0', '49.359', '23.89', '1179.18651', '07:25', '2024-06-17T06:00:00.000Z'),
+(416, '27747530', 18, 3, 1, '197425', '579', '7.35', '78.825', '26.09', '2056.54425', '14:00', '2024-06-26T06:00:00.000Z'),
+(417, '98552370', 18, 1, 1, '196846', '0', '0', '124.722', '25.99', '3241.5247799999997', '14:19', '2024-06-19T06:00:00.000Z'),
+(418, '231710770', 27, 13, 1, '265674', '254', '6.18', '41.071', '26.09', '1071.5423899999998', '12:21', '2024-06-24T06:00:00.000Z'),
+(419, '231702640', 27, 13, 1, '265420', '281', '6.49', '43.31', '26.09', '1129.9579', '10:45', '2024-06-21T06:00:00.000Z'),
+(420, '39752380', 27, 6, 1, '266188', '263', '5.61', '46.846', '26.09', '1222.2121399999999', '10:35', '2024-06-29T06:00:00.000Z'),
+(421, '231717380', 27, 13, 1, '265925', '251', '7.12', '35.245', '26.09', '919.5420499999999', '10:57', '2024-06-27T06:00:00.000Z'),
+(422, '98611360', 21, 1, 1, '2614741', '4011', '88.48', '45.334', '26.09', '1182.76406', '11:14', '2024-06-26T06:00:00.000Z'),
+(423, '98611150', 13, 1, 1, '83675', '635', '13.85', '45.864', '26.09', '1196.59176', '10:49', '2024-06-26T06:00:00.000Z'),
+(424, '98531930', 13, 1, 1, '83350', '1', '0.02', '47.973', '25.79', '1237.2236699999999', '08:24', '2024-06-17T06:00:00.000Z'),
+(425, '60165640', 20, 4, 4, '2535070', '1', '0.02', '59.873', '25.99', '1556.09927', '10:41', '2024-06-19T06:00:00.000Z'),
+(426, '98648830', 19, 1, 9, '325010', '1', '0.02', '45.984', '24.09', '1107.75456', '11:44', '2024-06-30T06:00:00.000Z'),
+(427, '98540600', 24, 1, 1, '111273', '239', '5.07', '47.118', '25.99', '1224.59682', '07:50', '2024-06-18T06:00:00.000Z'),
+(428, '27314730', 24, 5, 1, '111485', '212', '5.86', '36.156', '26.09', '943.31004', '09:28', '2024-06-21T06:00:00.000Z'),
+(429, '27357340', 24, 5, 1, '111933', '447', '9.35', '47.797', '26.09', '1247.02373', '09:19', '2024-06-26T06:00:00.000Z'),
+(430, '27341490', 24, 5, 1, '111486', '1', '0.02', '40.185', '26.09', '1048.42665', '09:04', '2024-06-24T06:00:00.000Z'),
+(431, '27745310', 20, 3, 1, '2535071', '1', '0.02', '59.708', '26.09', '1557.78172', '08:07', '2024-06-26T06:00:00.000Z'),
+(432, '39724260', 24, 6, 1, '112254', '321', '6.22', '51.64', '26.09', '1347.2876', '10:02', '2024-06-27T06:00:00.000Z'),
+(433, '27383140', 24, 5, 1, '112478', '224', '5.18', '43.214', '26.09', '1127.45326', '10:23', '2024-06-29T06:00:00.000Z'),
+(434, '26981540', 23, 7, 1, '208144', '354', '8.44', '41.956', '25.69', '1077.8496400000001', '10:17', '2024-06-25T06:00:00.000Z'),
+(435, '69602060', 16, 15, 3, '107935', '107935', '2019.7', '53.441', '25.99', '1388.93159', '08:58', '2024-06-19T06:00:00.000Z'),
+(436, '98601060', 16, 1, 1, '108372', '437', '8.97', '48.733', '26.09', '1271.4439699999998', '06:24', '2024-06-25T06:00:00.000Z'),
+(437, '69676700', 16, 15, 3, '108813', '441', '9.05', '48.726', '26.09', '1271.26134', '09:12', '2024-06-27T06:00:00.000Z'),
+(438, '435350', 25, 22, 3, '136962', '175', '4.91', '35.622', '25.29', '900.88038', '15:10', '2024-06-17T06:00:00.000Z'),
+(439, '37923630', 25, 18, 1, '137205', '243', '5.09', '47.657', '25.99', '1238.6054299999998', '11:30', '2024-06-19T06:00:00.000Z'),
+(440, '21117220', 25, 23, 3, '137455', '250', '5.87', '41.116', '25.99', '1068.60484', '14:02', '2024-06-20T06:00:00.000Z'),
+(441, '27697400', 22, 3, 1, '295184', '328', '8.34', '39.349', '25.99', '1022.6805099999998', '07:47', '2024-06-18T06:00:00.000Z'),
+(442, '231697890', 27, 13, 1, '265139', '306', '6.33', '48.355', '25.99', '1256.7464499999999', '11:07', '2024-06-19T06:00:00.000Z'),
+(443, '38012560', 25, 18, 1, '137955', '250', '6.39', '39.072', '26.09', '1019.3884800000001', '13:41', '2024-06-24T06:00:00.000Z'),
+(444, '67216290', 25, 20, 1, '137705', '250', '5.88', '42.518', '26.09', '1109.2946200000001', '09:40', '2024-06-22T06:00:00.000Z'),
+(445, '67275370', 25, 20, 1, '138355', '200', '4.59', '43.489', '26.09', '1134.62801', '09:49', '2024-06-26T06:00:00.000Z'),
+(446, '489320', 25, 22, 3, '138155', '200', '9.07', '22.048', '25.59', '564.20832', '07:43', '2024-06-25T06:00:00.000Z'),
+(447, '27715150', 22, 3, 1, '295499', '315', '8.27', '38.084', '26.09', '993.61156', '08:17', '2024-06-21T06:00:00.000Z'),
+(448, '38057740', 25, 18, 1, '138500', '145', '3.79', '38.257', '26.09', '998.1251299999999', '13:14', '2024-06-27T06:00:00.000Z'),
+(449, '513180', 25, 22, 3, '138601', '101', '2.71', '37.717', '25.59', '965.1780299999999', '14:31', '2024-06-28T06:00:00.000Z'),
+(450, '98641090', 33, 1, 1, '20526', '664', '4.83', '137.427', '26.09', '3585.47043', '13:11', '2024-06-29T06:00:00.000Z'),
+(451, '26991800', 22, 7, 1, '295826', '327', '6.96', '46.997', '25.69', '1207.35293', '13:51', '2024-06-26T06:00:00.000Z'),
+(452, '27017980', 21, 7, 1, '2614742', '1', '0.04', '27.43', '25.69', '704.6767', '09:33', '2024-06-29T06:00:00.000Z'),
+(453, '39630600', 17, 6, 1, '77267', '267', '4.73', '56.489', '25.99', '1468.1491099999998', '11:20', '2024-06-20T06:00:00.000Z'),
+(454, '27351820', 17, 5, 1, '77569', '302', '5.84', '51.696', '26.09', '1348.74864', '13:34', '2024-06-25T06:00:00.000Z'),
+(455, '96809790', 23, 12, 3, '207790', '279', '6.55', '42.581', '26.09', '1110.93829', '10:06', '2024-06-21T06:00:00.000Z'),
+(456, '26912770', 23, 7, 1, '207511', '299', '8.48', '35.241', '25.49', '898.2930899999999', '08:29', '2024-06-17T06:00:00.000Z'),
+(457, '39593180', 33, 6, 1, '19862', '606', '4.81', '126.033', '25.79', '3250.39107', '10:02', '2024-06-17T06:00:00.000Z'),
+(458, '788339580', 34, 25, 11, '238101', '1', '0.02', '62.648', '25.99', '1628.22152', '10:26', '2024-06-24T06:00:00.000Z'),
+(459, '49001310', 36, 26, 10, '340438', '400', '9.31', '47.526', '24.59', '1168.66434', '15:22', '2024-06-19T06:00:00.000Z'),
+(460, '788276940', 34, 25, 11, '238100', '1', '0.03', '59.23', '25.15', '1489.6345', '11:31', '2024-06-17T06:00:00.000Z'),
+(461, '49128100', 30, 26, 11, '219102', '234', '8.97', '29.777', '26.19', '779.85963', '09:29', '2024-06-29T06:00:00.000Z'),
+(462, '788348140', 36, 25, 10, '340784', '346', '7.28', '43.147', '24.09', '1039.41123', '08:54', '2024-06-25T06:00:00.000Z'),
+(463, '788286450', 29, 25, 11, '244017', '254', '5.55', '48.174', '25.55', '1230.8457', '11:47', '2024-06-18T06:00:00.000Z'),
+(464, '788368750', 29, 25, 11, '244543', '295', '7.01', '50.314', '25.99', '1307.66086', '11:54', '2024-06-27T06:00:00.000Z'),
+(465, '788322240', 29, 25, 11, '244248', '231', '4.8', '42.071', '25.99', '1093.42529', '07:54', '2024-06-22T06:00:00.000Z'),
+(466, '788285190', 32, 25, 11, '193832', '206', '3.53', '34.394', '25.55', '878.7667', '09:35', '2024-06-18T06:00:00.000Z'),
+(467, '788313390', 32, 25, 11, '194187', '25', '0.5', '15.47', '25.55', '395.2585', '09:36', '2024-06-21T06:00:00.000Z'),
+(468, '788294370', 32, 25, 11, '194162', '330', '9.59', '49.649', '25.55', '1268.53195', '08:56', '2024-06-19T06:00:00.000Z'),
+(469, '788338750', 32, 25, 11, '194550', '363', '23.46', '56.774', '25.99', '1475.5562599999998', '09:26', '2024-06-24T06:00:00.000Z'),
+(470, '788388460', 32, 25, 11, '195902', '348', '10.78', '54.398', '25.99', '1413.80402', '12:10', '2024-06-29T06:00:00.000Z'),
+(471, '788284920', 26, 25, 11, '270382', '238', '7.45', '35.8', '25.55', '914.6899999999999', '09:02', '2024-06-18T06:00:00.000Z'),
+(472, '788367140', 32, 25, 11, '195350', '260', '5.25', '40.316', '25.99', '1047.81284', '09:17', '2024-06-27T06:00:00.000Z'),
+(473, '788358420', 32, 25, 11, '195090', '333', '13.21', '49.482', '25.99', '1286.0371799999998', '10:17', '2024-06-26T06:00:00.000Z'),
+(474, '788377250', 32, 25, 11, '195554', '204', '5.06', '32.269', '25.99', '838.67131', '10:05', '2024-06-28T06:00:00.000Z'),
+(475, '788348270', 32, 25, 11, '194757', '207', '3.65', '25.206', '25.99', '655.10394', '09:10', '2024-06-25T06:00:00.000Z'),
+(476, '788317910', 35, 25, 12, '14569', '500', '9.57', '54.337', '26.39', '1433.95343', '16:12', '2024-06-21T06:00:00.000Z'),
+(477, '788322920', 26, 25, 11, '270599', '217', '6.06', '35.324', '25.99', '918.07076', '09:21', '2024-06-22T06:00:00.000Z'),
+(478, '48982190', 31, 26, 11, '27523', '201', '2.99', '37.63', '25.83', '971.9829', '07:44', '2024-06-18T06:00:00.000Z'),
+(479, '788367870', 28, 25, 11, '217268', '0', '0', '40.509', '25.99', '1052.82891', '10:25', '2024-06-27T06:00:00.000Z'),
+(480, '788367620', 26, 25, 11, '270834', '235', '6.65', '31.669', '25.99', '823.07731', '10:02', '2024-06-27T06:00:00.000Z'),
+(481, '788294510', 31, 25, 11, '27980', '457', '12.14', '92.963', '25.55', '2375.20465', '09:09', '2024-06-19T06:00:00.000Z'),
+(482, '788342340', 31, 25, 11, '28355', '375', '4.03', '72.498', '25.99', '1884.22302', '14:52', '2024-06-24T06:00:00.000Z'),
+(483, '48983030', 30, 26, 11, '217269', '343', '9.92', '44.712', '25.83', '1154.91096', '08:48', '2024-06-18T06:00:00.000Z'),
+(484, '788304100', 30, 25, 11, '217680', '411', '9.19', '57.41', '25.55', '1466.8255', '09:10', '2024-06-20T06:00:00.000Z'),
+(485, '49074220', 30, 26, 11, '218465', '171', '3.09', '20.569', '26.09', '536.64521', '08:51', '2024-06-25T06:00:00.000Z'),
+(486, '49061300', 30, 26, 11, '218294', '400', '13.1', '55.354', '26.09', '1444.18586', '08:56', '2024-06-24T06:00:00.000Z'),
+(487, '49022700', 30, 26, 11, '217894', '214', '3.73', '30.532', '25.83', '788.6415599999999', '08:48', '2024-06-21T06:00:00.000Z'),
+(488, '49087390', 30, 26, 11, '218694', '229', '11.13', '30.535', '26.09', '796.65815', '09:14', '2024-06-26T06:00:00.000Z'),
+(489, '49112970', 30, 26, 11, '218868', '174', '5.7', '26.093', '26.19', '683.37567', '08:51', '2024-06-28T06:00:00.000Z');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vehiculo_servicio`
+--
+
+CREATE TABLE `vehiculo_servicio` (
+  `id_vehiculo_servicio` int(11) NOT NULL,
+  `vehiculo_id_vehiculo` int(11) NOT NULL,
+  `servicio_id_servicio` int(11) NOT NULL,
+  `proveedor_id_proveedor` int(11) NOT NULL,
+  `kilometraje` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `folio_factura` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `costo` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `fecha_servicio` varchar(45) COLLATE utf16_bin DEFAULT NULL,
+  `descripcion` varchar(500) COLLATE utf16_bin DEFAULT NULL,
+  `file` varchar(150) COLLATE utf16_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_bin;
+
+--
+-- Volcado de datos para la tabla `vehiculo_servicio`
+--
+
+INSERT INTO `vehiculo_servicio` (`id_vehiculo_servicio`, `vehiculo_id_vehiculo`, `servicio_id_servicio`, `proveedor_id_proveedor`, `kilometraje`, `folio_factura`, `costo`, `fecha_servicio`, `descripcion`, `file`) VALUES
+(1, 13, 13, 27, '', '22465', '4650', '2024-01-03', 'ACUMULADOR LTH L-35-575', 'y6Rh3KIelkfICp5fFfbbG0nC.pdf'),
+(2, 22, 16, 7, '', 'T9310', '18278.32', '2024-01-06', 'DISCO CLUTCH, CUBIERTA DE EMBRAGUE, BALERO PILOTO DE TRANSMISION BALERO COLLARIN, GUIA PARA VOLANTE, CILINDRO ESCLAVO DE CLUTCH, MANO DE OBRA T.O.T. RECTIFICADO DE DISCO', 'jeyTYLfH6A8PzeZURP4nFiGt.pdf'),
+(3, 32, 12, 36, '', '421C2D83', '1595', '2024-01-03', 'CMBIO DE ORRING REPARACION DE FUGA Y CARGA DE GAS REFRIGERANTE', 'o0Xy2TPhugdYdtJ3uAK2XWo9.pdf'),
+(4, 23, 14, 7, '195,003', 'T9322', '15300.10', '2024-01-10', 'RETEN DE ACEITE, BALERO INTERIOR, BALERO EXTERIOR, KIT DE BALATAS, BUJE DE GOMA, REFACCIONES, LIQUIDO PARA FRENOS Y MANO DE OBRA', 'ABx2khkJnHTPxlZdbZwMwhyq.pdf'),
+(5, 18, 7, 37, '', 'A2491', '1508.00', '2024-01-11', 'REPARACION DE LUCES TRASERAS Y REPARACION DE ASIENTO DE COPILOTO', 'CmMdctreLM1GwANbJmZxkYC5.pdf'),
+(6, 37, 14, 35, '14563', '6747', '3804.56', '2024-01-16', 'CAMBIO DE ACEITE Y FILTRO, REVISION DE FLUIDOS, FILTRO DEPURADOR DE AIRE DE MOTOR, ROTACION DE LLANTAS, REVISION DE FRENOS, SANITIZANTE, LAVADO, FILTRO DE ACEITE', 'hQGbyU2zaNgrsCVhmJHpkg6K.pdf'),
+(7, 33, 7, 7, '10798', 'T9354', '6900', '2024-01-17', 'MANTENIMIENTO PREVENTIVO DE 10 000 KM SERIE 300', 'Za0orwNzOTXRtRBTh9TTiT6S.pdf'),
+(8, 21, 14, 7, '252903', 'T9375', '6900', '2024-01-23', 'SERVICIO MANTENIMIENTO PREVENTIVO 250 000 KM SERIE 300', 'TI2T5GvaEr3A6SplH4822WSM.pdf'),
+(9, 27, 14, 7, '259482', 'T9378', '13052.84', '2024-01-24', 'MANTENIMIENTO PREVENTIVO 250 000 SERIE 300, FILTRO DE AIRE S300 AMORTIGUADORES TRASEROSM Y MANO DE OBRA', 'BPYzDLdpqyI8qB36NBxNwH62.pdf'),
+(10, 34, 16, 25, '230457', 'SS84678', '14361.83', '2024-01-29', 'ASIENTO, BOLA, PALANCA DE CAMBIOS Y CABLE ', 'n7q6vQQwe03h3z3WzKMMP6DZ.pdf'),
+(11, 26, 14, 7, '263089', 'DT1961', '6900', '2024-01-29', 'MANTENIMIENTO PREVENTIVO 260 000 KMS', 'dPR33JVVBqboNrwD42gK545I.pdf'),
+(12, 20, 14, 7, '123456', 'T9407', '14874.78', '2024-02-02', 'DISCO DE CLOUTCH ELF, BALERO PILOTO, PRENSA, COLLARIN, MANO DE OBRA, GUIA PARA VOLANTE ', 'yBbqr8v9xSB9j1wjrFjm89Cf.pdf'),
+(13, 24, 12, 37, '', 'A2539', '8746.40', '2024-02-02', 'SUMINISTRO E INSTALACION DE HAWAIANAS, REPARACION DE LUCES DE NAVEGACION LADO DERECHO, Y REPARACION DE ESQUINERO TRASERO DERECHO', 'tMoU1ROTqujdcc27fIMEZLga.pdf'),
+(14, 16, 12, 37, '', 'A2540', '6310.40', '2024-02-02', 'SUMINISTRO E INSTALACION DE CORTINAS HAWAIANAS', 'Pr4agKU2jiS3nSq6xtWzNNiV.pdf'),
+(15, 24, 9, 7, '100528', 'T9417', '11888.58', '2024-02-08', 'SERVICIO DE MANTENIMIENTO PREVENTIVO 100 K SERIE 300, AMORTIGUADORES TRASEROS Y MANO DE OBRA', 'mpXm6kB03HOW0TedXOJfHFsZ.pdf'),
+(16, 32, 14, 7, '169991', 'DT1969', '8100', '2024-02-09', 'SERVICIO DE MANTENIMIENTO PREVENTIVO 170 000 KM SERIE 300', '7goBoszSaGpuhjuJvYs8FKNW.pdf'),
+(17, 25, 11, 7, '120259', 'T9426', '7364.00', '2024-02-13', 'SERVICIO DE MTTO. PREVENTIVO 120 000 KM SERIE 300 MANO DE OBRA, LIMPIEZA DE RADIADOR ', '4LKvwRMSPP534OlNpZZIZe4a.pdf'),
+(18, 30, 14, 34, '', 'SS7824', '1926.47', '2024-02-16', 'ACEITE DIESEL MANO DE OBRA AFINACION MENOS', 'XRrrK7qLPHtZqj6dAKb4KI0Q.pdf'),
+(19, 30, 14, 34, '', 'SS7823', '1649.35', '2024-02-16', 'FILTRO DE ACEITTE Y FILTRO DE AIRE', 'ynG8D1IteNjd593JjxrKhlZJ.pdf'),
+(20, 20, 7, 9, '', '9587', '580', '2024-02-20', 'MANO DE OBRA ARREGLO DE CORTO SERVICIO A DOMICILIO', '0vLOLd8kvisk9S4fk2RuzrOW.pdf'),
+(21, 28, 16, 7, '213507', 'DT1975', '15117.03', '2024-02-21', 'CABLE DE TRANSMISION SELECTOR, MANO DE OBRA', 'Dyx89ycLYB5pwIksIjAW4QJ5.pdf'),
+(24, 28, 10, 34, '', 'SS7838', '1044.00', '2024-02-22', 'MANO DE OBRA SERVICIO TALLER FRENOS ', 'etza4wWN0sGpANep9Ud1USqI.pdf'),
+(25, 28, 10, 34, '', 'SS7839', '1044', '2024-02-22', 'MAO DE OBRA SERVICIO TALLER FRENOS', 'LaqL6KszVVmxRngI0PNfygtm.pdf'),
+(26, 36, 14, 34, '', 'SS7845', '1543.57', '2024-02-26', 'BALATA FRENO DE DISCO JUEGO BALATA PULIDO LIQUIDO DE FRENOS GRASA BALERO', 'cSqVkW0zEOz3T58HjwdIVGRj.pdf'),
+(27, 36, 14, 34, '', 'SS7846', '831.57', '2024-02-26', 'PISTONES CALIPER NISSAN ', 'DEh5TcmbpYtHJnd7O21l2ZsT.pdf'),
+(28, 36, 14, 34, '', 'SS7847', '1624', '2024-02-26', 'M.O. CAMBIO BALATAS 4 RUEDAS', 'wfdvwfgYtyuN7FEaAVmYpuk1.pdf'),
+(29, 13, 9, 7, '79625', 'T9472', '12375.58', '2024-02-28', 'MANENIMIENTO PREVENTIVO DE 80 000 SERIE 300, AMORTIGUADORES TRASEROS MANO DE OBRA', 'en28rKkWq5DHnpZsVYeG3AeK.pdf'),
+(30, 32, 12, 36, '', '2E03', '1595', '2024-03-01', 'CAMBIO DE ORRING REPARACION DE FUGA Y CARGA DE GAS REFRIGERANTE', 'Q1mx2G5stKsSwOMXj9LArmPX.pdf'),
+(31, 16, 14, 7, '100,100', 'T9485', '7300', '2024-03-05', 'MANTENIMIENTO PREVENTIVO 100 K SERIE 300', 'G0SiptDroiiSLJ1j56aaUx1K.pdf'),
+(32, 21, 5, 6, '255,593', 'U-11045', '10503.56', '2024-03-06', '2 LLANTAS MICHELIN PLOMO AUTO CAMIONETA BALANCEO 3 O 5 TON BIRLO RUEDA, TUERCA Y CAMBIO DE CRUCETA FLECHA', 'E7d49vOXeaNdOT5sMqSycLpL.pdf'),
+(33, 13, 14, 37, '', 'A2610', '5684', '2024-03-09', 'SUMINISTRO E INSTALACION DE CORTINAS HAWAIANAS', 'cRrcb67P9FuEBKRMbStEvGHL.pdf'),
+(34, 16, 14, 37, '', 'A2609', '5162', '2024-03-09', 'INSTALACION DE LODERA LADO IZQUIERO TRASEROREPARACION DE MARCO ALUMINIO PUERTA TRASERA DERECHA AREA DE SUJECION DE BISAGRAS SOLDADURA, REFUERZO INTERIOR', 'KZeIB200eHuh8haMIWMTzheY.pdf'),
+(35, 19, 14, 37, '', 'A2612', '9349.60', '2024-03-09', 'AFINACION FILTROS REPARACION DE FRENOS CAMBIO DE PLUMAS LIMPIAPARABRISAS CAMBIO DE VOLANTE', '5g5ec3nQw2XDusV8qd25VIBX.pdf'),
+(36, 16, 5, 6, '100,654', 'U-11067', '20328.08', '2024-03-12', '4 LLANTAS MICHELIN, ALINEACION 3 TON BALANCEO 3 TON', 'YOdk4J2Cwk2SG5hAdNBkt7HC.pdf'),
+(37, 34, 7, 9, '', '9648', '1513.80', '2024-03-14', 'TERMINAL AISLADA REDONDA, PORTA CEPILLOS, MANO DE OBRA, ARREGLO FALSOS CONTACTOS, REVISION DE MARCHA Y SERVICIO A DOMICILIO ', '2XRp7hft2QFofOIEIurlUSgq.pdf'),
+(38, 30, 10, 34, '', '7903', '1869.86', '2024-03-19', 'PULIDO ROTOR 8 BIRLOS, LIQUIDO DE FRENOS Y MANO DE OBRA SERVICIO TALLER', 'hDnTEOdhe9TEVrmY5uF6TM9p.pdf'),
+(39, 30, 14, 34, '', '7902', '1956.11', '2024-03-19', 'BALATA FRENO DE DISCO GRSA BALERO', 'V1910ZH0WIzZQwt4qOc0R51J.pdf'),
+(40, 31, 14, 7, '20,513', 'DT2009', '8522.23', '2024-03-21', 'SERVICIO MANTENIMIENTO PREVENTIVO 20 000 KM SERIE 300 FILTRO DE AIRE', 'i8hQCVkOu2WYlKYb5qfq6rha.pdf'),
+(41, 28, 14, 7, '214,773', 'DT2014', '10859.11', '2024-03-22', 'TUBO SECUNDARIO DE INYECCION EMPAQUE TAPA DE PUNTERIAS, TAPON DE BUJIA, MANO DE OBRA', 'W0RElQref1knkGKlNK7E9Rug.pdf'),
+(42, 23, 14, 7, '201,015', 'DT9550', '8483.20', '2024-03-26', 'MANTENIMIENTO 180 000 KMS FILTRO DE AIRE', '6lHsD5W6mgdiKJbtaer5GsFv.pdf'),
+(43, 32, 14, 7, '180 572', 'DT2025', '8522.23', '2024-04-06', 'SERVICIO DE MANTEIMIENTO 180 000 KMS FILTRO DE AIRE', '6SdduC02YUCeNDLK9MsMbkSr.pdf'),
+(44, 18, 14, 37, '', 'A2651', '3596', '2024-04-10', 'REPARACION DE ABRAZADERA DELANTERA DEL TANQUE DE COMBUSTIBLE LADO IZQUIERDO, REPARACION DE CERROJO TRASERO', 'p4XOl1al7rUBzdUlaRaC0dVm.pdf'),
+(45, 18, 14, 7, '191 889', 'T9582', '11900.78', '2024-04-10', 'MICA TRASERA SERIE 300 DERECHO JGO DE BANDAS MOTOS, BANDA PARA COMPRESOR DE CLIMA SERVICIO MTTO PREV. 190 000 KM , MANO DE OBRA', 'oznysQClEpRjeJ9vHdK4iQ5P.pdf'),
+(46, 32, 14, 34, '', 'SS7964', '1999.78', '2024-04-13', 'GRASA BALERO, LIQUIDO DE FRENOS, PULIDO ROTOR, MANO DE OBRA SERVICIO TALLER', 'aKYpLNy2ynu0B1aT8iNvbi42.pdf'),
+(47, 32, 14, 34, '', 'SS7965', '1935.81', '2024-04-13', 'BALATA FRENO DE DISCO TUBO SILICON .70 GR', 'M9w8f27hw0bzqJuaovIorwIb.pdf'),
+(48, 26, 10, 34, '', 'SS7973', '663.40', '2024-04-17', 'LIQUIDO DE FRENOS, GRASA BALERO, PULIDO ROTOR', 'PqorhXzenVtsLv0CFNLsBzc6.pdf'),
+(49, 26, 14, 34, '', 'SS7974', '1392', '2024-04-17', 'MANO DE OBRA SERVICIO TALLER', '9xCt5S7aJ1mSGBAo9s93nNdF.pdf'),
+(50, 26, 10, 34, '', 'SS7975', '1935.81', '2024-04-17', 'BALATA FRENO DE DISCO, TUBO SILICON .70 GR ', 'SdexxDPq3qyv2D4DWudMT9ng.pdf'),
+(51, 25, 5, 6, '128 863', 'U11261', '10285.04', '2024-04-18', '2 LLANTAS MICHELIN, BALANCEO NORMAL, PLOMO, ALINEACION 3 TON, ROTACION ', '2drBb3DOBsQl38KyAZ5lazHb.pdf'),
+(52, 24, 5, 6, '106 417', 'U11265', '5434.52', '2024-04-18', '1 LLANTA MICHELIN ALINEACION, BALANCE, PLOMO, ROTACION', 'DeohqQe3cAP6kbV2BDWFClSN.pdf'),
+(53, 23, 5, 6, '203 132', 'U11296', '4839.52', '2024-04-22', '1 LLANTA MICHELIN ', 'MAm1Nyc70jHJjTVU6FG68TZy.pdf'),
+(54, 28, 5, 16, '', 'A26570', '22278.01', '2024-04-22', '4 LLANTAS HANKOOK 2 LLANTAS CONTENENTAL', 'pVyUdAEFeoLh5eDUB1Q9fASx.pdf'),
+(55, 22, 8, 7, '291 060', 'T9641', '9179.78', '2024-04-29', 'SERVICIO DE MANTENIMIENTO PREVENTIVO, JUEGO DE BANDAS MOTOR, MANO DE OBRA', 'qPf5haMhTMr7QEo8wnfbvwLV.pdf'),
+(56, 23, 14, 37, '', 'A2706', '5510', '2024-04-29', 'SUMINISTRO E INSTALACION DE TOPES CONYENEDOR TRASERO, REPARACION DE PISO ALUMINIO', 'mZZmyU9ka8oxLaBa9SaMg7a6.pdf'),
+(57, 21, 14, 37, '', 'A2707', '15650', '2024-04-29', 'REPARACION DE MARCO EN AREA DE BISAGRAS, SUMINISTROS E INSTALACION, PLAFON INTERIOR', 'wwfynnSKe6l1KIyssjNxbdZ1.pdf'),
+(58, 27, 9, 7, '260 443', 'T9643', '15477.59', '2024-04-30', 'SERVICIO DE MANTENIMIENTO PREVENTICO AMORTIGUADORES TRASEROS, JUEGO DE BANDASMOTOR, FILTRO DE AIRE, MANO DE OBRA', 'agVgBHS7ybfNPlEhIShdzs9T.pdf'),
+(59, 34, 10, 34, '', 'SS8006', '1118', '2024-05-02', 'MANGUERA DE FRENOS, LIQUIDO DE FRENOS, GRASA BALERO, PULIDO TAMPOR 8 BIRLOS', 'ILD3g22B8KHtPIwwXG6NdrIv.pdf'),
+(60, 34, 10, 34, '', 'SS8005', '1826.19', '2024-05-02', 'BALATA FRENO DE DISCO', 'J2MtFZo9x4JvaTNw7sn3XDNs.pdf'),
+(61, 34, 14, 34, '', 'SS8007', '1740', '2024-05-02', 'MANO DE OBRA SERVICIO TALLER', 'tJTF1YsXHk59nE10Yjy57e7D.pdf'),
+(62, 23, 7, 37, '', 'A2711', '7076', '2024-05-02', 'SUMINISTRO E INSTALACION DE TOPES TRASERO, SEGURO PARA PUERTA ESQUINERO LADO IZQUQIEDO, REPARACION GOLPE PARTE FRONTAL DE CABINA', 'LMrTYJxExCTYdoyCZhTqzlxQ.pdf'),
+(63, 25, 14, 7, '130 868', 'T9646', '22558.86', '2024-05-02', 'SERVICIO DE MANTENIMIENTO PREVENTIVO 130 000 KIT DE BALATAS, RETEN DE ACEITE, DISCO DELANTERO, BANDA PARA COMPRESOR, REFACCIONES, BANDAS DE MOTOR, MANO DE OBRA', 'YE5s7tAJWneIWqw2ZQd5cuYr.pdf'),
+(64, 21, 13, 37, '', 'A2720', '2436', '2024-05-08', 'SUMINISTROS E INSTALACION DE TERMINALES PARA BATERIA', 'F3jSkvtqmuUMw1gPj4jdU2Sj.pdf'),
+(65, 33, 14, 37, '', 'A2719', '2784', '2024-05-08', 'SUMINISTRO E INSTALACION DE TOPES APOYO TRASERO, INSTALACION DE 2 TOPES', '5bvmFk4mo9bcq9VeRdWCS0RW.pdf'),
+(66, 20, 10, 37, '', 'A2718', '16599.60', '2024-05-08', 'reparacion de frenos, cambio de empaque en puertas traseras, cambio de palanca para cerrojo en puerta trasera derecha', '7QU1mh7MSqfh6ZsyuJUExaVv.pdf'),
+(67, 28, 14, 34, '', 'SS8027', '1915.16', '2024-05-09', 'mano de obra servicio taller', 'CuLXFdxbXrnuGXVwCg9b8UFI.pdf'),
+(68, 28, 14, 34, '', 'SS8026', '1999.76', '2024-05-09', 'BALATA TAMBOR LIQUIDO DE FRENOS, TUBO SILICON, PULIDOR TAMBOR, 8 IRLOS, MANO DE OBRA SERVICIO TALLER', 'VI5ru5OqIbddWEQIs2KfV371.pdf'),
+(69, 28, 10, 34, '', 'SS8025', '1995.76', '2024-05-09', 'BALATA TAMBOR TORNILLO LIQUIDO DE FRENOS', 'UBABUb3hqkvyZoxHcZqWJBEJ.pdf'),
+(70, 17, 14, 7, '75 407', 'T9660', '81990.63', '2024-05-13', 'REFACCIONES Y SERVICIO COMPLETO', 'dRZL7dcLdsH92t2BRuAmdYZF.pdf'),
+(71, 34, 14, 34, '', 'SS8054', '1649.35', '2024-05-21', 'FILTRO ACEITE, FILTRO AIRE', 'ettZpDmcSF8HIhQxsBIyBIxC.pdf'),
+(72, 34, 14, 34, '', 'SS8055', '1926.47', '2024-05-21', 'ACEITE DIESEL, MANO DE OBRA AFINACION MENOR', '3D4Yi16S0txRY8ZbIOvRYRqU.pdf'),
+(73, 24, 14, 7, '', 'T9700', '16310.76', '2024-05-21', 'MANTENIMIENTO PREVENTIVO MANO DE OBRA LIMPIEZA DE RADIADOR ANTICONGELANTE BANDA PARA COMPRESOR BANDAS DE ALTERNADOR ABANICO ', 'UTKH4N5bUqpLFtxBunnOItSw.pdf'),
+(74, 21, 10, 7, '260 291', 'T9703', '19292.55', '2024-05-22', 'MANTENIMIENTO PREVENTIVO 260 000 KMS, KIT DE BALATAS, AMORTIGUADOR TRASERO, BANDAS MOTOR, MANO DE OBRA, LIMPIEZA RADIADOR, REEMPLAZO DE REFACCIONES', 'zV53z8JaSKy8KKpMU5tXP1yT.pdf'),
+(75, 27, 14, 26, '', '4775', '5689.22', '2024-05-27', 'BANDA, POLEA TENDORA CON BUJE Y BALERO, MANO DE OBRA ', 'VjCfK8VLMZufQ0DoeoFE8YKu.pdf'),
+(76, 32, 14, 7, '189 844', 'DT2089', '7300', '2024-05-29', 'SERVICIO MANTENIMIENTO PREVENTIVO 190 000 KM SERIE 300', '9q2pmBwefgFAFrGRY6k1tGIV.pdf'),
+(77, 13, 5, 6, '110 095', 'U11608', '5376.25', '2024-06-04', '1 LLAMTA MICHELIN ALINEACION 3 TON BALANCEO 3 TON DESMONTAJE Y MONTAJE', 'ohDppwZzPZCqZZ8CePloJVvi.pdf'),
+(78, 33, 14, 26, '', '4803', '3085.60', '2024-06-07', 'BANDA RED MANO DE OBRA', '41EZjz69YFtnSyekHG5bnIuO.pdf'),
+(79, 18, 14, 26, '', '4804', '3074', '2024-06-07', 'MANO DE OBRA LAVADO DE CNDENSADOR EVAPORADOR INTERIOR DE JACA CLIMA, CARGA DE GAS', 'nF3xRVgkb4fxQ8cBP0kktQ4f.pdf'),
+(80, 36, 14, 38, '', '8993', '1860', '2024-06-08', 'PRO 1 PAQUETE AFINACION', 'sHBqXnN1KUdlu5wXRhapck30.pdf'),
+(81, 20, 14, 37, '', 'A2783', '4257.20', '2024-06-11', 'REPARACION DE MARCHA', 'npKAx30i8UzO2WNRSxAdZoaz.pdf'),
+(82, 13, 14, 26, '', '4847', '4203.91', '2024-06-18', 'RED BELT CARGA DE GAS, CARGA DE NITRO MANO DE OBRA', 'HymjbiroWxH11R47axftbNZW.pdf'),
+(83, 17, 14, 26, '', '4846', '9308.86', '2024-06-18', 'MOTOR VENTILADOR ASPAS PARA MOTOR VENTILADOR, MANO DE OBRA', 'oQSrXSb2KP4qvz4aFFoWhGrL.pdf'),
+(84, 29, 14, 7, '', 'DT2112', '9909.01', '2024-06-24', 'SERVICIO MANTENIMIENTO 240 000 JUEGO DE BANDAS FILTRO DE AIRE', '1lgcSuJt9WYfr5LzFpOHsKHv.pdf'),
+(85, 24, 14, 26, '', '4860', '5518.70', '2024-06-25', 'POLEA TENSORA BANDA RED MANO DE OBRA', '4BZLCRjIjEvZVL4KBrejAT0J.pdf'),
+(86, 21, 14, 26, '', '4858', '8248.42', '2024-06-25', 'CAMBIO DE PRENSA', '3QR4eaRKPoZFbTudikaqjgxb.pdf'),
+(87, 33, 8, 7, '20 449', 'T9789', '10896.70', '2024-06-26', 'MOTOVENTILADOR POLEA TENSORA BANDA RED CABLE USO RUDO MANO DE OBRA', 'RdWnSkony1ZihyhNzU3sNNui.pdf'),
+(88, 25, 5, 6, '', 'U11749', '4701.25', '2024-06-26', 'LLANTA MICHELINE 1 PIEZA', 'AkXZ5SJHbuYCEEyuvNs3MAjp.pdf'),
+(89, 25, 12, 26, '', '4812', '2505.60', '2024-06-07', 'MANO DE OBRA LAVADO DE CONDENSADOR DEL CLIMA REVISION Y MANO DE OBRA', ''),
+(90, 32, 11, 7, '217 053', 'DT2128', '16 077.51', '2024-07-02', 'MANO DE OBRA T.O.T. RADIADOR TERMOSTATO ANTICONGELANTE TAPON DE RADIADOR, ', 'IQG4KzH5PcVD7QYcEgodjHkS.pdf'),
+(91, 32, 13, 9, '', '9810', '6 391.99', '2024-07-03', 'ACUMULADOR LTH MANO DE OBRA', 'FVUUol3R4O2moEG33A5gAHeG.pdf'),
+(92, 28, 13, 9, '', '9811', '6 199. 99', '2024-07-03', 'ACUMULADOR', 'kkQYRWUXMIsPK7z7QXvcXGeV.pdf'),
+(93, 23, 14, 26, '', '4905', '5 729.82', '2024-07-04', 'BANDA AX57 POLEA TENSORA CON BUJE, MANO DE OBRA', 'kCegNEVaIbh7JP5Cd4xSdTIx.pdf'),
+(94, 33, 11, 7, '20 855', 'T9851', '493', '2024-07-08', 'MANO DE OBRA, LIMPIEZA RADIADOR', '8GQrsoH69pR7lBgDe5Ot299u.pdf'),
+(95, 30, 14, 25, '220 871', 'SS86921', '14 152.00', '2024-07-11', 'SERVICIO DE AFINACION ', 'XM6MOaPu6CYwBOYbTkREwUSp.pdf'),
+(96, 16, 11, 7, ' 110 360', 'T9875', '9 015.24', '2024-07-16', 'SERVICIO MANTENIMIENTO 110 000 KM FILTRO DE AIRE, MANO DE OBRA, LIMPIEZA RADIADOR', 'V5xzQxMeKc8IXDrRi4kQcvms.pdf'),
+(97, 27, 13, 27, '', '23219', '2 325', '0024-06-17', 'ACUMULADOR TLH L-35-575', '44kdrqkU3WgLAHootYOBvTer.pdf'),
+(98, 27, 13, 27, '', '23220', '2 325 ', '2024-07-16', 'ACUMULADOR LTH', 'VhOn4IYaHXDsASSiVfH4yIa0.pdf'),
+(99, 23, 14, 7, '210 045', 'T9896', '10 433.65', '2024-07-24', 'SERVICIO DE MANTENIMIENTO DE 210 KM, FILTRO DE AIRE S300, TAPA FRONTAL DE EJE DE GRASA, MANO DE OBRA ', 'nzcKOZPqjnxphvGhtnL7BxJ3.pdf'),
+(100, 30, 14, 34, '', 'SS8220', '1 740.00', '2024-07-26', 'MANO DE OBRA SERVICIO TALLER', 'WdicRtX2vnjGNzbxV9DLR9L5.pdf'),
+(101, 30, 14, 34, '', 'SS8221', '1 160.00', '2024-07-26', 'MANO DE OBRA SERVICIO TALLER', 'XOZhtAzcIdrStxWmD8oDFU7K.pdf'),
+(102, 16, 12, 26, '', '4972', '15 730.51', '2024-07-29', 'BANDA AX47, BANDA RED AX38, BANDA AX57, FABRICACION DE MANGUERA, POLEA, CONDENSADOR, CARGA DE NITROGENO, CARGA DE GAS REFRI, MANO DE OBRA MTTO CLIMA REPARACIONES  Y MANO DE OBRA', 'Og9VCNfho6Z8dc94t9bmC2LE.pdf'),
+(103, 32, 14, 7, '200 797', 'DT2166', '7 300.00', '2024-07-30', 'SERVICIO DE MANTENIMIENTO DE 200 000 KM', 'wM45Ec5Rbru52HBu5ZfGXaqk.pdf'),
+(104, 27, 14, 7, '269 983', 'T9916', '7 300.00', '2024-07-31', 'MANTENIMIENTO 280 K ACEITE, FILTRO CAMBIO DE LIQUIDO DE FRENO, REVISIONES DE FRENOS, BANDAS, EMBRAGUES, SUSPENCIONES Y AMORTIGUADORES, RADIADOR, LUCES, BATERIA. FILTROS, NEUMATICOS ETC.', 'WjQe8lNDm7nrPmNG03C9a6Kz.pdf'),
+(105, 37, 14, 35, '30,220', '5394680', '4958.47', '2024-08-01', 'SERVICIO DE 30 KM, CAMBIO DE ACEITE Y FILTRO, REVISION DE FRENOS Y MULTIPUNTOS, ROTACION DE LLANTAS, FULTRO DE AIRE, ACEITE Y GASOLINA', 'B7I0U7kDmyScauEO1cD9nJ1T.pdf'),
+(106, 21, 5, 6, '', '6606', '2256.90', '2024-08-27', 'LL GT RADIAL 205/75R16 C SOLO COMPRA DE NEUMATICO', 'mAl1ExnUdf63d3xjcr09eaPn.pdf'),
+(107, 36, 10, 34, '', '8258', '1479.43', '2024-08-13', 'KIT F DE T L BALATA. TAMBOR NISSAN 94/01 Y LIQUIDO DE FRENOS WAGNER 250 ML', 'r9hXQCYqJccjQn2HulZe8fWY.pdf'),
+(108, 36, 14, 34, '', '8259', '1088.08', '2024-08-13', 'TAMBOR CTA NISSAN 94/01', 'ZrzCHlV14IbrkRzkVWhYCSab.pdf'),
+(109, 36, 14, 34, '', '8260', '1624', '2024-08-13', 'MANO DE OBRA SERVICIO TALLER', 'NwI6F2CPE5m0d5vXxG4Yjb9i.pdf'),
+(110, 20, 16, 37, '', 'A2878', '2204', '2024-08-06', 'REMPLAZO BUJES PALANCA VELOCIDADES', 'DO72w5bPutaKa5C5mbirWCmv.pdf'),
+(111, 17, 14, 37, '', 'A2879', '696.00', '2024-08-06', 'SEGURO O BROCHE PUERTA ABIERTA COMPLETO', 'xeDQJQhLlV5LvKKZEiTpT7cI.pdf'),
+(112, 19, 14, 37, '', 'A2921', '1450', '2024-08-27', 'REMPLAZAR MANGUERAS TOMA CARGA COMBUSTIBLE', 'OPCe7mKSTuKlG1q4vm6eUM0c.pdf'),
+(113, 37, 14, 37, '', 'A2922', '1276', '2024-08-27', 'TAPON NUEVO CARGA COMBUSTIBLE, BUJES TAPA CAJUELA', 'JZDiz7KRgbp6Ch9rRJUuOOtC.pdf'),
+(114, 37, 16, 37, '', 'A2923', '43964', '2024-08-27', 'REPARACION TRASMISION MANUAL ', '7Cf0GzBDutqiyWxiEjTo30tU.pdf'),
+(115, 23, 7, 37, '', 'A2924', '9802', '2024-08-27', 'REVISION LUZ INTERIOR CAJA REFRIGERADA, TAPIZADO INTERIOR PISO CABINA Y CORTINA 8\"', 'S7QNuupU6QYBMUGzE7suUfDC.pdf'),
+(116, 30, 5, 16, '', 'A28667', '9678', '2024-08-15', 'LLANTA MICHELIN 205/75R16 SOLO LLANTA', 'NUukNFoypzkdacpqFQ4GsXO0.pdf'),
+(117, 17, 5, 6, '79 879 KM', 'AA60F', '4787.80', '2024-08-28', 'LL GT RADIAL 205/75R16C BALANCEO 30O 5 TON PLOMO AUTO CAMIONETA ', 'pIR0y7XxZr0ZYxq1D5WX9J9L.pdf'),
+(118, 32, 14, 7, '210 008', 'DT2174', '1972', '2024-08-01', 'MANO DE OBRA, REGENERACION FORNZADA Y REVISION DE UNIDAD', 'qmOFLXbBWbOTnpSBJff2o7CK.pdf'),
+(119, 31, 5, 7, '28 820', 'DT2175', '2590.74', '2024-08-01', 'MANO DE OBRA, ALINEACION, BALANCEO, PLOMO, ACOMODO DE EJES Y DIAGNOSTICO', 'G5LvoD0fdXSKRaEMKzarXO8B.pdf'),
+(120, 29, 5, 7, '21 322 KM', 'DT2196', '14305.03', '2024-08-24', 'CABLE DE TRASMISION CONTROL DE CAMBIOS 616, CABLE TRASMISION SELECTOR DE CAMBIOS 616 Y MANO DE OBRA ', 'HQpe2e2WOJBZVfVJdQCUTXvz.pdf'),
+(121, 29, 14, 34, '', 'SS8245', '1826.19', '2024-08-07', 'GRC TOYOTA ', 'dFy3OKSa8pdkYPLCZFuCATn2.pdf'),
+(122, 29, 10, 34, '', 'SS8246', '652.44', '2024-08-07', 'TUBO SILICON 70 GR, PULIDO ROTOR 8 BIRLOS, LIQUIDO DE FRENOS WAGNER Y GRASA BALERO 250 GR', 'O2Foa5NULWkTOvkO9Q50J9kq.pdf'),
+(123, 29, 14, 34, '', 'SS8247', '1624', '2024-08-07', 'MANO DE OBRA SERVICIO TALLER', 'CNffbhSFpCQj8s7QfETld6NQ.pdf'),
+(124, 18, 14, 7, '200 082 KM', 'T9995', '7300', '2024-08-27', 'SERVICIO DE MANTTO DE 200 000 KM S300', '7FzBS8FxIvSxh30K12dDbqip.pdf'),
+(125, 23, 14, 7, '213 619', 'T10117', '22 422.17', '2024-09-30', 'CILINDROS TRASERO, DERECHO E IZQUIERO DE 616 Y S300 KIT DE BALATAS COMPLETAS, RETEN DE MASA EJE TRASERO, BIRLO DERECHO E IZQUIERDO, CAPUCHONES TUERCAS Y MANO DE OBRA', '3qDLUjxJpB3xj35Xa25zqibe.pdf'),
+(126, 24, 10, 26, '', '5084', '6 878.80', '2024-09-25', 'CLUTCH 24V MANO DE OBRA, (CONECTAR SISTEMA ELECTRICO DEL EQUIPO EN CABINA Y CAMBIAR CLUTCH DE COMPRESOR', '6NJz40lLr28S3Rbdi99JUkuD.pdf'),
+(127, 32, 14, 7, '210 307', 'DT2225', '7 300.00', '2024-09-23', 'SERVICIO MANTENIMIENTO DE 210 000 KM SERIE 300', ''),
+(128, 16, 14, 7, '114 950', 'T10065', '5 916.00 ', '2024-09-18', 'MANO DE OBRA, RESCATE UNIDAD Y REVISION DE SISTEMA ELECTRICO', '1ztlXXwhUtGCXmVp8XzQYrxm.pdf'),
+(129, 27, 14, 37, '', 'A2947', '5 742.00', '2024-09-13', 'REPARACION MARCO BASTIDOR PUERTA DERECHA, EMPAQUE 4 LABIOS, Y BROCHE PUERTA ABIERTA COMPLETO 6\" PUERTA IZQUIERDA', 'JrPDQVyQCTTwN7XGUbR6KU3H.pdf'),
+(130, 22, 10, 7, '300 717', 'T10051', '21 696.47', '2024-09-12', 'SERVICIO DE MANTENIMIENTO 300K S300, REFACCIONES F.A., DISCO DELANTERO S300, RETEN DE ACEITE DE RUEDA DELANTERA, SEGUROS PARA BALATAS, GOMA MUELLLE DELANTERO, RALOY, SILICON, KIT DE BALATAS Y FRENOS, MANO DE OBRA', 'X3mUcJHafGxeQitZVV9ogaMg.pdf'),
+(131, 24, 7, 7, '126 029', 'T10052', '3 944.00', '2024-09-12', 'MANO DE OBRA, REVISION Y DIAGNOSTICO DE SISTEMA ELECTRICO GENERAL', 'UmD2UpfBWZicPjUzFcyJllc4.pdf'),
+(132, 27, 5, 6, '86 101', 'U12343', '29 295.49', '2024-09-04', 'ALINEACION 3 TON, BALANCEO 3 TON, LLANTAS MICHELLIN 6 Y PLOMO AUTO CAMIONETA', 'UBGRk1Urue2oD9No68kWyGvo.pdf'),
+(133, 32, 14, 34, '', '8326', '1 849.62', '2024-09-10', 'TUBO SILICON, MANO DE OBRA SERVICIO DE TALLER', 'fcJRmHm1jIyUZHsE8U0uFPkf.pdf'),
+(134, 32, 14, 34, '', '8327', '928', '2024-09-10', 'MANO DE OBRA, SERVICIO TALLER', 'KNS7kElAGpiZ7HQZZuPmQdFe.pdf');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `chofer`
+--
+ALTER TABLE `chofer`
+  ADD PRIMARY KEY (`id_chofer`);
+
+--
+-- Indices de la tabla `estacion`
+--
+ALTER TABLE `estacion`
+  ADD PRIMARY KEY (`id_estacion`);
+
+--
+-- Indices de la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD PRIMARY KEY (`id_producto`);
+
+--
+-- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD PRIMARY KEY (`id_proveedor`);
+
+--
+-- Indices de la tabla `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id_role`);
+
+--
+-- Indices de la tabla `servicio`
+--
+ALTER TABLE `servicio`
+  ADD PRIMARY KEY (`id_servicio`);
+
+--
+-- Indices de la tabla `sucursal`
+--
+ALTER TABLE `sucursal`
+  ADD PRIMARY KEY (`id_sucursal`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_username`);
+
+--
+-- Indices de la tabla `user_role`
+--
+ALTER TABLE `user_role`
+  ADD PRIMARY KEY (`id_user_role`,`user_id_username`,`role_id_role`),
+  ADD KEY `fk_user_has_Role_Role1_idx` (`role_id_role`),
+  ADD KEY `fk_user_has_Role_user_idx` (`user_id_username`);
+
+--
+-- Indices de la tabla `vehiculo`
+--
+ALTER TABLE `vehiculo`
+  ADD PRIMARY KEY (`id_vehiculo`),
+  ADD KEY `fk_vehiculo_sucursal1_idx` (`sucursal_id_sucursal`),
+  ADD KEY `fk_vehiculo_chofer1_idx` (`chofer_id_chofer`);
+
+--
+-- Indices de la tabla `vehiculo_consumo`
+--
+ALTER TABLE `vehiculo_consumo`
+  ADD PRIMARY KEY (`id_vehiculo_consumo`),
+  ADD UNIQUE KEY `despacho_UNIQUE` (`despacho`),
+  ADD KEY `fk_vehiculo_consumo_vehiculo1_idx` (`vehiculo_id_vehiculo`),
+  ADD KEY `fk_vehiculo_consumo_estacion1_idx` (`estacion_id_estacion`),
+  ADD KEY `fk_vehiculo_consumo_producto1_idx` (`producto_id_producto`);
+
+--
+-- Indices de la tabla `vehiculo_servicio`
+--
+ALTER TABLE `vehiculo_servicio`
+  ADD PRIMARY KEY (`id_vehiculo_servicio`,`vehiculo_id_vehiculo`,`servicio_id_servicio`),
+  ADD KEY `fk_vehiculo_has_servicio_servicio1_idx` (`servicio_id_servicio`),
+  ADD KEY `fk_vehiculo_has_servicio_vehiculo1_idx` (`vehiculo_id_vehiculo`),
+  ADD KEY `fk_vehiculo_servicio_proveedor1_idx` (`proveedor_id_proveedor`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `chofer`
+--
+ALTER TABLE `chofer`
+  MODIFY `id_chofer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT de la tabla `estacion`
+--
+ALTER TABLE `estacion`
+  MODIFY `id_estacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT de la tabla `role`
+--
+ALTER TABLE `role`
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `servicio`
+--
+ALTER TABLE `servicio`
+  MODIFY `id_servicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `sucursal`
+--
+ALTER TABLE `sucursal`
+  MODIFY `id_sucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_username` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `user_role`
+--
+ALTER TABLE `user_role`
+  MODIFY `id_user_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `vehiculo`
+--
+ALTER TABLE `vehiculo`
+  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT de la tabla `vehiculo_consumo`
+--
+ALTER TABLE `vehiculo_consumo`
+  MODIFY `id_vehiculo_consumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=490;
+
+--
+-- AUTO_INCREMENT de la tabla `vehiculo_servicio`
+--
+ALTER TABLE `vehiculo_servicio`
+  MODIFY `id_vehiculo_servicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `user_role`
+--
+ALTER TABLE `user_role`
+  ADD CONSTRAINT `fk_user_has_Role_Role1` FOREIGN KEY (`role_id_role`) REFERENCES `role` (`id_role`),
+  ADD CONSTRAINT `fk_user_has_Role_user` FOREIGN KEY (`user_id_username`) REFERENCES `user` (`id_username`);
+
+--
+-- Filtros para la tabla `vehiculo`
+--
+ALTER TABLE `vehiculo`
+  ADD CONSTRAINT `fk_vehiculo_chofer1` FOREIGN KEY (`chofer_id_chofer`) REFERENCES `chofer` (`id_chofer`),
+  ADD CONSTRAINT `fk_vehiculo_sucursal1` FOREIGN KEY (`sucursal_id_sucursal`) REFERENCES `sucursal` (`id_sucursal`);
+
+--
+-- Filtros para la tabla `vehiculo_consumo`
+--
+ALTER TABLE `vehiculo_consumo`
+  ADD CONSTRAINT `fk_vehiculo_consumo_estacion1` FOREIGN KEY (`estacion_id_estacion`) REFERENCES `estacion` (`id_estacion`),
+  ADD CONSTRAINT `fk_vehiculo_consumo_producto1` FOREIGN KEY (`producto_id_producto`) REFERENCES `producto` (`id_producto`),
+  ADD CONSTRAINT `fk_vehiculo_consumo_vehiculo1` FOREIGN KEY (`vehiculo_id_vehiculo`) REFERENCES `vehiculo` (`id_vehiculo`);
+
+--
+-- Filtros para la tabla `vehiculo_servicio`
+--
+ALTER TABLE `vehiculo_servicio`
+  ADD CONSTRAINT `fk_vehiculo_has_servicio_servicio1` FOREIGN KEY (`servicio_id_servicio`) REFERENCES `servicio` (`id_servicio`),
+  ADD CONSTRAINT `fk_vehiculo_has_servicio_vehiculo1` FOREIGN KEY (`vehiculo_id_vehiculo`) REFERENCES `vehiculo` (`id_vehiculo`),
+  ADD CONSTRAINT `fk_vehiculo_servicio_proveedor1` FOREIGN KEY (`proveedor_id_proveedor`) REFERENCES `proveedor` (`id_proveedor`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-03-28 10:59:04
