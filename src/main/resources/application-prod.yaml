@@ -6,9 +6,9 @@ spring:
         ddl-auto: none
         format_sql: true
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:162.240.72.105}:3306/digitaulcom_lagunachicken?serverTimezone=UTC&autoReconnect=true&useSSL=false
-    username: digitaulcom_gustavo
-    password: Digitaul1$
+    url: jdbc:mysql://${MYSQL_HOST:192.168.2.123}:3306/lagunachicken?serverTimezone=UTC&autoReconnect=true&useSSL=false
+    username: root
+    password:
 server:
   port: 9705
 serlo:
