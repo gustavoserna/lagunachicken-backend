@@ -6,7 +6,7 @@ spring:
         ddl-auto: none
         format_sql: true
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/lagunachicken?serverTimezone=UTC&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/lagunachicken?serverTimezone=UTC&autoReconnect=true&useSSL=false
     username: root
     password: #Lagun@Chicken97$ #password en servidor de unraid
 server:
