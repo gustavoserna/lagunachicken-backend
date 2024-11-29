@@ -15,6 +15,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://lagunachicken.digitaul.com.mx");  // Allow your frontend origin
         config.addAllowedOrigin("http://localhost:4200");
+        config.addAllowedOrigin("http://100.75.7.9");
         config.addAllowedMethod("*");  // Allow all HTTP methods
         config.addAllowedHeader("*");  // Allow all headers
         config.setAllowCredentials(true);  // Enable credentials support
