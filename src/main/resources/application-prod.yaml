@@ -10,7 +10,7 @@ spring:
     username: root
     password: Lagun@Chicken97$ #password en servidor de unraid
 server:
-  port: 8443
+  port: 2053
   ssl:
     key-store: classpath:keystore.p12
     key-store-password: 123456
