@@ -12,10 +12,11 @@ spring:
 server:
   port: 9705
   ssl:
-    key-store: classpath:keystore.p12
-    key-store-password: 123456
-    key-store-type: PKCS12
-    key-alias: tomcat
+    enabled: false
+    #key-store: classpath:keystore.p12
+    #key-store-password: 123456
+    #key-store-type: PKCS12
+    #key-alias: tomcat
 serlo:
   app:
     jwtCookieName: bezkoder
