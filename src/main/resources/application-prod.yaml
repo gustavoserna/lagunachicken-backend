@@ -11,6 +11,7 @@ spring:
     password: Lagun@Chicken97$ #password en servidor de unraid
 server:
   port: 8080
+  address: 0.0.0.0
   ssl:
     enabled: false
     #key-store: classpath:keystore.p12
