@@ -13,12 +13,7 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://lagunachicken.digitaul.com.mx");  // Allow your frontend origin
-        config.addAllowedOrigin("http://localhost:4200");
-        config.addAllowedOrigin("http://100.75.7.9");
-        config.addAllowedOrigin("https://192.168.2.35:8080");
-        config.addAllowedOrigin("https://flotilla.lagunachicken.org");
-        config.addAllowedOrigin("https://flotilla.lagunachicken.org:8080");
+        config.addAllowedOriginPattern("https://flotilla.lagunachicken.org");
         config.addAllowedMethod("*");  // Allow all HTTP methods
         config.addAllowedHeader("*");  // Allow all headers
         config.setAllowCredentials(true);  // Enable credentials support
