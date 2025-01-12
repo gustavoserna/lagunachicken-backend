@@ -10,7 +10,7 @@ spring:
     username: root
     password: Lagun@Chicken97$ #password en servidor de unraid
 server:
-  port: 8080
+  port: 443
   address: 0.0.0.0
   ssl:
     enabled: false
