@@ -15,8 +15,8 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOriginPattern("https://flotilla.lagunachicken.org");
         config.addAllowedOrigin("http://flotilla.lagunachicken.org");
-        config.addAllowedOrigin("http://192.168.2.35");
-        config.addAllowedOrigin("https://192.168.2.35");
+        config.addAllowedOrigin("http://192.168.2.35:8080");
+        config.addAllowedOrigin("https://192.168.2.35:8080");
         config.addAllowedMethod("*");  // Allow all HTTP methods
         config.addAllowedHeader("*");  // Allow all headers
         config.setAllowCredentials(true);  // Enable credentials support
