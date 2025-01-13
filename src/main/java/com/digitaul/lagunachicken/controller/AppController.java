@@ -98,7 +98,7 @@ public class AppController {
 
     // SUCURSAL
     @GetMapping("sucursal/findAll")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<SucursalDTO> getSucursales() {
         return sucursalService.getSucursales();
     }
@@ -111,7 +111,7 @@ public class AppController {
     }
 
     @GetMapping("servicio/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public List<ServicioDTO> getServicios() {
         return  servicioService.getServicios();
     }
