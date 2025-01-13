@@ -111,7 +111,7 @@ public class AppController {
     }
 
     @GetMapping("servicio/findAll")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<ServicioDTO> getServicios() {
         return  servicioService.getServicios();
     }
