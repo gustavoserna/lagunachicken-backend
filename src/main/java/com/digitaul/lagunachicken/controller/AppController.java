@@ -98,7 +98,7 @@ public class AppController {
 
     // SUCURSAL
     @GetMapping("sucursal/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public List<SucursalDTO> getSucursales() {
         return sucursalService.getSucursales();
     }
