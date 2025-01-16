@@ -13,8 +13,7 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOriginPattern("*");
-        //config.addAllowedOriginPattern("http://flotilla.lagunachicken.org");
+        config.addAllowedOriginPattern("http://flotilla.lagunachicken.org");
         //config.addAllowedOriginPattern("http://192.168.2.35:8080");
         //config.addAllowedOriginPattern("https://192.168.2.35:8080");
         config.addAllowedMethod("*");  // Allow all HTTP methods
