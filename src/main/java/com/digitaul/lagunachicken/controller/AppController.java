@@ -60,7 +60,7 @@ public class AppController {
 
     // CHOFER
     @PostMapping("chofer")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public ChoferDTO saveChofer(@RequestBody ChoferDTO choferDTO){
         return choferService.saveChofer(choferDTO);
     }
@@ -72,78 +72,78 @@ public class AppController {
 
     // ESTACION
     @PostMapping("estacion")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public EstacionDTO saveEstacion(@RequestBody EstacionDTO estacionDTO){
         return estacionService.saveEstacion(estacionDTO);
     }
 
     @GetMapping("estacion/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<EstacionDTO> getEstaciones() {
         return estacionService.getEstaciones();
     }
 
     // PRODUCTO
     @PostMapping("producto")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public ProductoDTO saveProducto(@RequestBody ProductoDTO productoDTO){
         return productoService.saveProducto(productoDTO);
     }
 
     @GetMapping("producto/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<ProductoDTO> getProductos() {
         return productoService.getProductos();
     }
 
     // SUCURSAL
     @GetMapping("sucursal/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<SucursalDTO> getSucursales() {
         return sucursalService.getSucursales();
     }
 
     // SERVICIO
     @PostMapping("servicio")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public ServicioDTO saveServicio(@RequestBody ServicioDTO servicioDTO) {
         return servicioService.saveServicio(servicioDTO);
     }
 
     @GetMapping("servicio/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<ServicioDTO> getServicios() {
         return  servicioService.getServicios();
     }
 
     // PROVEEDOR
     @PostMapping("proveedor")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public ProveedorDTO saveProveedor(@RequestBody ProveedorDTO proveedorDTO) {
         return proveedorService.saveProveedor(proveedorDTO);
     }
 
     @GetMapping("proveedor/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<ProveedorDTO> getProveedores() {
         return  proveedorService.getProveedores();
     }
 
     // VEHICULO
     @PostMapping("vehiculo")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public VehiculoDTO saveVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
         return vehiculoService.saveVehiculo(vehiculoDTO);
     }
 
     @GetMapping("vehiculo/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<VehiculoDTO> getVehiculos() {
         return vehiculoService.getVehiculos();
     }
 
     @PostMapping("vehiculo/servicio")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public VehiculoServicioDTO saveVehiculoServicio(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request) {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -159,26 +159,26 @@ public class AppController {
     }
 
     @PostMapping("vehiculo/servicio/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<VehiculoServicioDTO> getVehiculosServicios(@RequestBody FiltroDTO filtroDTO) {
         return vehiculoServicioService.getVehiculosServicios(filtroDTO);
     }
 
     @PostMapping("vehiculo/servicio/incidencia/servicios")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<ServicioDTO> getIncidenciasServicios(@RequestBody FiltroDTO filtroDTO) {
         return vehiculoServicioService.getIncidenciasServicios(filtroDTO);
     }
 
     @PostMapping("vehiculo/servicio/costos")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<CostoServiciosDTO> getCostoServicios(@RequestBody FiltroDTO filtroDTO) {
         return vehiculoServicioService.getCostoServicios(filtroDTO);
     }
 
     // VEHICULO CONSUMO
     @PostMapping("vehiculo/consumo")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public VehiculoConsumoDTO saveVehiculoConsumo(@RequestBody VehiculoConsumoDTO vehiculoConsumoDTO, @RequestParam("modify") boolean modify) {
         Set<ConstraintViolation<VehiculoConsumoDTO>> violations = ValidatorUtil.validarCampos(vehiculoConsumoDTO);
 
@@ -198,19 +198,19 @@ public class AppController {
     }
 
     @PostMapping("vehiculo/consumo/findAll")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<VehiculoConsumoDTO> getVehiculosConsumos(@RequestBody FiltroDTO filtroDTO) {
         return vehiculoConsumoService.getVehiculosConsumos(filtroDTO);
     }
 
     @PostMapping("vehiculo/consumo/incidencia/productos")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<ProductoDTO> getIncidenciasProductos(@RequestBody FiltroDTO filtroDTO) {
         return vehiculoConsumoService.getIncidenciasProductos(filtroDTO);
     }
 
     @PostMapping("vehiculo/consumo/costos")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<CostoConsumosDTO> getCostoConsumos(@RequestBody FiltroDTO filtroDTO) {
         return vehiculoConsumoService.getCostoConsumos(filtroDTO);
     }
